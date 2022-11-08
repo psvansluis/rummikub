@@ -3,7 +3,7 @@
 ## Het kernidee
 Mogelijke eindprojecten: 
 - Cynghanedd calculator: check of een Welshe poëzieregel in cynghanedd is, en zoja welke
-- Linear B hangman: galgje spelen met Myceens Griekse woorden in het originele schrift
+- Linear B hangman: galgje spelen met Myceens Griekse woorden in het originele schrift, zie [Wiktionary](https://en.wiktionary.org/w/index.php?title=Category:Mycenaean_Greek_lemmas)
 - Nahuatl numbers: ontvang een integer 0-159999 en geef daarvan de representatie in het Klassiek Nahuatl
 - Fidchell: het Ierse bordspel.
 - Mancala met *n* spelers.
