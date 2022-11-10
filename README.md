@@ -8,6 +8,7 @@ Mogelijke eindprojecten:
 - Fidchell: het Ierse bordspel.
 - Mancala met *n* spelers.
 - Maak je eigen IE taal: formuleer klankwetten en kijk wat de reflexen zijn van IE wortels en formaties in deze taal.
+- Dutch Blitz: competetief simultaan Patience spelen
 
 Met een cynghanedd calculator kun je een corpus aan Welshe versregels geven om te checken en te displayen. Met hangman kun je Myceense woorden in een database opslaan. Met fidchell kun je misschien een onaf spel opslaan en laden.
 
