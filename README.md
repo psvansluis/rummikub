@@ -1,21 +1,36 @@
-# IP Paulus
+# IP Paulus: Rummikub
 
-## Het kernidee
-Mogelijke eindprojecten: 
-- Cynghanedd calculator: check of een Welshe poëzieregel in cynghanedd is, en zoja welke
-- Linear B hangman: galgje spelen met Myceens Griekse woorden in het originele schrift, zie [Wiktionary](https://en.wiktionary.org/w/index.php?title=Category:Mycenaean_Greek_lemmas)
-- Nahuatl numbers: ontvang een integer 0-159999 en geef daarvan de representatie in het Klassiek Nahuatl
-- Fidchell: het Ierse bordspel.
-- Mancala met *n* spelers.
-- Maak je eigen IE taal: formuleer klankwetten en kijk wat de reflexen zijn van IE wortels en formaties in deze taal.
-- Dutch Blitz: competetief simultaan Patience spelen
-- Rummikub
+Het bekende spel waarin je steentjes met nummers en kleurtjes erop moet sorteren. De speler die zijn steentjes als eerste zijn steentjes kwijt is heeft gewonnen.
 
-Met een cynghanedd calculator kun je een corpus aan Welshe versregels geven om te checken en te displayen. Met hangman kun je Myceense woorden in een database opslaan. Met fidchell kun je misschien een onaf spel opslaan en laden.
+[Spelregels](https://rummikub.com/wp-content/uploads/2019/12/2600-English-1.pdf): deze regels zullen de leidraad vormen van mijn spel.
+
+## Doelstellingen (MoSCoW)
+
+### Must
+
+- Het spel heeft een front end met een drag-and-drop interface om steentjes te groeperen in het midden.
+- Eén speler kan een spel spelen.
+    - De score is dan het aantal beurten dat je nodig hebt (lager is beter).
+- Het spel is afgelopen als het plankje leeg is van een speler
+
+### Should
+
+- Meerdere spelers kunnen hotseat op één computer spelen
+    - Aan het eind van het spel wordt de score dan berekend aan de hand van de steentjes die nog op de plankjes van niet-winnende spelers liggen.
+- Het spel kan opgeslagen worden in een database en later hervat worden
+
+### Could
+
+- Meerdere spelers kunnen online een spel spelen
+- Een knop om automatisch je plankje te sorteren zodat series of rijtjes zichtbaar worden.
+- High scores
+
+### Would like
+
+- Een AI om tegen te spelen
+- Een functionaliteit om de speler hints te geven
 
 ## Architectuur
-
-De plek en de implementatie van de database is nog onbekend.
 
 ```mermaid
 flowchart LR
@@ -25,6 +40,8 @@ flowchart LR
     FRONT-->API
     API-->DOM
 ```
+
+Zo mogelijk zou ik ook een onaf spel en/of highscores willen opslaan. Ik heb nog geen keuze gemaakt welk type database hiervoor het meest geschikt is, en waar deze dan het beste in de architectuur zou passen.
 
 ## Leerdoelen
 
@@ -38,5 +55,7 @@ flowchart LR
 ### Technische leerdoelen
 
 - Svelte goed begrijpen
+- Het implementeren van drag & drop functionaliteiten in de front end
+- Een goed doordachte API met DTO's die 
 - Jenkins gebruiken voor CI/CD (of een ander alternatief op Gitlab CI)
 - Serieuzer gebruik maken van een SQL database en dit integreren in de CI/CD pipeline
