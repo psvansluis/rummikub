@@ -11,13 +11,13 @@ Daarnaast zijn [hier](https://rummikub.com/wp-content/uploads/2019/12/2600-Dutch
 
 - Het spel heeft een front end met een drag-and-drop interface om steentjes te groeperen in het midden.
 - Eén speler kan een spel spelen.
-    - De score is dan het aantal beurten dat je nodig hebt (lager is beter).
+  - De score is dan het aantal beurten/stenen dat je nodig hebt (lager is beter).
 - Het spel is afgelopen als het plankje leeg is van een speler.
 
 ### Should
 
 - Meerdere spelers kunnen hotseat op één computer spelen.
-    - Aan het eind van het spel wordt de score dan berekend aan de hand van de steentjes die nog op de plankjes van niet-winnende spelers liggen.
+  - Aan het eind van het spel wordt de score dan berekend aan de hand van de steentjes die nog op de plankjes van niet-winnende spelers liggen.
 - Het spel kan opgeslagen worden in een database en later hervat worden.
 
 ### Could
