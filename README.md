@@ -2,7 +2,8 @@
 
 Het bekende spel waarin je steentjes met nummers en kleurtjes erop moet sorteren. De speler die zijn steentjes als eerste zijn steentjes kwijt is heeft gewonnen.
 
-[Spelregels](https://rummikub.com/wp-content/uploads/2019/12/2600-English-1.pdf): deze regels zullen de leidraad vormen van mijn spel.
+[Spelregels (Engels)](https://rummikub.com/wp-content/uploads/2019/12/2600-English-1.pdf): deze regels zullen de leidraad vormen van mijn spel.
+Daarnaast zijn [hier](https://rummikub.com/wp-content/uploads/2019/12/2600-Dutch_German_French_Spanish.pdf) Nederlandstalige spelregels te vinden.
 
 ## Doelstellingen (MoSCoW)
 
@@ -40,6 +41,10 @@ flowchart LR
     FRONT-->API
     API-->DOM
 ```
+
+Ik manage het project ofwel in Maven ofwel in Gradle. De Java wordt geverifieerd met JUnit tests, Jacoco test coverage reports en een Checkstyle file.
+
+Voor mijn CI/CD pipeline zou ik graag Jenkins willen leren, maar wellicht is het qua tijd die ik krijg verstandiger om weer Gitlab CI te gebruiken.
 
 Zo mogelijk zou ik ook een onaf spel en/of highscores willen opslaan. Ik heb nog geen keuze gemaakt welk type database hiervoor het meest geschikt is, en waar deze dan het beste in de architectuur zou passen.
 
