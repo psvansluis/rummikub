@@ -42,7 +42,7 @@ flowchart LR
     API-->DOM
 ```
 
-Ik manage het project ofwel in Maven ofwel in Gradle. De Java wordt geverifieerd met JUnit tests, Jacoco test coverage reports en een Checkstyle file.
+Ik manage het project in Maven. De Java wordt geverifieerd met JUnit tests, Jacoco test coverage reports en een Checkstyle file.
 
 Voor mijn CI/CD pipeline zou ik graag Jenkins willen leren, maar wellicht is het qua tijd die ik krijg verstandiger om weer Gitlab CI te gebruiken.
 
