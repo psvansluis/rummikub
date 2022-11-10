@@ -24,6 +24,7 @@ Daarnaast zijn [hier](https://rummikub.com/wp-content/uploads/2019/12/2600-Dutch
 
 - Meerdere spelers kunnen online een spel spelen.
 - Een knop om automatisch je plankje te sorteren zodat series of rijtjes zichtbaar worden.
+- De mogelijkheid om een arbitrair aantal kleuren en steentjes per kleur te kiezen.
 - High scores.
 
 ### Would like
