@@ -1,0 +1,17 @@
+Engels, Nederlands, betekenis
+tile, steen,
+set, ?set, Een rijtje of een serie van minimaal 3 stenen lang
+group, rijtje, Een set van steentjes met hetzelfde cijfer in verschillende kleuren
+run, serie, Een set van steentjes met opeenvolgende cijfers in dezelfde kleur
+number, cijfer,
+color, kleur,
+joker, joker,
+player, speler
+pool,
+table,
+game,
+round,
+rack, plankje
+meld, ?melding
+add, aanleggen
+penalty tile, strafsteen,
