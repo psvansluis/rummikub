@@ -2,6 +2,33 @@
 
 Het bekende spel waarin je steentjes met nummers en kleurtjes erop moet sorteren. De speler die zijn steentjes als eerste zijn steentjes kwijt is heeft gewonnen.
 
+## Spelregels
+
+- Het spel is speelbaar voor 1 of meer spelers.
+- Spelers beginnen met een plankje dat alleen voor hunzelf zichtbaar is met daarop 14 stenen.
+- Een steen heeft een cijfer en een kleur.
+  - De cijfers lopen van 1 t/m 13..
+  - Er zijn vier kleuren (in principe zwart, rood, blauw, geel).
+  - Er zijn twee jokers (dit kan later geïmplementeerd worden).
+  - Het spel bevat 106 stenen: twee keer 1-13 in elk van de vier kleuren, plus twee jokers.
+- Een speler die aan de beurt is moet een of meer stenen op tafel leggen.
+- Tijdens zijn beurt mag een speler sets opnieuw arrangeren.
+- Alle stenen op tafel moeten zich in een valide set bevinden.
+- Een valide set is een valide serie of rij bestaande uit drie of meer stenen.
+  - Een valide serie bestaat uit een sequentie van oplopende getallen in dezelfde kleur zonder tussenliggende getallen.
+  - Een valide rij is een sequentie van stenen in elk verschillende kleuren met hetzelfde getal.
+- Een beurt is voltooid als een speler minimaal één steen heeft toegevoegd aan de tafel en als alle stenen zich in een valide set bevinden.
+- Kan de speler dit niet, dan moet hij één steen uit de pot pakken.
+- Als een speler aan het einde van zijn beurt...
+  - geen stenen op zijn plank heeft, dan heeft hij gewonnen.
+  - wel stenen op zijn plank heeft, dan geeft hij de beurt door aan de volgende speler.
+
+Speciale dingen (kan later geïmplementeerd worden)
+
+- Joker: een steen die een cijfer en kleur naar keuze van de speler met beurt kan aannemen. Als deze opnieuw wordt gearrangeerd mag hij een nieuw cijfer en een nieuwe kleur krijgen.
+- Uitkomen: als een speler nog niet eerder stenen heeft toegevoegd aan het bord, dan moet de som van de cijfers van de aangelegde stenen minimaal dertig zijn en mag de speler niet aanleggen aan reeds gelegde stenen.
+- Opmaken score aan einde spel: als een speler gewonnen heeft nemen de andere spelers de som van de cijfers op hun plankje
+
 [Spelregels (Engels)](https://rummikub.com/wp-content/uploads/2019/12/2600-English-1.pdf): deze regels zullen de leidraad vormen van mijn spel.
 Daarnaast zijn [hier](https://rummikub.com/wp-content/uploads/2019/12/2600-Dutch_German_French_Spanish.pdf) Nederlandstalige spelregels te vinden.
 
