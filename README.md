@@ -9,7 +9,7 @@ Daarnaast zijn [hier](https://rummikub.com/wp-content/uploads/2019/12/2600-Dutch
 
 ### Must
 
-- Het spel heeft een front end met een drag-and-drop interface om steentjes te groeperen in het midden.
+- Het spel heeft een front end met een interface om steentjes te groeperen in het midden.
 - Eén speler kan een spel spelen.
   - De score is dan het aantal beurten/stenen dat je nodig hebt (lager is beter).
 - Het spel is afgelopen als het plankje leeg is van een speler.
@@ -57,6 +57,7 @@ Zo mogelijk zou ik ook een onaf spel en/of highscores willen opslaan. Ik heb nog
 - Het project goed modelleren en documenteren in een Readme.
 - Werken in sprints, met aan het einde van iedere week .
 - Gebruik maken van de issue tracker.
+- Beter gebruik maken van branching in git. Alleen committen naar main via merge requests (niet direct), en alleen merge requests doen bij het behalen van milestones.
 
 ### Technische leerdoelen
 
