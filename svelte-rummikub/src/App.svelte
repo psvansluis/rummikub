@@ -6,7 +6,9 @@
   export let menu = 1;
 </script>
 
-<header>
+<header>Rummikub</header>
+
+<nav>
   <ul id="menu">
     <li><a href="/" on:click|preventDefault={() => (menu = 1)}>Welkom</a></li>
     <li>
@@ -16,7 +18,7 @@
       <a href="/" on:click|preventDefault={() => (menu = 3)}>Spelregels</a>
     </li>
   </ul>
-</header>
+</nav>
 
 <main>
   {#if menu === 1}

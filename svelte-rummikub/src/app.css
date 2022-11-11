@@ -8,3 +8,19 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+#menu ul {
+  margin: 10px;
+}
+
+#menu li {
+  text-align: center;
+  width: 120px;
+  float: left;
+  margin-left: 2px;
+  border: 1px solid #000;
+}
+
+#menu li:hover {
+  background-color: gray;
+}
