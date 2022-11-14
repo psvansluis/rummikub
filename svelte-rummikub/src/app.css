@@ -1,0 +1,53 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  --color-one: #43226f;
+  --color-two: #214813;
+  --color-three: #661b2a;
+  --light-one: hsl(266, 53%, 95%);
+  --light-text-color: #efe8de;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--light-one);
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  height: 80px;
+  background-color: var(--color-one);
+  color: var(--light-text-color);
+}
+
+header h1 {
+  margin: 10px;
+  text-align: center;
+}
+
+nav {
+  top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  vertical-align: bottom;
+}
+
+nav a {
+  color: var(--light-text-color);
+}
+
+nav a:hover {
+  color: var(--color-two);
+}
+
+main {
+  padding: 10px;
+  padding-top: 80px;
+}
