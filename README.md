@@ -26,7 +26,7 @@ Het bekende spel waarin je steentjes met nummers en kleurtjes erop moet sorteren
 Speciale dingen (kan later geïmplementeerd worden)
 
 - Joker: een steen die een cijfer en kleur naar keuze van de speler met beurt kan aannemen. Als deze opnieuw wordt gearrangeerd mag hij een nieuw cijfer en een nieuwe kleur krijgen.
-- Uitkomen: als een speler nog niet eerder stenen heeft toegevoegd aan het bord, dan moet de som van de cijfers van de aangelegde stenen minimaal dertig zijn en mag de speler niet aanleggen aan reeds gelegde stenen.
+- Uitkomen: als een speler nog niet eerder stenen heeft toegevoegd aan de tafel, dan moet de som van de cijfers van de aangelegde stenen minimaal dertig zijn en mag de speler niet aanleggen aan reeds gelegde stenen.
 - Opmaken score aan einde spel: als een speler gewonnen heeft nemen de andere spelers de som van de cijfers op hun plankje
 
 [Spelregels (Engels)](https://rummikub.com/wp-content/uploads/2019/12/2600-English-1.pdf): deze regels zullen de leidraad vormen van mijn spel.
@@ -93,3 +93,36 @@ Zo mogelijk zou ik ook een onaf spel en/of highscores willen opslaan. Ik heb nog
 - Een goed doordachte API met DTO's die de alle benodigde informatie doorstuurt, maar niet meer dan dat.
 - Jenkins gebruiken voor CI/CD (of een ander alternatief op Gitlab CI).
 - Serieuzer gebruik maken van een SQL database en dit integreren in de CI/CD pipeline.
+
+## Deliverables
+
+### Week 0
+
+- Uitkiezen onderwerp
+- Opzetten project
+- Skelet voor frontend
+
+### Week 1
+- Er is een Maven projectstructuur voor het domein en de API.
+- Er zijn steentjes verzameld in een pot
+- Er is een speler en deze kan steentjes uit de pot halen.
+- Er is een tafel en de speler kan hier steentjes op leggen
+- De speler kan zijn beurt afsluiten.
+  - Hij kan aan de tafel vragen of hij geen niet-valide sets bevat. 
+  - De tafel kan aan ieder steentje vragen of hij zich in een valide set bevindt.
+- Een client kan de API vragen om zijn plankje en de tafel
+- Een client kan de verplaatsing van een steen en een verzoek om de beurt af te sluiten doorgeven aan de API
+- Het plankje en de tafel zijn gevisualiseerd in een website.
+- Een speler kan met point & click stenen verplaatsen
+- Het antwoord op de vraag of de tafel geen niet-valide sets bevat is zichtbaar voor de gebruiker.
+
+### Week 2
+- Een speler met beurt kan de spelsituatie resetten naar het begin van zijn beurt.
+- Een speler kan zijn beurt doorgeven aan de volgende speler.
+- Regels voor uitkomen zijn geïmplementeerd
+  - Een speler kan pas uitkomen als hij dertig punten toevoegt aan de tafel
+  - Een speler mag bij het uitkomen geen bestaande sets manipuleren
+- Een speler mag steentjes die hij binnen zijn beurt op tafel heeft gelegd vóór het einde van zijn beurt terugleggen op zijn plankje, maar geen andere steentjes (het spel is zonder deze feature speelbaar door te resetten)
+- Bug fixes, QA, etc.
+
+
