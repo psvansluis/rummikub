@@ -106,7 +106,8 @@ Zo mogelijk zou ik ook een onaf spel en/of highscores willen opslaan. Ik heb nog
 - Er is een Maven projectstructuur voor het domein en de API.
 - Er zijn steentjes verzameld in een pot
 - Er is een speler en deze kan steentjes uit de pot halen.
-- Er is een tafel en de speler kan hier steentjes op leggen
+- Er is een Set object en de speler kan hier steentjes in leggen
+- Een Set kan controleren of deze valide is
 - De speler kan zijn beurt afsluiten.
   - Hij kan aan de tafel vragen of hij geen niet-valide sets bevat. 
   - De tafel kan aan ieder steentje vragen of hij zich in een valide set bevindt.
