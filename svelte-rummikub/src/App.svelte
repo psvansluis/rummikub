@@ -6,20 +6,14 @@
   export let menu = 1;
 </script>
 
-<header>Rummikub</header>
-
-<nav>
-  <ul id="menu">
-    <li><a href="/" on:click|preventDefault={() => (menu = 1)}>Welkom</a></li>
-    <li>
-      <a href="/" on:click|preventDefault={() => (menu = 2)}>Start</a>
-    </li>
-    <li>
-      <a href="/" on:click|preventDefault={() => (menu = 3)}>Spelregels</a>
-    </li>
-  </ul>
-</nav>
-
+<header>
+  <h1>Rummikub</h1>
+  <nav id="menu">
+    <a href="/" on:click|preventDefault={() => (menu = 1)}>Welkom</a>
+    <a href="/" on:click|preventDefault={() => (menu = 2)}>Start</a>
+    <a href="/" on:click|preventDefault={() => (menu = 3)}>Spelregels</a>
+  </nav>
+</header>
 <main>
   {#if menu === 1}
     <Welkom />
