@@ -2,7 +2,6 @@ package nl.sogyo.pvsluis.rummikub.domain;
 
 class Speler {
     private boolean heeftBeurt;
-    private boolean magBeurtAfsluiten;
     private Speler volgendeSpeler;
     private Plankje plankje;
 
