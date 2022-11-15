@@ -37,4 +37,24 @@ public class SetManipulatieTest {
         assertEquals(b, set.getStenen().get(0));
     }
 
+    @Test
+    public void verplaatsSteenMetSteenGeeftSteenInDoelSet() {
+        Steen a = new Steen(1, Kleur.KLEUR1);
+        Steen b = new Steen(5, Kleur.KLEUR2);
+        Set set1 = new Set(a);
+        Set set2 = new Set(b);
+        set1.verplaatsSteen(a, set2);
+        assertEquals(b, set2.getStenen().get(1));
+    }
+
+    @Test
+    public void verplaatsSteenMetSteenVerwijdertSteenUitOorspronkelijkeSet() {
+        Steen a = new Steen(1, Kleur.KLEUR1);
+        Steen b = new Steen(5, Kleur.KLEUR2);
+        Set set1 = new Set(a);
+        Set set2 = new Set(b);
+        set1.verplaatsSteen(a, set2);
+        assertEquals(0, set1.getStenen().size());
+    }
+
 }
