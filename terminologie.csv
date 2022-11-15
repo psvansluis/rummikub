@@ -1,16 +1,14 @@
 Engels, Nederlands, betekenis
-tile, steen, Een object dat zich in de pot, op een plank of 
+tile, steen, Een object dat zich in de pot of op het plankje van een speler of op tafel in een Set kan bevinden.
 set, set, Een rij of een serie van minimaal 3 stenen lang
 group, rij, Een set van steentjes met hetzelfde cijfer in verschillende kleuren
 run, serie, Een set van steentjes met opeenvolgende cijfers in dezelfde kleur
-number, cijfer,
-color, kleur,
-joker, joker,
-player, speler,
-pool, pot,
-table, tafel,
-game, spel,
-round, ronde,
+number, cijfer, Het getal (1-13) dat op een steentje staat
+color, kleur, Eén van de vier andere variabelen waarop een steentje kan variëren.
+joker, joker, Een steentje waarvan de speler die hem verplaatst de waarde mag bepalen .
+player, speler, De agent die stenen kan manipuleren uit zijn eigen plankje of de tafel of de pot.
+pool, pot, Een verzameling stenen waaruit spelers bij hun eerste beurt 14 stenen pakken. Daarna kan een speler zijn beurt afsluiten door één steen hieruit te pakken. Hij mag dan niet de tafel manipuleren.
+table, tafel, Het gedeelde speelveld waarop spelers Sets met steentjes plaatsen en manipuleren.
 rack, plank, De set stenen die een speler heeft en kan spelen als hij de beurt heeft.
 (initial) meld, uitkomen, Het voor de eerste keer op de tafel aanleggen van (een) nieuwe set(s) met een totaalwaarde van minimaal 30 punten.
 add, aanleggen, het toevoegen van een steen aan een rij op de tafel en het eventuele herarrangeren van rijen daarbij.
