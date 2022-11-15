@@ -7,7 +7,7 @@ Het bekende spel waarin je steentjes met nummers en kleurtjes erop moet sorteren
 - Het spel is speelbaar voor 1 of meer spelers.
 - Spelers beginnen met een plankje dat alleen voor hunzelf zichtbaar is met daarop 14 stenen.
 - Een steen heeft een cijfer en een kleur.
-  - De cijfers lopen van 1 t/m 13..
+  - De cijfers lopen van 1 t/m 13.
   - Er zijn vier kleuren (in principe zwart, rood, blauw, geel).
   - Er zijn twee jokers (dit kan later geïmplementeerd worden).
   - Het spel bevat 106 stenen: twee keer 1-13 in elk van de vier kleuren, plus twee jokers.
@@ -98,12 +98,12 @@ Zo mogelijk zou ik ook een onaf spel en/of highscores willen opslaan. Ik heb nog
 
 ### Week 0
 
-- Uitkiezen onderwerp
-- Opzetten project
-- Skelet voor frontend
+- ~~Uitkiezen onderwerp~~
+- ~~Opzetten project~~
+- ~~Skelet voor frontend~~
 
 ### Week 1
-- Er is een Maven projectstructuur voor het domein en de API.
+- Er is een Maven projectstructuur voor ~~het domein en~~ de API.
 - Er zijn steentjes verzameld in een pot
 - Er is een speler en deze kan steentjes uit de pot halen.
 - Er is een Set object en de speler kan hier steentjes in leggen
