@@ -26,7 +26,6 @@ class Set {
 
     void verwijderSteen(Steen teVerwijderenSteen) {
         this.stenen.remove(teVerwijderenSteen);
-        this.sorteer();
     }
 
     boolean isValide() {

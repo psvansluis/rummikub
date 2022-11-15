@@ -1,7 +1,6 @@
 package nl.sogyo.pvsluis.rummikub.domain;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -9,13 +8,6 @@ import nl.sogyo.pvsluis.rummikub.domain.Steen.*;
 
 public class SetManipulatieTest {
     // Test het maken, aanleggen en verwijderen bij Sets
-
-    @Test
-    public void tweeIdentiekeStenenZijnGelijk() {
-        Steen a = new Steen(4, Kleur.ZWART);
-        Steen b = new Steen(4, Kleur.ZWART);
-        assertTrue(a.equals(b));
-    }
 
     @Test
     public void voegSteenToeSorteert() {

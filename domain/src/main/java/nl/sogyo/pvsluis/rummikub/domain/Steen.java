@@ -24,12 +24,11 @@ class Steen implements Comparable<Steen> {
         return this.kleur;
     }
 
-    public boolean equals(Steen andereSteen) {
-        return this.cijfer == andereSteen.cijfer
-                && this.kleur == andereSteen.kleur;
+    private int waardeInVolgorde() {
+        return (this.cijfer * Kleur.values().length) + this.kleur.ordinal();
     }
 
     public int compareTo(Steen andereSteen) {
-        return this.cijfer - andereSteen.cijfer;
+        return this.waardeInVolgorde() - andereSteen.waardeInVolgorde();
     }
 }
