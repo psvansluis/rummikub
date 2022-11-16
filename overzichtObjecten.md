@@ -10,21 +10,25 @@ Een roodomlijnd object kan Stenen bevatten.
 flowchart LR
 
 AGENT("🧍")
+TAFEL("Tafel")
 SPELER("Speler")
 PLANKJE("Plankje"):::heeftStenen
-TAFEL("Tafel")
 POT("Pot"):::heeftStenen
+subgraph Sets
 SET1("Set"):::heeftStenen
+end
 
-AGENT-->SPELER
+AGENT-->TAFEL
+TAFEL-->SPELER
 SPELER-->PLANKJE
-SPELER-->POT
-PLANKJE-->TAFEL
-TAFEL-->SET1
+PLANKJE-->POT
+SPELER-->SPELER
+TAFEL-->Sets
+
 
 classDef heeftStenen stroke:#d00
-
 ```
+
 
 ## Drie Spelers en drie Sets op Tafel
 
@@ -32,35 +36,38 @@ classDef heeftStenen stroke:#d00
 flowchart LR
 
 AGENT("🧍")
-SPELER1("Speler")
-SPELER2("Speler")
-SPELER3("Speler")
-PLANKJE1("Plankje"):::heeftStenen
-PLANKJE2("Plankje"):::heeftStenen
-PLANKJE3("Plankje"):::heeftStenen
 TAFEL("Tafel")
+
+
+SPELER1("Speler")
+PLANKJE1("Plankje"):::heeftStenen
+
+SPELER2("Speler")
+PLANKJE2("Plankje"):::heeftStenen
+
+SPELER3("Speler")
+PLANKJE3("Plankje"):::heeftStenen
+
+
 POT("Pot"):::heeftStenen
+subgraph Sets
 SET1("Set"):::heeftStenen
 SET2("Set"):::heeftStenen
 SET3("Set"):::heeftStenen
+end
 
-AGENT-->SPELER1
-SPELER1-->SPELER2
-SPELER2-->SPELER3
-SPELER3-->SPELER1
+AGENT-->TAFEL
+TAFEL-->SPELER1
+TAFEL-->Sets
 SPELER1-->PLANKJE1
 SPELER2-->PLANKJE2
 SPELER3-->PLANKJE3
-SPELER1-->POT
-SPELER2-->POT
-SPELER3-->POT
-PLANKJE1-->TAFEL
-PLANKJE2-->TAFEL
-PLANKJE3-->TAFEL
-TAFEL-->SET1
-TAFEL-->SET2
-TAFEL-->SET3
+SPELER1-->SPELER2
+SPELER2-->SPELER3
+SPELER3-->SPELER1
+PLANKJE1-->POT
+PLANKJE2-->POT
+PLANKJE3-->POT
 
 classDef heeftStenen stroke:#d00
-
 ```
