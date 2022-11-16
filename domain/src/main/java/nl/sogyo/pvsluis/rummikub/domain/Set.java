@@ -7,13 +7,18 @@ import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
 class Set extends StenenContainer {
     private static final int MINIMALE_LENGTE_VALIDE_SET = 3;
 
-    Set(Steen eersteSteen) {
-        this.getStenen().add(eersteSteen);
+    Set() {
     }
 
     boolean isValide() {
         return this.getStenen().size() >= MINIMALE_LENGTE_VALIDE_SET
                 && (this.isRij() || this.isSerie());
+    }
+
+    @Override
+    void voegSteenToe(Steen toeTeVoegenSteen) {
+        super.voegSteenToe(toeTeVoegenSteen);
+        this.sorteer();
     }
 
     private int nUniekeCijfers() {

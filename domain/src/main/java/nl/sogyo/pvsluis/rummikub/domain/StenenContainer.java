@@ -20,7 +20,6 @@ abstract class StenenContainer {
 
     void voegSteenToe(Steen toeTeVoegenSteen) {
         this.stenen.add(toeTeVoegenSteen);
-        this.sorteer();
     }
 
     void verplaatsSteen(Steen teVerplaatsenSteen, StenenContainer doel) {
@@ -46,7 +45,7 @@ abstract class StenenContainer {
         Collections.shuffle(this.stenen);
     }
 
-    private void sorteer() {
+    void sorteer() {
         Collections.sort(this.stenen);
     }
 
