@@ -16,7 +16,8 @@ public class SetValidatieTest {
         Steen a = new Steen(1, Kleur.KLEUR1);
         Steen b = new Steen(2, Kleur.KLEUR1);
         Steen c = new Steen(3, Kleur.KLEUR1);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(b);
         set.voegSteenToe(c);
         assertTrue(set.isValide());
@@ -27,7 +28,8 @@ public class SetValidatieTest {
         Steen a = new Steen(5, Kleur.KLEUR2);
         Steen b = new Steen(6, Kleur.KLEUR2);
         Steen c = new Steen(7, Kleur.KLEUR2);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(b);
         set.voegSteenToe(c);
         assertTrue(set.isValide());
@@ -38,7 +40,8 @@ public class SetValidatieTest {
         Steen a = new Steen(4, Kleur.ZWART);
         Steen b = new Steen(4, Kleur.KLEUR1);
         Steen c = new Steen(4, Kleur.KLEUR3);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(b);
         set.voegSteenToe(c);
         assertTrue(set.isValide());
@@ -49,7 +52,8 @@ public class SetValidatieTest {
         Steen a = new Steen(10, Kleur.KLEUR2);
         Steen b = new Steen(10, Kleur.KLEUR1);
         Steen c = new Steen(10, Kleur.KLEUR3);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(b);
         set.voegSteenToe(c);
         assertTrue(set.isValide());
@@ -60,7 +64,8 @@ public class SetValidatieTest {
         Steen a = new Steen(1, Kleur.KLEUR1);
         Steen b = new Steen(2, Kleur.KLEUR1);
         Steen c = new Steen(3, Kleur.KLEUR1);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(c);
         set.voegSteenToe(b);
         assertTrue(set.isValide());
@@ -71,7 +76,8 @@ public class SetValidatieTest {
     public void eenTeKorteSerieIsInvalide() {
         Steen a = new Steen(5, Kleur.KLEUR1);
         Steen b = new Steen(6, Kleur.KLEUR1);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(b);
         assertFalse(set.isValide());
     }
@@ -82,7 +88,8 @@ public class SetValidatieTest {
         Steen b = new Steen(2, Kleur.KLEUR1);
         Steen c = new Steen(3, Kleur.KLEUR1);
         Steen d = new Steen(3, Kleur.KLEUR1);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(b);
         set.voegSteenToe(c);
         set.voegSteenToe(d);
@@ -94,7 +101,8 @@ public class SetValidatieTest {
         Steen a = new Steen(1, Kleur.KLEUR1);
         Steen b = new Steen(2, Kleur.KLEUR1);
         Steen c = new Steen(4, Kleur.KLEUR1);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(b);
         set.voegSteenToe(c);
         assertFalse(set.isValide());
@@ -104,7 +112,8 @@ public class SetValidatieTest {
     public void eenTeKorteRijIsInvalide() {
         Steen a = new Steen(4, Kleur.ZWART);
         Steen b = new Steen(4, Kleur.KLEUR1);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(b);
         assertFalse(set.isValide());
     }
@@ -115,7 +124,8 @@ public class SetValidatieTest {
         Steen b = new Steen(4, Kleur.KLEUR1);
         Steen c = new Steen(4, Kleur.KLEUR3);
         Steen d = new Steen(4, Kleur.KLEUR1);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(b);
         set.voegSteenToe(c);
         set.voegSteenToe(d);
@@ -128,7 +138,8 @@ public class SetValidatieTest {
         Steen b = new Steen(4, Kleur.KLEUR1);
         Steen c = new Steen(4, Kleur.KLEUR3);
         Steen d = new Steen(5, Kleur.KLEUR2);
-        Set set = new Set(a);
+        Set set = new Set();
+        set.voegSteenToe(a);
         set.voegSteenToe(b);
         set.voegSteenToe(c);
         set.voegSteenToe(d);
