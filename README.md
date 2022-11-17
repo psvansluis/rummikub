@@ -48,7 +48,7 @@ Daarnaast zijn [hier](https://rummikub.com/wp-content/uploads/2019/12/2600-Dutch
 - Het spel kan opgeslagen worden in een database en later hervat worden.
 
 ### Could
-
+- Maak een spel herspeelbaar door de methodie die de pot schudt een seed mee te geven.
 - Meerdere spelers kunnen online een spel spelen.
 - Een knop om automatisch je plankje te sorteren zodat series of rijtjes zichtbaar worden.
 - De mogelijkheid om een arbitrair aantal kleuren en steentjes per kleur te kiezen.
