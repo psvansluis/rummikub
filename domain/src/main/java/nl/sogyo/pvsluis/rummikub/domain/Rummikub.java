@@ -25,6 +25,7 @@ public class Rummikub {
     }
 
     private static ArrayList<Integer> steenNaarArrayList(Steen steen) {
+        // Todo na implementeren Joker: add 0 bij gewone steen, 1 bij Joker.
         ArrayList<Integer> out = new ArrayList<Integer>();
         out.add(steen.getCijfer());
         out.add(steen.getKleur().ordinal());
@@ -68,5 +69,21 @@ public class Rummikub {
         }
         return out;
     }
+
+    // Getters Todo:
+    // - Of speler uitgekomen is
+    // - Of spel afgelopen is
+    // - Bij afgelopen spel:
+    // - score (punten op Plankjes van spelers en n Stenen in Pot)
+    // - Of een Steen een Joker is
+
+    // Setters Todo:
+    // - Verplaats van Plankje naar Set
+    // - Verplaats van Set naar Set
+    // - Verplaats van Set naar Plankje
+    // - Verander waarde Joker
+    // - Sluit beurt af
+    // - Haal Steen uit Pot
+    // - Reset Tafel en Plankje
 
 }
