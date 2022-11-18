@@ -49,4 +49,8 @@ abstract class StenenContainer {
         Collections.sort(this.stenen);
     }
 
+    static ArrayList<Steen> kopieerStenen(ArrayList<Steen> bronStenen) {
+        return (ArrayList<Steen>) bronStenen.clone();
+    }
+
 }
