@@ -1,14 +1,19 @@
 package nl.sogyo.pvsluis.rummikub.domain;
 
+import java.util.ArrayList;
+
 class Plankje extends StenenContainer {
     private static final int AANTAL_STENEN_BIJ_BEGIN = 14;
     private Pot pot;
     private boolean heeftBeurt;
     private Plankje volgendePlankje;
+    private ArrayList<Steen> stenenBijAanvangBeurt;
 
     private Plankje() {
         this(new Pot());
         this.heeftBeurt = true;
+        this.stenenBijAanvangBeurt = new ArrayList<Steen>();
+        this.kopieerStenenNaarStenenBijAanvangBeurt();
     }
 
     private Plankje(Pot pot) {
@@ -80,5 +85,13 @@ class Plankje extends StenenContainer {
 
     boolean getBeurt() {
         return this.heeftBeurt;
+    }
+
+    void kopieerStenenNaarStenenBijAanvangBeurt() {
+        this.stenenBijAanvangBeurt = kopieerStenen(this.getStenen());
+    }
+
+    void resetStenenNaarAanvangBeurt() {
+        this.setStenen(kopieerStenen(this.stenenBijAanvangBeurt));
     }
 }

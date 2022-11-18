@@ -61,7 +61,7 @@ class Tafel {
         return true;
     }
 
-    private static int stenenInSets(ArrayList<Set> sets) {
+    private static int getStenenInSets(ArrayList<Set> sets) {
         int out = 0;
         for (Set set : sets) {
             out += set.getStenen().size();
@@ -71,8 +71,9 @@ class Tafel {
 
     boolean kanBeurtDoorgeven() {
         return this.alleSetsZijnValide()
-                && stenenInSets(this.getSetsBijAanvangBeurt()) < stenenInSets(
-                        this.getSets());
+                && getStenenInSets(
+                        this.getSetsBijAanvangBeurt()) < getStenenInSets(
+                                this.getSets());
     }
 
     void geefBeurtDoor() {
@@ -80,7 +81,8 @@ class Tafel {
             return;
         }
         this.getPlankjeMetBeurt().geefBeurtDoor();
-        this.kopieerSetsNaarSetsBijAanvangBeurt();
+        this.setsBijAanvangBeurt = kopieerSets(sets);
+        this.getPlankjeMetBeurt().kopieerStenenNaarStenenBijAanvangBeurt();
     }
 
     private Set maakSetEnKeerDezeUit() {
@@ -88,19 +90,24 @@ class Tafel {
         return this.getSets().get(this.getSets().size() - 1);
     }
 
-    private void kopieerSetsNaarSetsBijAanvangBeurt() {
-        setsBijAanvangBeurt = new ArrayList<Set>();
-        for (Set set : this.sets) {
-            setsBijAanvangBeurt.add(new Set());
-            setsBijAanvangBeurt
-                    .get(setsBijAanvangBeurt.size() - 1)
-                    .getStenen()
-                    .addAll(set.getStenen());
-        }
-    }
-
     private void verwijderLegeSets() {
         this.getSets().removeIf((Set set) -> set.getStenen().isEmpty());
+    }
+
+    private static ArrayList<Set> kopieerSets(
+            ArrayList<Set> bronSets) {
+        ArrayList<Set> out = new ArrayList<Set>();
+        for (Set set : bronSets) {
+            Set newSet = new Set();
+            newSet.setStenen(Set.kopieerStenen(set.getStenen()));
+            out.add(newSet);
+        }
+        return out;
+    }
+
+    public void resetSpelNaarAanvangBeurt() {
+        this.sets = kopieerSets(setsBijAanvangBeurt);
+        this.getPlankjeMetBeurt().resetStenenNaarAanvangBeurt();
     }
 
 }
