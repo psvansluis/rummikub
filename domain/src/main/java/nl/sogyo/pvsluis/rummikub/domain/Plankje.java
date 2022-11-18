@@ -40,6 +40,10 @@ class Plankje extends StenenContainer {
         this.getPot().verplaatsSteen(0, this);
     }
 
+    public ArrayList<Steen> getStenenBijAanvangBeurt() {
+        return stenenBijAanvangBeurt;
+    }
+
     Pot getPot() {
         return pot;
     }

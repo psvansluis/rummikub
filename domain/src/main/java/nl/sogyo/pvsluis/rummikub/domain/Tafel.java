@@ -52,6 +52,22 @@ class Tafel {
         this.verwijderLegeSets();
     }
 
+    @SuppressWarnings("EmptyBlockCheck")
+    boolean steenKomtDezeBeurtVanPlankje(Steen steen) {
+        return this.getPlankjeMetBeurt()
+                .getStenenBijAanvangBeurt()
+                .contains(steen);
+    }
+
+    void speelSteenVanSetNaarPlankje(int bronSetIndex, int steenIndex) {
+        if (steenKomtDezeBeurtVanPlankje(
+                this.getSets().get(bronSetIndex).getStenen().get(steenIndex))) {
+            this.getSets().get(bronSetIndex).verplaatsSteen(
+                    steenIndex,
+                    this.getPlankjeMetBeurt());
+        }
+    }
+
     boolean alleSetsZijnValide() {
         for (Set set : this.sets) {
             if (!set.isValide()) {

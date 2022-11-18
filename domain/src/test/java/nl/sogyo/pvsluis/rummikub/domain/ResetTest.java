@@ -79,4 +79,49 @@ public class ResetTest {
         test.resetSpelNaarAanvangBeurt();
         assertEquals(0, test.getSets().size());
     }
+
+    // Test terugzetten van Steen op Plankje
+    @Test
+    public void eenSteenUitSetMagTerugNaarPlankjeBinnenBeurt() {
+        Tafel test = new Tafel(2);
+        test.speelSteenVanPlankjeNaarSet(0, 0);
+        test.speelSteenVanSetNaarPlankje(0, 0);
+        assertEquals(14, test.getPlankjeMetBeurt().getStenen().size());
+    }
+
+    @Test
+    public void eenSteenUitSetMagNietTerugNaarPlankjeBuitenBeurt() {
+        Tafel test = new Tafel(2);
+        test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
+        test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
+        test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
+        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.geefBeurtDoor();
+        test.speelSteenVanSetNaarPlankje(0, 0);
+        assertEquals(14, test.getPlankjeMetBeurt().getStenen().size());
+    }
+
+    @Test
+    public void eenEigenSteenUitSetMagOokNietTerugNaarPlankjeBuitenBeurt() {
+        Tafel test = new Tafel(2);
+        test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
+        test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
+        test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
+        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.geefBeurtDoor();
+        test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
+        test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
+        test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
+        test.speelSteenVanPlankjeNaarSet(14, 1);
+        test.speelSteenVanPlankjeNaarSet(14, 1);
+        test.speelSteenVanPlankjeNaarSet(14, 1);
+        test.geefBeurtDoor();
+        test.speelSteenVanSetNaarPlankje(0, 0);
+        assertEquals(14, test.getPlankjeMetBeurt().getStenen().size());
+    }
+
 }
