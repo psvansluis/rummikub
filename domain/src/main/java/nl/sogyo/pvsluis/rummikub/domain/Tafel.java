@@ -29,29 +29,26 @@ class Tafel {
         return setsBijAanvangBeurt;
     }
 
-    void speelSteenVanPlankjeNaarNieuweSet(
-            int steenIndex) {
-        this.getPlankjeMetBeurt()
-                .verplaatsSteen(steenIndex, this.maakSetEnKeerDezeUit());
+    private Set getSetOfMaakSetAan(int setIndex) {
+        if (setIndex < this.getSets().size()) {
+            return this.getSets().get(setIndex);
+        } else {
+            return this.maakSetEnKeerDezeUit();
+        }
     }
 
-    void speelSteenVanPlankjeNaarBestaandeSet(
+    void speelSteenVanPlankjeNaarSet(
             int steenIndex, int doelSetIndex) {
-        this.getPlankjeMetBeurt()
-                .verplaatsSteen(steenIndex, this.getSets().get(doelSetIndex));
+        this.getPlankjeMetBeurt().verplaatsSteen(
+                steenIndex,
+                this.getSetOfMaakSetAan(doelSetIndex));
     }
 
-    void speelSteenVanSetNaarNieuweSet(
-            int bronSetIndex, int steenIndex) {
-        this.getSets().get(bronSetIndex)
-                .verplaatsSteen(steenIndex, this.maakSetEnKeerDezeUit());
-        this.verwijderLegeSets();
-    }
-
-    void speelSteenVanSetNaarBestaandeSet(
+    void speelSteenVanSetNaarSet(
             int bronSetIndex, int steenIndex, int doelSetIndex) {
-        this.getSets().get(bronSetIndex)
-                .verplaatsSteen(steenIndex, this.getSets().get(doelSetIndex));
+        this.getSets().get(bronSetIndex).verplaatsSteen(
+                steenIndex,
+                this.getSetOfMaakSetAan(doelSetIndex));
         this.verwijderLegeSets();
     }
 
