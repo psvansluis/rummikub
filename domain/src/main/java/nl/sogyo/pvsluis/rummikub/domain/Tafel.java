@@ -39,6 +39,11 @@ class Tafel {
 
     void speelSteenVanPlankjeNaarSet(
             int steenIndex, int doelSetIndex) {
+        if (!this.getPlankjeMetBeurt().isUitgekomen()) {
+            if (!setIsNieuwInBeurt(doelSetIndex)) {
+                return;
+            }
+        }
         this.getPlankjeMetBeurt().verplaatsSteen(
                 steenIndex,
                 this.getSetOfMaakSetAan(doelSetIndex));
@@ -46,20 +51,36 @@ class Tafel {
 
     void speelSteenVanSetNaarSet(
             int bronSetIndex, int steenIndex, int doelSetIndex) {
+        if (!this.getPlankjeMetBeurt().isUitgekomen()) {
+            if (!setIsNieuwInBeurt(bronSetIndex)) {
+                return;
+            }
+            if (!setIsNieuwInBeurt(doelSetIndex)) {
+                return;
+            }
+        }
         this.getSets().get(bronSetIndex).verplaatsSteen(
                 steenIndex,
                 this.getSetOfMaakSetAan(doelSetIndex));
         this.verwijderLegeSets();
     }
 
-    @SuppressWarnings("EmptyBlockCheck")
     boolean steenKomtDezeBeurtVanPlankje(Steen steen) {
         return this.getPlankjeMetBeurt()
                 .getStenenBijAanvangBeurt()
                 .contains(steen);
     }
 
+    boolean setIsNieuwInBeurt(int setIndex) {
+        return this.getSetsBijAanvangBeurt().size() <= setIndex;
+    }
+
     void speelSteenVanSetNaarPlankje(int bronSetIndex, int steenIndex) {
+        if (!this.getPlankjeMetBeurt().isUitgekomen()) {
+            if (!setIsNieuwInBeurt(bronSetIndex)) {
+                return;
+            }
+        }
         if (steenKomtDezeBeurtVanPlankje(
                 this.getSets().get(bronSetIndex).getStenen().get(steenIndex))) {
             this.getSets().get(bronSetIndex).verplaatsSteen(
@@ -92,10 +113,29 @@ class Tafel {
                                 this.getSets());
     }
 
+    private static int getSomCijfers(ArrayList<Set> sets) {
+        // Todo: maak een methode die de som van zijn Stenencijfers telt
+        // binnen de abstract class StenenContainer.
+        // Deze kan dan ook gebruikt worden bij tellen score aan einde.
+        int out = 0;
+        for (Set set : sets) {
+            for (Steen steen : set.getStenen()) {
+                out += steen.getCijfer();
+            }
+        }
+        return out;
+    }
+
     void geefBeurtDoor() {
         if (!this.kanBeurtDoorgeven()) {
             return;
         }
+        if (!this.getPlankjeMetBeurt().isUitgekomen()
+                && (getSomCijfers(this.getSets()) < getSomCijfers(
+                        this.getSetsBijAanvangBeurt()) + 30)) {
+            return;
+        }
+        this.getPlankjeMetBeurt().setUitgekomen(true);
         this.getPlankjeMetBeurt().geefBeurtDoor();
         this.setsBijAanvangBeurt = kopieerSets(sets);
         this.getPlankjeMetBeurt().kopieerStenenNaarStenenBijAanvangBeurt();
