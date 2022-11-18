@@ -13,7 +13,7 @@ public class TafelPlaatsingTest {
     // En naar:
     // - Een bestaande Set
     // - Een nieuwe Set
-    // Check volgende eigenschappen:
+    // Check volgende eigenschappen (waar van toepassing):
     // - Verwijdering uit bronSet
     // - Toevoeging aan doelSet
     // - Verwijdering lege Sets
@@ -27,7 +27,7 @@ public class TafelPlaatsingTest {
 
     private static Tafel voorbeeldSpel1() {
         Tafel tafel = new Tafel(2);
-        tafel.speelSteenVanPlankjeNaarNieuweSet(0);
+        tafel.speelSteenVanPlankjeNaarSet(0, tafel.getSets().size());
         return tafel;
     }
 
@@ -47,8 +47,8 @@ public class TafelPlaatsingTest {
 
     private static Tafel voorbeeldSpel2() {
         Tafel tafel = new Tafel(2);
-        tafel.speelSteenVanPlankjeNaarNieuweSet(0);
-        tafel.speelSteenVanPlankjeNaarBestaandeSet(0, 0);
+        tafel.speelSteenVanPlankjeNaarSet(0, tafel.getSets().size());
+        tafel.speelSteenVanPlankjeNaarSet(0, 0);
         return tafel;
     }
 
@@ -69,7 +69,7 @@ public class TafelPlaatsingTest {
     @Test
     public void vanSetNaarNieuweSetVerkleintOudeSet() {
         Tafel test = voorbeeldSpel2();
-        test.speelSteenVanSetNaarNieuweSet(0, 0);
+        test.speelSteenVanSetNaarSet(0, 0, test.getSets().size());
 
         assertEquals(1, test.getSets().get(0).getStenen().size());
     }
@@ -77,7 +77,7 @@ public class TafelPlaatsingTest {
     @Test
     public void vanSetNaarNieuweSetMaaktSetErbij() {
         Tafel test = voorbeeldSpel2();
-        test.speelSteenVanSetNaarNieuweSet(0, 0);
+        test.speelSteenVanSetNaarSet(0, 0, test.getSets().size());
 
         assertEquals(2, test.getSets().size());
     }
@@ -85,8 +85,8 @@ public class TafelPlaatsingTest {
     @Test
     public void vanSetNaarBestaandeSetGeeft2StenenInDoelSet() {
         Tafel test = voorbeeldSpel2();
-        test.speelSteenVanSetNaarNieuweSet(0, 0);
-        test.speelSteenVanSetNaarBestaandeSet(1, 0, 0);
+        test.speelSteenVanSetNaarSet(0, 0, test.getSets().size());
+        test.speelSteenVanSetNaarSet(1, 0, 0);
 
         assertEquals(2, test.getSets().get(0).getStenen().size());
     }
@@ -94,7 +94,7 @@ public class TafelPlaatsingTest {
     @Test
     public void vanSetSize1NaarNieuweSetVerwijdertSet() {
         Tafel test = voorbeeldSpel1();
-        test.speelSteenVanSetNaarNieuweSet(0, 0);
+        test.speelSteenVanSetNaarSet(0, 0, test.getSets().size());
 
         assertEquals(1, test.getSets().size());
     }
