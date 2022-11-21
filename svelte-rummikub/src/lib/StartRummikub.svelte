@@ -1,11 +1,84 @@
 <script lang="ts">
-  let aantalSpelers = 1;
+  let aantalSpelers: number = 1;
+  let voorbeeldNamen: string[] = ["Henk", "Toos", "Huub", "Truus"];
+  let statusBericht: string = "";
+
+  function elkeCelIsGevuld(lijst: string[]): boolean {
+    return lijst.every((str) => str != null && str.length > 0);
+  }
+
+  async function startSpel() {
+    let spelerNamen: string[] = voorbeeldNamen.slice(0, aantalSpelers);
+    if (spelerNamen.length === 0) {
+      statusBericht = "Geef tenminste één speler op";
+      return;
+    } else if (!elkeCelIsGevuld(spelerNamen)) {
+      statusBericht = "Iedere speler moet een naam hebben";
+      return;
+    } else {
+      statusBericht =
+        "Een spel met " +
+        aantalSpelers +
+        " speler" +
+        (aantalSpelers != 1 ? "s" : "") +
+        ": " +
+        spelerNamen.join(", ");
+    }
+
+    try {
+      const respons = await fetch("rummikub/api/start", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(spelerNamen),
+      });
+
+      if (respons.ok) {
+        console.log(await respons.json());
+      } else {
+        console.error(respons.statusText);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 </script>
 
-<h1>TO DO</h1>
+<div>
+  <h2>Start een nieuw spel</h2>
+  <label>
+    Aantal spelers: <input type="number" bind:value={aantalSpelers} min="1" />
+  </label>
+  {#each Array(aantalSpelers) as _, index (index)}
+    <label>
+      Naam speler {index + 1}
+      <input
+        type="text"
+        bind:value={voorbeeldNamen[index]}
+        minlength="1"
+      /></label
+    >
+  {/each}
+  <button on:click={startSpel}>Start spel</button>
+  <p>
+    {statusBericht}
+  </p>
+</div>
 
-<label>
-  Aantal spelers: <input type="number" bind:value={aantalSpelers} min="1" />
-</label>
-<button>Start spel</button>
-<p>Een spel met {aantalSpelers} speler{aantalSpelers != 1 ? "s" : ""}.</p>
+<style>
+  div {
+    margin: 10px auto;
+    width: 50%;
+    border: 2px solid var(--color-two);
+    padding: 10px;
+  }
+  label {
+    display: block;
+    padding: 5px;
+  }
+  button {
+    padding: 5px;
+  }
+</style>
