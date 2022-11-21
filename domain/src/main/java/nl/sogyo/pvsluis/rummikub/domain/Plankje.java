@@ -6,6 +6,7 @@ class Plankje extends StenenContainer {
     private static final int AANTAL_STENEN_BIJ_BEGIN = 14;
     private Pot pot;
     private boolean heeftBeurt;
+    private boolean uitgekomen;
     private Plankje volgendePlankje;
     private ArrayList<Steen> stenenBijAanvangBeurt;
 
@@ -38,6 +39,14 @@ class Plankje extends StenenContainer {
 
     void neemSteenUitPot() {
         this.getPot().verplaatsSteen(0, this);
+    }
+
+    boolean isUitgekomen() {
+        return this.uitgekomen;
+    }
+
+    void setUitgekomen(boolean uitgekomen) {
+        this.uitgekomen = uitgekomen;
     }
 
     public ArrayList<Steen> getStenenBijAanvangBeurt() {
