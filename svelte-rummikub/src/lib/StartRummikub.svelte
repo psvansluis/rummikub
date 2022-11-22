@@ -36,8 +36,8 @@
       });
 
       if (respons.ok) {
-        console.log(await respons.json());
         statusBericht = await respons.json();
+        console.log(statusBericht);
       } else {
         console.error(respons.statusText);
         statusBericht = respons.statusText;
@@ -61,6 +61,7 @@
         type="text"
         bind:value={voorbeeldNamen[index]}
         minlength="1"
+        required
       /></label
     >
   {/each}
@@ -73,9 +74,12 @@
 <style>
   div {
     margin: 10px auto;
-    width: 50%;
+    max-width: 600px;
+    width: 80%;
+    min-width: 280px;
     border: 2px solid var(--color-two);
     padding: 10px;
+    border-radius: 10px;
   }
   label {
     display: block;

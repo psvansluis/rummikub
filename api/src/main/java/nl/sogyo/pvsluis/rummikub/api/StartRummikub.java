@@ -18,7 +18,9 @@ public class StartRummikub {
     public Response start(
             @Context HttpServletRequest request,
             SpelerInputDTO spelerNamen) {
-        System.out.println("ping");
+
+        System.out.println("Een nieuw spel met "
+                + spelerNamen.getSpelerNamen().length + " spelers.\n");
 
         HttpSession session = request.getSession(true);
 
