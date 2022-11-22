@@ -1,7 +1,13 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+  import type { SpelStatus } from "../types/SpelStatus.type.js";
+
+  export let spelStatus: SpelStatus;
   let aantalSpelers: number = 1;
   let voorbeeldNamen: string[] = ["Henk", "Toos", "Huub", "Truus"];
   let statusBericht: string = "";
+
+  const dispatch = createEventDispatcher();
 
   function elkeCelIsGevuld(lijst: string[]): boolean {
     return lijst.every((str) => str != null && str.length > 0);
@@ -36,11 +42,12 @@
       });
 
       if (respons.ok) {
-        statusBericht = await respons.json();
+        dispatch("change", { spelStatus: await respons.json() });
+        // spelStatus = await respons.json();
         console.log(statusBericht);
       } else {
         console.error(respons.statusText);
-        statusBericht = respons.statusText;
+        statusBericht = "" + respons.status + respons.statusText;
       }
     } catch (error) {
       console.error(error);
