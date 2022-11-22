@@ -32,16 +32,19 @@
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(spelerNamen),
+        body: JSON.stringify({ spelerNamen: spelerNamen }),
       });
 
       if (respons.ok) {
         console.log(await respons.json());
+        statusBericht = await respons.json();
       } else {
         console.error(respons.statusText);
+        statusBericht = respons.statusText;
       }
     } catch (error) {
       console.error(error);
+      statusBericht = error;
     }
   }
 </script>

@@ -17,12 +17,13 @@ public class StartRummikub {
     @Produces(MediaType.APPLICATION_JSON)
     public Response start(
             @Context HttpServletRequest request,
-            @Context SpelerInputDTO spelers) {
+            SpelerInputDTO spelerNamen) {
+        System.out.println("ping");
 
         HttpSession session = request.getSession(true);
 
         ArrayList<String> list = new ArrayList<String>(
-                Arrays.asList(spelers.getSpelerNamen()));
+                Arrays.asList(spelerNamen.getSpelerNamen()));
 
         Rummikub rummikub = new Rummikub(list);
 

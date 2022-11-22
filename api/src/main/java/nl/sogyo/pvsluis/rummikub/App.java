@@ -19,7 +19,7 @@ public class App {
         serverHolder.setInitOrder(1);
         serverHolder.setInitParameter(
                 "jersey.config.server.provider.packages",
-                "rummikub.api");
+                "nl.sogyo.pvsluis.rummikub.api");
         ContextHandlerCollection handlers = new ContextHandlerCollection(
                 context);
         server.setHandler(handlers);
