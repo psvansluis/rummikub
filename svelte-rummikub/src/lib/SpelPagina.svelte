@@ -11,5 +11,5 @@
 {#if !spelStatus}
   <StartRummikub {spelStatus} on:change={vernieuwSpelStatus} />
 {:else}
-  <SpeelRummikub />
+  <SpeelRummikub {spelStatus} />
 {/if}

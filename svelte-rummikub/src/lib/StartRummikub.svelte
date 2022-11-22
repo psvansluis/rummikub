@@ -1,8 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import type { SpelStatus } from "../types/SpelStatus.type.js";
 
-  export let spelStatus: SpelStatus;
   let aantalSpelers: number = 1;
   let voorbeeldNamen: string[] = ["Henk", "Toos", "Huub", "Truus"];
   let statusBericht: string = "";
@@ -43,7 +41,6 @@
 
       if (respons.ok) {
         dispatch("change", { spelStatus: await respons.json() });
-        // spelStatus = await respons.json();
         console.log(statusBericht);
       } else {
         console.error(respons.statusText);
