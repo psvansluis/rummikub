@@ -9,6 +9,8 @@
 <style>
   div {
     border: 1px solid black;
+    border-radius: 3px;
+    margin: 1px;
     padding: 10px;
     width: 30px;
     height: 50px;
