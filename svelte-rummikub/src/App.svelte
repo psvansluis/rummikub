@@ -1,6 +1,6 @@
 <script lang="ts">
   import Welkom from "./lib/Welkom.svelte";
-  import StartRummikub from "./lib/StartRummikub.svelte";
+  import SpelPagina from "./lib/SpelPagina.svelte";
   import Spelregels from "./lib/Spelregels.svelte";
 
   export let menu = 1;
@@ -18,7 +18,7 @@
   {#if menu === 1}
     <Welkom />
   {:else if menu === 2}
-    <StartRummikub />
+    <SpelPagina />
   {:else if menu === 3}
     <Spelregels />
   {:else}
