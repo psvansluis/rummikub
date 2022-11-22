@@ -10,3 +10,10 @@
     <Steen {steen} />
   {/each}
 </div>
+
+<style>
+  div {
+    margin: 0 auto;
+    max-width: 800px;
+  }
+</style>

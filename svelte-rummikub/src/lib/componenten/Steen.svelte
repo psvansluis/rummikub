@@ -8,13 +8,18 @@
 
 <style>
   div {
-    border: 1px solid black;
-    border-radius: 3px;
-    margin: 1px;
+    font-size: larger;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 5px;
     padding: 10px;
     width: 30px;
     height: 50px;
     background-color: blanchedalmond;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: 2px 2px 3px black;
   }
 
   .kleur0 {
