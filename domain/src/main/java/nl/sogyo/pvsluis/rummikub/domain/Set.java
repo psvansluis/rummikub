@@ -11,7 +11,7 @@ class Set extends StenenContainer {
     }
 
     boolean isValide() {
-        return this.getStenen().size() >= MINIMALE_LENGTE_VALIDE_SET
+        return this.lengte() >= MINIMALE_LENGTE_VALIDE_SET
                 && (this.isRij() || this.isSerie());
     }
 
@@ -39,16 +39,15 @@ class Set extends StenenContainer {
 
     private boolean isRij() {
         return this.nUniekeCijfers() == 1
-                && nUniekeKleuren() == this.getStenen().size();
+                && nUniekeKleuren() == this.lengte();
     }
 
     private boolean isSerie() {
-        int laagsteCijfer = this.getStenen().get(0).getCijfer();
-        int hoogsteCijfer = this.getStenen()
-                .get(this.getStenen().size() - 1).getCijfer();
+        int laagsteCijfer = this.getSteen(0).getCijfer();
+        int hoogsteCijfer = this.getSteen(this.lengte() - 1).getCijfer();
 
-        return this.nUniekeCijfers() == this.getStenen().size()
-                && hoogsteCijfer - laagsteCijfer + 1 == this.getStenen().size()
+        return this.nUniekeCijfers() == this.lengte()
+                && hoogsteCijfer - laagsteCijfer + 1 == this.lengte()
                 && this.nUniekeKleuren() == 1;
     }
 

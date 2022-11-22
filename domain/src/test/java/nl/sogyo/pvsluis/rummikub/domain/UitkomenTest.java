@@ -74,7 +74,7 @@ public class UitkomenTest {
         test.speelSteenVanPlankjeNaarSet(14, 0);
         test.geefBeurtDoor();
         test.speelSteenVanPlankjeNaarSet(0, 0);
-        assertEquals(3, test.getSets().get(0).getStenen().size());
+        assertEquals(3, test.getSets().get(0).lengte());
     }
 
     @Test
@@ -85,7 +85,7 @@ public class UitkomenTest {
         test.speelSteenVanPlankjeNaarSet(14, 0);
         test.geefBeurtDoor();
         test.speelSteenVanPlankjeNaarSet(0, 1);
-        assertEquals(1, test.getSets().get(1).getStenen().size());
+        assertEquals(1, test.getSets().get(1).lengte());
     }
 
     @Test
@@ -103,7 +103,7 @@ public class UitkomenTest {
         test.speelSteenVanPlankjeNaarSet(14, 1);
         test.geefBeurtDoor();
         test.speelSteenVanSetNaarSet(0, 0, 1);
-        assertEquals(4, test.getSets().get(1).getStenen().size());
+        assertEquals(4, test.getSets().get(1).lengte());
     }
 
     @Test
@@ -114,7 +114,7 @@ public class UitkomenTest {
         test.speelSteenVanPlankjeNaarSet(14, 0);
         test.geefBeurtDoor();
         test.speelSteenVanSetNaarSet(0, 0, 1);
-        assertEquals(3, test.getSets().get(0).getStenen().size());
+        assertEquals(3, test.getSets().get(0).lengte());
     }
 
     @Test
@@ -126,7 +126,7 @@ public class UitkomenTest {
         test.geefBeurtDoor();
         test.speelSteenVanPlankjeNaarSet(0, 1);
         test.speelSteenVanSetNaarSet(1, 0, 0);
-        assertEquals(1, test.getSets().get(1).getStenen().size());
+        assertEquals(1, test.getSets().get(1).lengte());
 
     }
 }

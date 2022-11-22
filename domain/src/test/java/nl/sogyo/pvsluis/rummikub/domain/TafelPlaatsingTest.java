@@ -27,7 +27,7 @@ public class TafelPlaatsingTest {
 
     private static Tafel voorbeeldSpel1() {
         Tafel tafel = new Tafel(2);
-        tafel.speelSteenVanPlankjeNaarSet(0, tafel.getSets().size());
+        tafel.speelSteenVanPlankjeNaarSet(0, tafel.lengteSets());
         return tafel;
     }
 
@@ -35,19 +35,19 @@ public class TafelPlaatsingTest {
     public void vanPlankjeNaarNieuweSetVerwijdertVanPlankje() {
         Tafel test = voorbeeldSpel1();
 
-        assertEquals(13, test.getPlankjeMetBeurt().getStenen().size());
+        assertEquals(13, test.getPlankjeMetBeurt().lengte());
     }
 
     @Test
     public void vanPlankjeNaarNieuweSetMaaktSetAan() {
         Tafel test = voorbeeldSpel1();
 
-        assertEquals(1, test.getSets().size());
+        assertEquals(1, test.lengteSets());
     }
 
     private static Tafel voorbeeldSpel2() {
         Tafel tafel = new Tafel(2);
-        tafel.speelSteenVanPlankjeNaarSet(0, tafel.getSets().size());
+        tafel.speelSteenVanPlankjeNaarSet(0, tafel.lengteSets());
         tafel.speelSteenVanPlankjeNaarSet(0, 0);
         return tafel;
     }
@@ -56,47 +56,47 @@ public class TafelPlaatsingTest {
     public void vanPlankjeNaarBestaandeSetVerwijdertVanPlankje() {
         Tafel test = voorbeeldSpel2();
 
-        assertEquals(12, test.getPlankjeMetBeurt().getStenen().size());
+        assertEquals(12, test.getPlankjeMetBeurt().lengte());
     }
 
     @Test
     public void vanPlankjeNaarBestaandeSetVergrootBestaandeSet() {
         Tafel test = voorbeeldSpel2();
 
-        assertEquals(2, test.getSets().get(0).getStenen().size());
+        assertEquals(2, test.getSets().get(0).lengte());
     }
 
     @Test
     public void vanSetNaarNieuweSetVerkleintOudeSet() {
         Tafel test = voorbeeldSpel2();
-        test.speelSteenVanSetNaarSet(0, 0, test.getSets().size());
+        test.speelSteenVanSetNaarSet(0, 0, test.lengteSets());
 
-        assertEquals(1, test.getSets().get(0).getStenen().size());
+        assertEquals(1, test.getSets().get(0).lengte());
     }
 
     @Test
     public void vanSetNaarNieuweSetMaaktSetErbij() {
         Tafel test = voorbeeldSpel2();
-        test.speelSteenVanSetNaarSet(0, 0, test.getSets().size());
+        test.speelSteenVanSetNaarSet(0, 0, test.lengteSets());
 
-        assertEquals(2, test.getSets().size());
+        assertEquals(2, test.lengteSets());
     }
 
     @Test
     public void vanSetNaarBestaandeSetGeeft2StenenInDoelSet() {
         Tafel test = voorbeeldSpel2();
-        test.speelSteenVanSetNaarSet(0, 0, test.getSets().size());
+        test.speelSteenVanSetNaarSet(0, 0, test.lengteSets());
         test.speelSteenVanSetNaarSet(1, 0, 0);
 
-        assertEquals(2, test.getSets().get(0).getStenen().size());
+        assertEquals(2, test.getSets().get(0).lengte());
     }
 
     @Test
     public void vanSetSize1NaarNieuweSetVerwijdertSet() {
         Tafel test = voorbeeldSpel1();
-        test.speelSteenVanSetNaarSet(0, 0, test.getSets().size());
+        test.speelSteenVanSetNaarSet(0, 0, test.lengteSets());
 
-        assertEquals(1, test.getSets().size());
+        assertEquals(1, test.lengteSets());
     }
 
 }
