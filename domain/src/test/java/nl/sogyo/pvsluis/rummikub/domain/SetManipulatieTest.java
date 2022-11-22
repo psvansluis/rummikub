@@ -16,7 +16,7 @@ public class SetManipulatieTest {
         Set set = new Set();
         set.voegSteenToe(a);
         set.voegSteenToe(b);
-        assertEquals(b, set.getStenen().get(0));
+        assertEquals(b, set.getSteen(0));
     }
 
     @Test
@@ -26,7 +26,7 @@ public class SetManipulatieTest {
         Set set = new Set();
         set.voegSteenToe(a);
         set.voegSteenToe(b);
-        assertEquals(2, set.getStenen().size());
+        assertEquals(2, set.lengte());
     }
 
     @Test
@@ -37,7 +37,7 @@ public class SetManipulatieTest {
         set.voegSteenToe(a);
         set.voegSteenToe(b);
         set.verwijderSteen(a);
-        assertEquals(b, set.getStenen().get(0));
+        assertEquals(b, set.getSteen(0));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class SetManipulatieTest {
         Set set2 = new Set();
         set2.voegSteenToe(b);
         set1.verplaatsSteen(a, set2);
-        assertEquals(b, set2.getStenen().get(1));
+        assertEquals(b, set2.getSteen(1));
     }
 
     @Test
@@ -61,7 +61,7 @@ public class SetManipulatieTest {
         Set set2 = new Set();
         set2.voegSteenToe(b);
         set1.verplaatsSteen(a, set2);
-        assertEquals(0, set1.getStenen().size());
+        assertEquals(0, set1.lengte());
     }
 
 }

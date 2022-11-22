@@ -10,14 +10,14 @@ public class PlankjeTest {
     @Test
     public void eenNieuwPlankjeBegintMet14Stenen() {
         Plankje p = new Plankje(1);
-        assertEquals(14, p.getStenen().size());
+        assertEquals(14, p.lengte());
     }
 
     @Test
     public void eenPlankjeDatMeteenEenSteenpaktHeeft15StenenOpZijnPlankje() {
         Plankje p = new Plankje(1);
         p.neemSteenUitPot();
-        assertEquals(15, p.getStenen().size());
+        assertEquals(15, p.lengte());
     }
 
     @Test

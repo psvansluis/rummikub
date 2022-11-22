@@ -3,6 +3,7 @@ package nl.sogyo.pvsluis.rummikub.domain;
 import java.util.ArrayList;
 
 class Tafel {
+    private static final int MINIMALE_CIJFERSOM_VOOR_UITKOMEN = 30;
     private ArrayList<Set> sets;
     private ArrayList<Set> setsBijAanvangBeurt;
     private Plankje eerstePlankje;
@@ -25,12 +26,16 @@ class Tafel {
         return sets;
     }
 
+    int lengteSets() {
+        return this.getSets().size();
+    }
+
     ArrayList<Set> getSetsBijAanvangBeurt() {
         return setsBijAanvangBeurt;
     }
 
     private Set getSetOfMaakSetAan(int setIndex) {
-        if (setIndex < this.getSets().size()) {
+        if (setIndex < this.lengteSets()) {
             return this.getSets().get(setIndex);
         } else {
             return this.maakSetEnKeerDezeUit();
@@ -82,7 +87,7 @@ class Tafel {
             }
         }
         if (steenKomtDezeBeurtVanPlankje(
-                this.getSets().get(bronSetIndex).getStenen().get(steenIndex))) {
+                this.getSets().get(bronSetIndex).getSteen(steenIndex))) {
             this.getSets().get(bronSetIndex).verplaatsSteen(
                     steenIndex,
                     this.getPlankjeMetBeurt());
@@ -101,7 +106,7 @@ class Tafel {
     private static int getStenenInSets(ArrayList<Set> sets) {
         int out = 0;
         for (Set set : sets) {
-            out += set.getStenen().size();
+            out += set.lengte();
         }
         return out;
     }
@@ -132,7 +137,8 @@ class Tafel {
         }
         if (!this.getPlankjeMetBeurt().isUitgekomen()
                 && (getSomCijfers(this.getSets()) < getSomCijfers(
-                        this.getSetsBijAanvangBeurt()) + 30)) {
+                        this.getSetsBijAanvangBeurt())
+                        + MINIMALE_CIJFERSOM_VOOR_UITKOMEN)) {
             return;
         }
         this.getPlankjeMetBeurt().setUitgekomen(true);
@@ -143,11 +149,11 @@ class Tafel {
 
     private Set maakSetEnKeerDezeUit() {
         this.getSets().add(new Set());
-        return this.getSets().get(this.getSets().size() - 1);
+        return this.getSets().get(this.lengteSets() - 1);
     }
 
     private void verwijderLegeSets() {
-        this.getSets().removeIf((Set set) -> set.getStenen().isEmpty());
+        this.getSets().removeIf((Set set) -> set.isLeeg());
     }
 
     private static ArrayList<Set> kopieerSets(

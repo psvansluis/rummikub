@@ -46,7 +46,7 @@ public class Rummikub {
     }
 
     public int aantalStenenInPot() {
-        return this.tafel.getEerstePlankje().getPot().getStenen().size();
+        return this.tafel.getEerstePlankje().getPot().lengte();
     }
 
     public boolean kanBeurtDoorgeven() {

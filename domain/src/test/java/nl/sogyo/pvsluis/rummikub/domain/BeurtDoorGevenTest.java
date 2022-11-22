@@ -14,7 +14,7 @@ public class BeurtDoorGevenTest {
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR1));
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR2));
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR3));
-        tafel.speelSteenVanPlankjeNaarSet(14, tafel.getSets().size());
+        tafel.speelSteenVanPlankjeNaarSet(14, tafel.lengteSets());
         tafel.speelSteenVanPlankjeNaarSet(14, 0);
         tafel.speelSteenVanPlankjeNaarSet(14, 0);
     }
@@ -23,7 +23,7 @@ public class BeurtDoorGevenTest {
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR1));
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(4, Kleur.KLEUR2));
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(7, Kleur.KLEUR1));
-        tafel.speelSteenVanPlankjeNaarSet(14, tafel.getSets().size());
+        tafel.speelSteenVanPlankjeNaarSet(14, tafel.lengteSets());
         tafel.speelSteenVanPlankjeNaarSet(14, 0);
         tafel.speelSteenVanPlankjeNaarSet(14, 0);
     }

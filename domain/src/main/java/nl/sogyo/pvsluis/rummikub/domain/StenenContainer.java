@@ -53,4 +53,16 @@ abstract class StenenContainer {
         return (ArrayList<Steen>) bronStenen.clone();
     }
 
+    boolean isLeeg() {
+        return this.getStenen().isEmpty();
+    }
+
+    Steen getSteen(int index) {
+        return this.getStenen().get(index);
+    }
+
+    int lengte() {
+        return this.getStenen().size();
+    }
+
 }

@@ -19,7 +19,7 @@ public class ResetTest {
         test.speelSteenVanPlankjeNaarSet(0, 0);
         test.speelSteenVanPlankjeNaarSet(0, 0);
         test.resetSpelNaarAanvangBeurt();
-        assertEquals(0, test.getSets().size());
+        assertEquals(0, test.lengteSets());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class ResetTest {
         test.speelSteenVanPlankjeNaarSet(0, 0);
         test.speelSteenVanPlankjeNaarSet(0, 0);
         test.resetSpelNaarAanvangBeurt();
-        assertEquals(14, test.getPlankjeMetBeurt().getStenen().size());
+        assertEquals(14, test.getPlankjeMetBeurt().lengte());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class ResetTest {
         test.speelSteenVanPlankjeNaarSet(0, 1);
         test.speelSteenVanPlankjeNaarSet(0, 1);
         test.resetSpelNaarAanvangBeurt();
-        assertEquals(1, test.getSets().size());
+        assertEquals(1, test.lengteSets());
     }
 
     @Test
@@ -63,7 +63,7 @@ public class ResetTest {
         test.speelSteenVanPlankjeNaarSet(0, 1);
         test.speelSteenVanPlankjeNaarSet(0, 1);
         test.resetSpelNaarAanvangBeurt();
-        assertEquals(14, test.getPlankjeMetBeurt().getStenen().size());
+        assertEquals(14, test.getPlankjeMetBeurt().lengte());
     }
 
     @Test
@@ -77,7 +77,7 @@ public class ResetTest {
         test.speelSteenVanPlankjeNaarSet(1, 1);
         test.speelSteenVanPlankjeNaarSet(8, 1);
         test.resetSpelNaarAanvangBeurt();
-        assertEquals(0, test.getSets().size());
+        assertEquals(0, test.lengteSets());
     }
 
     // Test terugzetten van Steen op Plankje
@@ -86,7 +86,7 @@ public class ResetTest {
         Tafel test = new Tafel(2);
         test.speelSteenVanPlankjeNaarSet(0, 0);
         test.speelSteenVanSetNaarPlankje(0, 0);
-        assertEquals(14, test.getPlankjeMetBeurt().getStenen().size());
+        assertEquals(14, test.getPlankjeMetBeurt().lengte());
     }
 
     @Test
@@ -100,7 +100,7 @@ public class ResetTest {
         test.speelSteenVanPlankjeNaarSet(14, 0);
         test.geefBeurtDoor();
         test.speelSteenVanSetNaarPlankje(0, 0);
-        assertEquals(14, test.getPlankjeMetBeurt().getStenen().size());
+        assertEquals(14, test.getPlankjeMetBeurt().lengte());
     }
 
     @Test
@@ -121,7 +121,7 @@ public class ResetTest {
         test.speelSteenVanPlankjeNaarSet(14, 1);
         test.geefBeurtDoor();
         test.speelSteenVanSetNaarPlankje(0, 0);
-        assertEquals(14, test.getPlankjeMetBeurt().getStenen().size());
+        assertEquals(14, test.getPlankjeMetBeurt().lengte());
     }
 
 }
