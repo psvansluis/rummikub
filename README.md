@@ -103,14 +103,14 @@ Zo mogelijk zou ik ook een onaf spel en/of highscores willen opslaan. Ik heb nog
 - ~~Skelet voor frontend~~
 
 ### Week 1
-- Er is een Maven projectstructuur voor ~~het domein en~~ de API.
-- Er zijn steentjes verzameld in een pot
-- Er is een speler en deze kan steentjes uit de pot halen.
-- Er is een Set object en de speler kan hier steentjes in leggen
-- Een Set kan controleren of deze valide is
-- De speler kan zijn beurt afsluiten.
-  - Hij kan aan de tafel vragen of hij geen niet-valide sets bevat. 
-  - De tafel kan aan ieder steentje vragen of hij zich in een valide set bevindt.
+- ~~Er is een Maven projectstructuur voor het domein en de API.~~
+- ~~Er zijn steentjes verzameld in een pot~~
+- ~~Er is een speler en deze kan steentjes uit de pot halen.~~
+- ~~Er is een Set object en de speler kan hier steentjes in leggen~~
+- ~~Een Set kan controleren of deze valide is~~
+- ~~De speler kan zijn beurt afsluiten.~~
+  - ~~Hij kan aan de tafel vragen of hij geen niet-valide sets bevat.~~ 
+  - ~~De tafel kan aan ieder steentje vragen of hij zich in een valide set bevindt.~~
 - Een client kan de API vragen om zijn plankje en de tafel
 - Een client kan de verplaatsing van een steen en een verzoek om de beurt af te sluiten doorgeven aan de API
 - Het plankje en de tafel zijn gevisualiseerd in een website.
@@ -118,12 +118,12 @@ Zo mogelijk zou ik ook een onaf spel en/of highscores willen opslaan. Ik heb nog
 - Het antwoord op de vraag of de tafel geen niet-valide sets bevat is zichtbaar voor de gebruiker.
 
 ### Week 2
-- Een speler met beurt kan de spelsituatie resetten naar het begin van zijn beurt.
-- Een speler kan zijn beurt doorgeven aan de volgende speler.
-- Regels voor uitkomen zijn geïmplementeerd
-  - Een speler kan pas uitkomen als hij dertig punten toevoegt aan de tafel
-  - Een speler mag bij het uitkomen geen bestaande sets manipuleren
-- Een speler mag steentjes die hij binnen zijn beurt op tafel heeft gelegd vóór het einde van zijn beurt terugleggen op zijn plankje, maar geen andere steentjes (het spel is zonder deze feature speelbaar door te resetten)
+- ~~Een speler met beurt kan de spelsituatie resetten naar het begin van zijn beurt.~~
+- ~~Een speler kan zijn beurt doorgeven aan de volgende speler.~~
+- ~~Regels voor uitkomen zijn geïmplementeerd~~
+  - ~~Een speler kan pas uitkomen als hij dertig punten toevoegt aan de tafel~~
+  - ~~Een speler mag bij het uitkomen geen bestaande sets manipuleren~~
+- ~~Een speler mag steentjes die hij binnen zijn beurt op tafel heeft gelegd vóór het einde van zijn beurt terugleggen op zijn plankje, maar geen andere steentjes (het spel is zonder deze feature speelbaar door te resetten)~~
 - Bug fixes, QA, etc.
 
 
