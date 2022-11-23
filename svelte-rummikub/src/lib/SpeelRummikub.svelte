@@ -1,15 +1,16 @@
 <script lang="ts">
   import type { SpelStatus } from "../types/SpelStatus.type";
   import Plankje from "./componenten/Plankje.svelte";
+  import Tafel from "./componenten/Tafel.svelte";
 
   export let spelStatus: SpelStatus;
 </script>
 
-<h1>{spelStatus.spelerMetBeurt} is aan de beurt</h1>
-
-<button>Haal steen uit pot ({spelStatus.stenenInPot} resterend)</button>
-
 <div>
+  <div>
+    <Tafel sets={spelStatus.sets} />
+    <div>Controls</div>
+  </div>
   <Plankje
     plankje={spelStatus.plankje}
     eigenaar={spelStatus.spelerMetBeurt}

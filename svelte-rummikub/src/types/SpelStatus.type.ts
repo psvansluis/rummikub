@@ -1,5 +1,6 @@
 export type SpelStatus = {
   plankje: Plankje;
+  sets: Set[];
   spelerMetBeurt: string;
   stenenInPot: number;
   spelerMetBeurtIsUitgekomen: boolean;
