@@ -25,13 +25,13 @@ header {
   position: fixed;
   width: 100%;
   top: 0px;
-  height: 80px;
+  height: 60px;
   background-color: var(--color-one);
   color: var(--light-text-color);
 }
 
 header h1 {
-  margin: 10px;
+  margin: 5px;
   text-align: center;
 }
 
@@ -53,13 +53,14 @@ nav a:hover {
 
 main {
   padding: 10px;
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
 div.set {
     padding: 5px;
     border-radius: 5px;
     background-color: var(--color-three);
+    background-image: url("./assets/classy-fabric.png");
     flex: 0;
 }
 

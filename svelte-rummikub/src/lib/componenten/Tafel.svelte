@@ -24,7 +24,7 @@
     background-color: var(--color-two);
     background-image: url("../../assets/classy-fabric.png");
     min-height: 300px;
-    min-width: 600px;
-    width: 80%;
+    min-width: 500px;
+    width: 90%;
   }
 </style>

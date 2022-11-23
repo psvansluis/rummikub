@@ -12,7 +12,7 @@
   <div id="eigenaarbadge">
     <div id="eigenaarnaam">{eigenaar}</div>
     {#if !uitgekomen}
-      <div id="uitgekomenbericht">Nog niet uitgekomen</div>
+      <div id="uitgekomenbericht">Niet uitgekomen</div>
     {/if}
   </div>
   <div id="plankje">
