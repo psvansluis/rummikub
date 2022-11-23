@@ -1,10 +1,20 @@
 export type SpelStatus = {
   plankje: Plankje;
+  sets: Set[];
+  spelerMetBeurt: string;
+  stenenInPot: number;
+  spelerMetBeurtIsUitgekomen: boolean;
+  spelerKanBeurtDoorgeven: boolean;
 };
 
 export type Plankje = {
   stenen: Steen[];
 };
+
+export type Set = {
+  stenen: Steen[];
+  isValide: boolean;
+}
 
 export type Steen = {
   cijfer: number;
