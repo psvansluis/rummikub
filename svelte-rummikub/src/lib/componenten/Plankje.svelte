@@ -24,7 +24,7 @@
 
 <style>
   #eigenaarbadge {
-    background-color: white;
+    background-color: var(--light-three);
     max-width: 200px;
   }
 

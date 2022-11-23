@@ -4,12 +4,14 @@
   import Tafel from "./componenten/Tafel.svelte";
 
   export let spelStatus: SpelStatus;
+  let bronSetIndex: number;
+  let steenIndex: number;
+  let doelSetIndex: number;
 </script>
 
 <div>
   <div>
     <Tafel sets={spelStatus.sets} />
-    <div>Controls</div>
   </div>
   <Plankje
     plankje={spelStatus.plankje}

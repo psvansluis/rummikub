@@ -4,11 +4,15 @@
   line-height: 24px;
   font-weight: 400;
 
-  --color-one: #43226f;
-  --color-two: #214813;
-  --color-three: #661b2a;
+  --color-one: hsl(266, 53%, 28%);
+  --color-two: hsl(104, 58%, 18%);
+  --color-three: hsl(348, 58%, 25%);
   --light-one: hsl(266, 53%, 95%);
+  --light-two:hsl(104, 58%, 95%);
+  --light-three: hsl(348, 58%, 95%);
   --light-text-color: #efe8de;
+  --kleur-steen: hsl(36, 40%, 76%);
+  --kleur-steen-transparant: hsla(36, 40%, 76%, 50%);
 }
 
 body {
@@ -50,4 +54,26 @@ nav a:hover {
 main {
   padding: 10px;
   padding-top: 80px;
+}
+
+div.set {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--color-three);
+    flex: 0;
+}
+
+button.steen {
+  font-size: larger;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  min-width: 45px;
+  height: 60px;
+  background-color: var(--kleur-steen);
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 2px 2px 3px black;
 }

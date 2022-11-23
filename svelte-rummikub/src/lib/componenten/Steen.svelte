@@ -1,5 +1,4 @@
 <script lang="ts">
-  import "./steen.css";
   import type { Steen } from "../../types/SpelStatus.type";
 
   export let steen: Steen;
