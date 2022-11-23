@@ -14,18 +14,18 @@ public class BeurtDoorGevenTest {
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR1));
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR2));
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR3));
-        tafel.speelSteenVanPlankjeNaarSet(14, tafel.lengteSets());
-        tafel.speelSteenVanPlankjeNaarSet(14, 0);
-        tafel.speelSteenVanPlankjeNaarSet(14, 0);
+        tafel.speelSteen(-1, 14, tafel.lengteSets());
+        tafel.speelSteen(-1, 14, 0);
+        tafel.speelSteen(-1, 14, 0);
     }
 
     private static void beurtDieNietDoorgegevenKanWorden(Tafel tafel) {
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR1));
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(4, Kleur.KLEUR2));
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(7, Kleur.KLEUR1));
-        tafel.speelSteenVanPlankjeNaarSet(14, tafel.lengteSets());
-        tafel.speelSteenVanPlankjeNaarSet(14, 0);
-        tafel.speelSteenVanPlankjeNaarSet(14, 0);
+        tafel.speelSteen(-1, 14, tafel.lengteSets());
+        tafel.speelSteen(-1, 14, 0);
+        tafel.speelSteen(-1, 14, 0);
     }
 
     @Test

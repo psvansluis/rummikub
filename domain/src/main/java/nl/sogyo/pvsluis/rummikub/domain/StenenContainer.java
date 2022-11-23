@@ -49,6 +49,7 @@ abstract class StenenContainer {
         Collections.sort(this.stenen);
     }
 
+    @SuppressWarnings("unchecked")
     static ArrayList<Steen> kopieerStenen(ArrayList<Steen> bronStenen) {
         return (ArrayList<Steen>) bronStenen.clone();
     }

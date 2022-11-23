@@ -35,40 +35,86 @@ class Tafel {
     }
 
     private Set getSetOfMaakSetAan(int setIndex) {
-        if (setIndex < this.lengteSets()) {
-            return this.getSets().get(setIndex);
+        return setIndex < this.lengteSets()
+                ? this.getSets().get(setIndex)
+                : this.maakSetEnKeerDezeUit();
+    }
+
+    StenenContainer getStenenContainerOfMaakAan(int containerIndex) {
+        return containerIndex < 0
+                ? this.getPlankjeMetBeurt()
+                : this.getSetOfMaakSetAan(containerIndex);
+    }
+
+    private boolean setMagBewerktWorden(int setIndex) {
+        if (this.getPlankjeMetBeurt().isUitgekomen()) {
+            return true;
         } else {
-            return this.maakSetEnKeerDezeUit();
+            return this.setIsNieuwInBeurt(setIndex);
         }
     }
 
-    void speelSteenVanPlankjeNaarSet(
-            int steenIndex, int doelSetIndex) {
-        if (!this.getPlankjeMetBeurt().isUitgekomen()) {
-            if (!setIsNieuwInBeurt(doelSetIndex)) {
-                return;
-            }
+    void speelSteen(
+            int bronContainerIndex,
+            int steenIndex,
+            int doelContainerIndex) {
+        if (doelContainerIndex < 0 && !this.steenKomtDezeBeurtVanPlankje(
+                bronContainerIndex, steenIndex)) {
+            return;
         }
-        this.getPlankjeMetBeurt().verplaatsSteen(
-                steenIndex,
-                this.getSetOfMaakSetAan(doelSetIndex));
-    }
+        // if (!this.setMagBewerktWorden(doelContainerIndex)
+        // || !this.setMagBewerktWorden(bronContainerIndex)) {
+        // return;
+        // }
 
-    void speelSteenVanSetNaarSet(
-            int bronSetIndex, int steenIndex, int doelSetIndex) {
-        if (!this.getPlankjeMetBeurt().isUitgekomen()) {
-            if (!setIsNieuwInBeurt(bronSetIndex)) {
-                return;
-            }
-            if (!setIsNieuwInBeurt(doelSetIndex)) {
-                return;
-            }
-        }
-        this.getSets().get(bronSetIndex).verplaatsSteen(
-                steenIndex,
-                this.getSetOfMaakSetAan(doelSetIndex));
+        this.getStenenContainerOfMaakAan(bronContainerIndex)
+                .verplaatsSteen(steenIndex,
+                        this.getStenenContainerOfMaakAan(doelContainerIndex));
+
         this.verwijderLegeSets();
     }
+
+    // void speelSteenVanPlankjeNaarSet(
+    // int steenIndex, int doelSetIndex) {
+    // if (!this.getPlankjeMetBeurt().isUitgekomen()) {
+    // if (!setIsNieuwInBeurt(doelSetIndex)) {
+    // return;
+    // }
+    // }
+    // this.getPlankjeMetBeurt().verplaatsSteen(
+    // steenIndex,
+    // this.getSetOfMaakSetAan(doelSetIndex));
+    // }
+
+    // void speelSteenVanSetNaarSet(
+    // int bronSetIndex, int steenIndex, int doelSetIndex) {
+    // if (!this.getPlankjeMetBeurt().isUitgekomen()) {
+    // if (!setIsNieuwInBeurt(bronSetIndex)) {
+    // return;
+    // }
+    // if (!setIsNieuwInBeurt(doelSetIndex)) {
+    // return;
+    // }
+    // }
+    // this.getSets().get(bronSetIndex).verplaatsSteen(
+    // steenIndex,
+    // this.getSetOfMaakSetAan(doelSetIndex));
+    // this.verwijderLegeSets();
+    // }
+
+    // void speelSteenVanSetNaarPlankje(int bronSetIndex, int steenIndex) {
+    // if (!this.getPlankjeMetBeurt().isUitgekomen()) {
+    // if (!setIsNieuwInBeurt(bronSetIndex)) {
+    // return;
+    // }
+    // }
+    // if (steenKomtDezeBeurtVanPlankje(
+    // this.getSets().get(bronSetIndex).getSteen(steenIndex))) {
+    // this.getSets().get(bronSetIndex).verplaatsSteen(
+    // steenIndex,
+    // this.getPlankjeMetBeurt());
+    // }
+    // }
 
     boolean steenKomtDezeBeurtVanPlankje(Steen steen) {
         return this.getPlankjeMetBeurt()
@@ -76,22 +122,14 @@ class Tafel {
                 .contains(steen);
     }
 
-    boolean setIsNieuwInBeurt(int setIndex) {
-        return this.getSetsBijAanvangBeurt().size() <= setIndex;
+    boolean steenKomtDezeBeurtVanPlankje(int setIndex, int steenIndex) {
+        return this.steenKomtDezeBeurtVanPlankje(
+                this.getSets().get(setIndex).getSteen(steenIndex));
     }
 
-    void speelSteenVanSetNaarPlankje(int bronSetIndex, int steenIndex) {
-        if (!this.getPlankjeMetBeurt().isUitgekomen()) {
-            if (!setIsNieuwInBeurt(bronSetIndex)) {
-                return;
-            }
-        }
-        if (steenKomtDezeBeurtVanPlankje(
-                this.getSets().get(bronSetIndex).getSteen(steenIndex))) {
-            this.getSets().get(bronSetIndex).verplaatsSteen(
-                    steenIndex,
-                    this.getPlankjeMetBeurt());
-        }
+    boolean setIsNieuwInBeurt(int setIndex) {
+        return this.getSetsBijAanvangBeurt().size() >= setIndex
+                || setIndex < 0;
     }
 
     boolean alleSetsZijnValide() {
@@ -113,9 +151,17 @@ class Tafel {
 
     boolean kanBeurtDoorgeven() {
         return this.alleSetsZijnValide()
+                && this.kanUitkomenOfHoeftNiet()
                 && getStenenInSets(
                         this.getSetsBijAanvangBeurt()) < getStenenInSets(
                                 this.getSets());
+    }
+
+    boolean kanUitkomenOfHoeftNiet() {
+        return this.getPlankjeMetBeurt().isUitgekomen()
+                || (getSomCijfers(this.getSets()) >= getSomCijfers(
+                        this.getSetsBijAanvangBeurt())
+                        + MINIMALE_CIJFERSOM_VOOR_UITKOMEN);
     }
 
     private static int getSomCijfers(ArrayList<Set> sets) {
@@ -133,12 +179,6 @@ class Tafel {
 
     void geefBeurtDoor() {
         if (!this.kanBeurtDoorgeven()) {
-            return;
-        }
-        if (!this.getPlankjeMetBeurt().isUitgekomen()
-                && (getSomCijfers(this.getSets()) < getSomCijfers(
-                        this.getSetsBijAanvangBeurt())
-                        + MINIMALE_CIJFERSOM_VOOR_UITKOMEN)) {
             return;
         }
         this.getPlankjeMetBeurt().setUitgekomen(true);
@@ -170,6 +210,12 @@ class Tafel {
     public void resetSpelNaarAanvangBeurt() {
         this.sets = kopieerSets(setsBijAanvangBeurt);
         this.getPlankjeMetBeurt().resetStenenNaarAanvangBeurt();
+    }
+
+    public void eindigBeurtDoorSteenTeNemen() {
+        this.resetSpelNaarAanvangBeurt();
+        this.getPlankjeMetBeurt().neemSteenUitPot();
+        this.geefBeurtDoor();
     }
 
 }

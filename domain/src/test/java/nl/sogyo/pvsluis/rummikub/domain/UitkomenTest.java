@@ -34,9 +34,9 @@ public class UitkomenTest {
     @Test
     public void eenSpelerKanUitkomen() {
         Tafel test = testSpel1();
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
         test.getSets();
         assertTrue(test.getEerstePlankje().isUitgekomen());
@@ -45,9 +45,9 @@ public class UitkomenTest {
     @Test
     public void eenSpelerKanNietUitkomenDoorTeWeinigPunten() {
         Tafel test = testSpel1();
-        test.speelSteenVanPlankjeNaarSet(17, 0);
-        test.speelSteenVanPlankjeNaarSet(17, 0);
-        test.speelSteenVanPlankjeNaarSet(17, 0);
+        test.speelSteen(-1, 17, 0);
+        test.speelSteen(-1, 17, 0);
+        test.speelSteen(-1, 17, 0);
         test.geefBeurtDoor();
         assertFalse(test.getEerstePlankje().isUitgekomen());
     }
@@ -55,12 +55,12 @@ public class UitkomenTest {
     @Test
     public void eenSpelerKomtUitMetTweeSets() {
         Tafel test = testSpel2();
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 1);
-        test.speelSteenVanPlankjeNaarSet(14, 1);
-        test.speelSteenVanPlankjeNaarSet(14, 1);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 1);
+        test.speelSteen(-1, 14, 1);
+        test.speelSteen(-1, 14, 1);
         test.geefBeurtDoor();
         test.getSets();
         assertTrue(test.getEerstePlankje().isUitgekomen());
@@ -69,63 +69,63 @@ public class UitkomenTest {
     @Test
     public void eenNietUitgekomenSpelerMagNietSpelenOpBestaandeSet() {
         Tafel test = testSpel1();
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
-        test.speelSteenVanPlankjeNaarSet(0, 0);
+        test.speelSteen(-1, 0, 0);
         assertEquals(3, test.getSets().get(0).lengte());
     }
 
     @Test
     public void eenNietUitgekomenSpelerMagWelSpelenOpNieuweSet() {
         Tafel test = testSpel1();
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
-        test.speelSteenVanPlankjeNaarSet(0, 1);
+        test.speelSteen(-1, 0, 1);
         assertEquals(1, test.getSets().get(1).lengte());
     }
 
     @Test
     public void eenUitgekomenSpelerMagSpelenOpBestaandeSet() {
         Tafel test = testSpel1();
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteenVanPlankjeNaarSet(14, 1);
-        test.speelSteenVanPlankjeNaarSet(14, 1);
-        test.speelSteenVanPlankjeNaarSet(14, 1);
+        test.speelSteen(-1, 14, 1);
+        test.speelSteen(-1, 14, 1);
+        test.speelSteen(-1, 14, 1);
         test.geefBeurtDoor();
-        test.speelSteenVanSetNaarSet(0, 0, 1);
+        test.speelSteen(0, 0, 1);
         assertEquals(4, test.getSets().get(1).lengte());
     }
 
     @Test
     public void eenNietUitgekomenSpelerMagNietVanEenBestaandeSetSpelen() {
         Tafel test = testSpel1();
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
-        test.speelSteenVanSetNaarSet(0, 0, 1);
+        test.speelSteen(0, 0, 1);
         assertEquals(3, test.getSets().get(0).lengte());
     }
 
     @Test
     public void eenNietUitgekomenSpelerMagNietNaarEenBestaandeSetSpelen() {
         Tafel test = testSpel1();
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
-        test.speelSteenVanPlankjeNaarSet(0, 1);
-        test.speelSteenVanSetNaarSet(1, 0, 0);
+        test.speelSteen(-1, 0, 1);
+        test.speelSteen(1, 0, 0);
         assertEquals(1, test.getSets().get(1).lengte());
 
     }
