@@ -1,6 +1,7 @@
 package nl.sogyo.pvsluis.rummikub.api;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -72,6 +73,27 @@ public class StartRummikubTest {
         Response respons = startRummikub();
         RummikubDTO entiteit = (RummikubDTO) respons.getEntity();
         assertTrue(0 < entiteit.getStenenInPot());
+    }
+
+    @Test
+    public void eenSpelerAanHetBeginIsNietUitgekomen() {
+        Response respons = startRummikub();
+        RummikubDTO entiteit = (RummikubDTO) respons.getEntity();
+        assertFalse(entiteit.getSpelerMetBeurtIsUitgekomen());
+    }
+
+    @Test
+    public void eenSpelerAanHetBeginMagBeurtNietDoorgeven() {
+        Response respons = startRummikub();
+        RummikubDTO entiteit = (RummikubDTO) respons.getEntity();
+        assertFalse(entiteit.getSpelerKanBeurtDoorgeven());
+    }
+
+    @Test
+    public void erZijnGeenSetsBijAanvangSpel() {
+        Response respons = startRummikub();
+        RummikubDTO entiteit = (RummikubDTO) respons.getEntity();
+        assertEquals(0, entiteit.getSets().length);
     }
 
 }

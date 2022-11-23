@@ -70,8 +70,11 @@ public class Rummikub {
         return out;
     }
 
+    public boolean spelerMetBeurtIsUitgekomen() {
+        return this.tafel.getPlankjeMetBeurt().isUitgekomen();
+    }
+
     // Getters Todo:
-    // - Of speler uitgekomen is
     // - Of spel afgelopen is
     // - Bij afgelopen spel:
     // - score (punten op Plankjes van spelers en n Stenen in Pot)
