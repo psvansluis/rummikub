@@ -37,9 +37,6 @@ public class StartRummikubTest {
         StartRummikub servlet = new StartRummikub();
         HttpServletRequest request = createRequestContext();
         SpelerInputDTO input = spelerInput();
-        System.out.print(request);
-        System.out.print(input);
-
         return servlet.start(request, input);
     }
 
@@ -61,6 +58,20 @@ public class StartRummikubTest {
         Response respons = startRummikub();
         RummikubDTO entiteit = (RummikubDTO) respons.getEntity();
         assertTrue(0 < entiteit.getPlankje().getStenen()[0].getCijfer());
+    }
+
+    @Test
+    public void rummikubStartenGeeftAantalStenenInPot() {
+        Response respons = startRummikub();
+        RummikubDTO entiteit = (RummikubDTO) respons.getEntity();
+        assertEquals("Henk", entiteit.getSpelerMetBeurt());
+    }
+
+    @Test
+    public void henkIsBijHetBeginAanDeBeurt() {
+        Response respons = startRummikub();
+        RummikubDTO entiteit = (RummikubDTO) respons.getEntity();
+        assertTrue(0 < entiteit.getStenenInPot());
     }
 
 }

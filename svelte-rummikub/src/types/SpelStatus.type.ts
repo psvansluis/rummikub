@@ -1,5 +1,7 @@
 export type SpelStatus = {
   plankje: Plankje;
+  spelerMetBeurt: string;
+  stenenInPot: number;
 };
 
 export type Plankje = {
