@@ -10,5 +10,9 @@
 <button>Haal steen uit pot ({spelStatus.stenenInPot} resterend)</button>
 
 <div>
-  <Plankje plankje={spelStatus.plankje} />
+  <Plankje
+    plankje={spelStatus.plankje}
+    eigenaar={spelStatus.spelerMetBeurt}
+    uitgekomen={spelStatus.spelerMetBeurtIsUitgekomen}
+  />
 </div>
