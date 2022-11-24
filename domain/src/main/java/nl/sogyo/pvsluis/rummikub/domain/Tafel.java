@@ -80,6 +80,9 @@ class Tafel {
     }
 
     boolean steenKomtDezeBeurtVanPlankje(int setIndex, int steenIndex) {
+        if (setIndex < 0) {
+            return true;
+        }
         return this.steenKomtDezeBeurtVanPlankje(
                 this.getSets().get(setIndex).getSteen(steenIndex));
     }
