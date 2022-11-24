@@ -49,7 +49,8 @@
 
   #plankje {
     padding: 5px;
-    max-width: 600px;
+    min-width: 218px;
+    max-width: 661px;
     background-color: var(--color-three);
     background-image: url("../../assets/wood-pattern.png");
   }

@@ -15,7 +15,7 @@
 
 <style>
   div {
-    margin: 10px;
+    margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
