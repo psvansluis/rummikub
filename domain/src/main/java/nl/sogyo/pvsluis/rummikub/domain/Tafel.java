@@ -49,9 +49,8 @@ class Tafel {
     private boolean setMagBewerktWorden(int setIndex) {
         if (this.getPlankjeMetBeurt().isUitgekomen()) {
             return true;
-        } else {
-            return this.setIsNieuwInBeurt(setIndex);
         }
+        return this.isNieuweSetInBeurt(setIndex);
     }
 
     void speelSteen(
@@ -85,7 +84,7 @@ class Tafel {
                 this.getSets().get(setIndex).getSteen(steenIndex));
     }
 
-    boolean setIsNieuwInBeurt(int setIndex) {
+    boolean isNieuweSetInBeurt(int setIndex) {
         int lengteBestaandeSets = this.getSetsBijAanvangBeurt().size();
         if (setIndex < 0) {
             return true;
