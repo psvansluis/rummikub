@@ -38,8 +38,18 @@ public class UitkomenTest {
         test.speelSteen(-1, 14, 0);
         test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
-        test.getSets();
         assertTrue(test.getEerstePlankje().isUitgekomen());
+    }
+
+    @Test
+    public void eenSpelerKanNietUitkomenBijInvalideSets() {
+        Tafel test = testSpel1();
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.geefBeurtDoor();
+        assertFalse(test.getEerstePlankje().isUitgekomen());
     }
 
     @Test
@@ -62,7 +72,6 @@ public class UitkomenTest {
         test.speelSteen(-1, 14, 1);
         test.speelSteen(-1, 14, 1);
         test.geefBeurtDoor();
-        test.getSets();
         assertTrue(test.getEerstePlankje().isUitgekomen());
     }
 
