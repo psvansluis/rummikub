@@ -27,7 +27,7 @@ public class TafelPlaatsingTest {
 
     private static Tafel voorbeeldSpel1() {
         Tafel tafel = new Tafel(2);
-        tafel.speelSteenVanPlankjeNaarSet(0, tafel.lengteSets());
+        tafel.speelSteen(-1, 0, tafel.lengteSets());
         return tafel;
     }
 
@@ -47,8 +47,8 @@ public class TafelPlaatsingTest {
 
     private static Tafel voorbeeldSpel2() {
         Tafel tafel = new Tafel(2);
-        tafel.speelSteenVanPlankjeNaarSet(0, tafel.lengteSets());
-        tafel.speelSteenVanPlankjeNaarSet(0, 0);
+        tafel.speelSteen(-1, 0, tafel.lengteSets());
+        tafel.speelSteen(-1, 0, 0);
         return tafel;
     }
 
@@ -69,7 +69,7 @@ public class TafelPlaatsingTest {
     @Test
     public void vanSetNaarNieuweSetVerkleintOudeSet() {
         Tafel test = voorbeeldSpel2();
-        test.speelSteenVanSetNaarSet(0, 0, test.lengteSets());
+        test.speelSteen(0, 0, test.lengteSets());
 
         assertEquals(1, test.getSets().get(0).lengte());
     }
@@ -77,7 +77,7 @@ public class TafelPlaatsingTest {
     @Test
     public void vanSetNaarNieuweSetMaaktSetErbij() {
         Tafel test = voorbeeldSpel2();
-        test.speelSteenVanSetNaarSet(0, 0, test.lengteSets());
+        test.speelSteen(0, 0, test.lengteSets());
 
         assertEquals(2, test.lengteSets());
     }
@@ -85,8 +85,8 @@ public class TafelPlaatsingTest {
     @Test
     public void vanSetNaarBestaandeSetGeeft2StenenInDoelSet() {
         Tafel test = voorbeeldSpel2();
-        test.speelSteenVanSetNaarSet(0, 0, test.lengteSets());
-        test.speelSteenVanSetNaarSet(1, 0, 0);
+        test.speelSteen(0, 0, test.lengteSets());
+        test.speelSteen(1, 0, 0);
 
         assertEquals(2, test.getSets().get(0).lengte());
     }
@@ -94,9 +94,16 @@ public class TafelPlaatsingTest {
     @Test
     public void vanSetSize1NaarNieuweSetVerwijdertSet() {
         Tafel test = voorbeeldSpel1();
-        test.speelSteenVanSetNaarSet(0, 0, test.lengteSets());
+        test.speelSteen(0, 0, test.lengteSets());
 
         assertEquals(1, test.lengteSets());
+    }
+
+    @Test
+    public void getStenenContainerOfMaakAanGeeftPlankjeBijMin1() {
+        Tafel test = new Tafel(3);
+        assertEquals(test.getPlankjeMetBeurt(),
+                test.getStenenContainerOfMaakAan(-1));
     }
 
 }

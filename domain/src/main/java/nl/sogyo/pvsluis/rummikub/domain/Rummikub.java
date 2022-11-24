@@ -74,19 +74,34 @@ public class Rummikub {
         return this.tafel.getPlankjeMetBeurt().isUitgekomen();
     }
 
+    public boolean spelIsAfgelopen() {
+        return this.tafel.getPlankjeMetBeurt().lengte() == 0
+                && this.tafel.alleSetsZijnValide();
+    }
+
     // Getters Todo:
-    // - Of spel afgelopen is
-    // - Bij afgelopen spel:
-    // - score (punten op Plankjes van spelers en n Stenen in Pot)
+    // - Bij afgelopen spel: score (punten op Plankjes en n Stenen in Pot)
     // - Of een Steen een Joker is
 
+    public void speelSteen(
+            int bronContainerIndex, int steenIndex, int doelContainerIndex) {
+        this.tafel.speelSteen(
+                bronContainerIndex, steenIndex, doelContainerIndex);
+    }
+
+    public void sluitBeurtAf() {
+        this.tafel.geefBeurtDoor();
+    }
+
+    public void neemSteenUitPot() {
+        this.tafel.eindigBeurtDoorSteenTeNemen();
+    }
+
+    public void resetSpelNaarAanvangBeurt() {
+        this.tafel.resetSpelNaarAanvangBeurt();
+    }
+
     // Setters Todo:
-    // - Verplaats van Plankje naar Set
-    // - Verplaats van Set naar Set
-    // - Verplaats van Set naar Plankje
     // - Verander waarde Joker
-    // - Sluit beurt af
-    // - Haal Steen uit Pot
-    // - Reset Tafel en Plankje
 
 }

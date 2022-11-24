@@ -11,21 +11,21 @@ import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
 public class BeurtDoorGevenTest {
 
     private static void beurtDieWelDoorgegevenKanWorden(Tafel tafel) {
-        tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR1));
-        tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR2));
-        tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR3));
-        tafel.speelSteenVanPlankjeNaarSet(14, tafel.lengteSets());
-        tafel.speelSteenVanPlankjeNaarSet(14, 0);
-        tafel.speelSteenVanPlankjeNaarSet(14, 0);
+        tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.KLEUR1));
+        tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.KLEUR2));
+        tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.KLEUR3));
+        tafel.speelSteen(-1, 14, tafel.lengteSets());
+        tafel.speelSteen(-1, 14, 0);
+        tafel.speelSteen(-1, 14, 0);
     }
 
     private static void beurtDieNietDoorgegevenKanWorden(Tafel tafel) {
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(5, Kleur.KLEUR1));
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(4, Kleur.KLEUR2));
         tafel.getPlankjeMetBeurt().voegSteenToe(new Steen(7, Kleur.KLEUR1));
-        tafel.speelSteenVanPlankjeNaarSet(14, tafel.lengteSets());
-        tafel.speelSteenVanPlankjeNaarSet(14, 0);
-        tafel.speelSteenVanPlankjeNaarSet(14, 0);
+        tafel.speelSteen(-1, 14, tafel.lengteSets());
+        tafel.speelSteen(-1, 14, 0);
+        tafel.speelSteen(-1, 14, 0);
     }
 
     @Test
@@ -63,5 +63,15 @@ public class BeurtDoorGevenTest {
         beurtDieNietDoorgegevenKanWorden(test);
         test.geefBeurtDoor();
         assertEquals(test.getEerstePlankje(), test.getPlankjeMetBeurt());
+    }
+
+    @Test
+    public void beurtDoorgevenGeeftBeurtDoor() {
+        Tafel test = new Tafel(2);
+        beurtDieWelDoorgegevenKanWorden(test);
+        test.geefBeurtDoor();
+        assertEquals(
+                test.getEerstePlankje().getVolgendePlankje(),
+                test.getPlankjeMetBeurt());
     }
 }

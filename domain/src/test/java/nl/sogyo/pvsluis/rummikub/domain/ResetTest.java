@@ -15,9 +15,9 @@ public class ResetTest {
     @Test
     public void tafelIsLeegAlsEersteSpelerReset() {
         Tafel test = new Tafel(2);
-        test.speelSteenVanPlankjeNaarSet(0, 0);
-        test.speelSteenVanPlankjeNaarSet(0, 0);
-        test.speelSteenVanPlankjeNaarSet(0, 0);
+        test.speelSteen(-1, 0, 0);
+        test.speelSteen(-1, 0, 0);
+        test.speelSteen(-1, 0, 0);
         test.resetSpelNaarAanvangBeurt();
         assertEquals(0, test.lengteSets());
     }
@@ -25,9 +25,9 @@ public class ResetTest {
     @Test
     public void plankjeHeeft14StenenAlsEersteSpelerReset() {
         Tafel test = new Tafel(2);
-        test.speelSteenVanPlankjeNaarSet(0, 0);
-        test.speelSteenVanPlankjeNaarSet(0, 0);
-        test.speelSteenVanPlankjeNaarSet(0, 0);
+        test.speelSteen(-1, 0, 0);
+        test.speelSteen(-1, 0, 0);
+        test.speelSteen(-1, 0, 0);
         test.resetSpelNaarAanvangBeurt();
         assertEquals(14, test.getPlankjeMetBeurt().lengte());
     }
@@ -38,13 +38,13 @@ public class ResetTest {
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
-        test.speelSteenVanPlankjeNaarSet(0, 1);
-        test.speelSteenVanPlankjeNaarSet(0, 1);
-        test.speelSteenVanPlankjeNaarSet(0, 1);
+        test.speelSteen(-1, 0, 1);
+        test.speelSteen(-1, 0, 1);
+        test.speelSteen(-1, 0, 1);
         test.resetSpelNaarAanvangBeurt();
         assertEquals(1, test.lengteSets());
     }
@@ -55,13 +55,13 @@ public class ResetTest {
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
-        test.speelSteenVanPlankjeNaarSet(0, 1);
-        test.speelSteenVanPlankjeNaarSet(0, 1);
-        test.speelSteenVanPlankjeNaarSet(0, 1);
+        test.speelSteen(-1, 0, 1);
+        test.speelSteen(-1, 0, 1);
+        test.speelSteen(-1, 0, 1);
         test.resetSpelNaarAanvangBeurt();
         assertEquals(14, test.getPlankjeMetBeurt().lengte());
     }
@@ -69,13 +69,13 @@ public class ResetTest {
     @Test
     public void tweeKeerResettenTest() {
         Tafel test = new Tafel(2);
-        test.speelSteenVanPlankjeNaarSet(0, 0);
-        test.speelSteenVanPlankjeNaarSet(0, 0);
-        test.speelSteenVanPlankjeNaarSet(0, 0);
+        test.speelSteen(-1, 0, 0);
+        test.speelSteen(-1, 0, 0);
+        test.speelSteen(-1, 0, 0);
         test.resetSpelNaarAanvangBeurt();
-        test.speelSteenVanPlankjeNaarSet(4, 0);
-        test.speelSteenVanPlankjeNaarSet(1, 1);
-        test.speelSteenVanPlankjeNaarSet(8, 1);
+        test.speelSteen(-1, 4, 0);
+        test.speelSteen(-1, 1, 1);
+        test.speelSteen(-1, 8, 1);
         test.resetSpelNaarAanvangBeurt();
         assertEquals(0, test.lengteSets());
     }
@@ -84,8 +84,8 @@ public class ResetTest {
     @Test
     public void eenSteenUitSetMagTerugNaarPlankjeBinnenBeurt() {
         Tafel test = new Tafel(2);
-        test.speelSteenVanPlankjeNaarSet(0, 0);
-        test.speelSteenVanSetNaarPlankje(0, 0);
+        test.speelSteen(-1, 0, 0);
+        test.speelSteen(0, 0, -1);
         assertEquals(14, test.getPlankjeMetBeurt().lengte());
     }
 
@@ -95,11 +95,11 @@ public class ResetTest {
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
-        test.speelSteenVanSetNaarPlankje(0, 0);
+        test.speelSteen(0, 0, -1);
         assertEquals(14, test.getPlankjeMetBeurt().lengte());
     }
 
@@ -109,18 +109,18 @@ public class ResetTest {
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
-        test.speelSteenVanPlankjeNaarSet(14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
+        test.speelSteen(-1, 14, 0);
         test.geefBeurtDoor();
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteenVanPlankjeNaarSet(14, 1);
-        test.speelSteenVanPlankjeNaarSet(14, 1);
-        test.speelSteenVanPlankjeNaarSet(14, 1);
+        test.speelSteen(-1, 14, 1);
+        test.speelSteen(-1, 14, 1);
+        test.speelSteen(-1, 14, 1);
         test.geefBeurtDoor();
-        test.speelSteenVanSetNaarPlankje(0, 0);
+        test.speelSteen(0, 0, -1);
         assertEquals(14, test.getPlankjeMetBeurt().lengte());
     }
 
