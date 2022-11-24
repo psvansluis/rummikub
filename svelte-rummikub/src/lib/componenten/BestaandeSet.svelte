@@ -15,7 +15,6 @@
 
 <style>
   div {
-    padding: 5px;
     border-radius: 5px;
   }
 

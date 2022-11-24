@@ -11,22 +11,18 @@
   let bronContainerIndex: number;
   let steenIndex: number;
   let doelContainerIndex: number;
+  let paneelIndex: number;
 
-  async function speelSteen() {
+  async function postRequestNaarAPI(bestemming: string, body: any) {
     try {
-      const respons = await fetch("rummikub/api/speel", {
+      const respons = await fetch(bestemming, {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          bronContainerIndex: bronContainerIndex,
-          steenIndex: steenIndex,
-          doelContainerIndex: doelContainerIndex,
-        }),
+        body: JSON.stringify(body),
       });
-
       if (respons.ok) {
         dispatch("change", { spelStatus: await respons.json() });
       } else {
@@ -34,11 +30,19 @@
       }
     } catch (error) {
       console.error(error);
-    } finally {
-      bronContainerIndex = null;
-      steenIndex = null;
-      doelContainerIndex = null;
     }
+  }
+
+  async function speelSteen() {
+    postRequestNaarAPI("rummikub/api/speel", {
+      bronContainerIndex: bronContainerIndex,
+      steenIndex: steenIndex,
+      doelContainerIndex: doelContainerIndex,
+    });
+  }
+
+  async function paneelActie(ev) {
+    postRequestNaarAPI("rummikub/api/paneel", ev.detail.paneelIndex);
   }
 </script>
 
@@ -64,7 +68,7 @@
       eigenaar={spelStatus.spelerMetBeurt}
       uitgekomen={spelStatus.spelerMetBeurtIsUitgekomen}
     />
-    <Paneel {spelStatus} />
+    <Paneel {spelStatus} on:change={paneelActie} />
   </div>
 </div>
 
