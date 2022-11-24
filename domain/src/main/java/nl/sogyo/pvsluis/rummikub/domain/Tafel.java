@@ -62,10 +62,10 @@ class Tafel {
                 bronContainerIndex, steenIndex)) {
             return;
         }
-        // if (!this.setMagBewerktWorden(doelContainerIndex)
-        // || !this.setMagBewerktWorden(bronContainerIndex)) {
-        // return;
-        // }
+        if (!this.setMagBewerktWorden(doelContainerIndex)
+                || !this.setMagBewerktWorden(bronContainerIndex)) {
+            return;
+        }
 
         this.getStenenContainerOfMaakAan(bronContainerIndex)
                 .verplaatsSteen(steenIndex,
@@ -73,48 +73,6 @@ class Tafel {
 
         this.verwijderLegeSets();
     }
-
-    // void speelSteenVanPlankjeNaarSet(
-    // int steenIndex, int doelSetIndex) {
-    // if (!this.getPlankjeMetBeurt().isUitgekomen()) {
-    // if (!setIsNieuwInBeurt(doelSetIndex)) {
-    // return;
-    // }
-    // }
-    // this.getPlankjeMetBeurt().verplaatsSteen(
-    // steenIndex,
-    // this.getSetOfMaakSetAan(doelSetIndex));
-    // }
-
-    // void speelSteenVanSetNaarSet(
-    // int bronSetIndex, int steenIndex, int doelSetIndex) {
-    // if (!this.getPlankjeMetBeurt().isUitgekomen()) {
-    // if (!setIsNieuwInBeurt(bronSetIndex)) {
-    // return;
-    // }
-    // if (!setIsNieuwInBeurt(doelSetIndex)) {
-    // return;
-    // }
-    // }
-    // this.getSets().get(bronSetIndex).verplaatsSteen(
-    // steenIndex,
-    // this.getSetOfMaakSetAan(doelSetIndex));
-    // this.verwijderLegeSets();
-    // }
-
-    // void speelSteenVanSetNaarPlankje(int bronSetIndex, int steenIndex) {
-    // if (!this.getPlankjeMetBeurt().isUitgekomen()) {
-    // if (!setIsNieuwInBeurt(bronSetIndex)) {
-    // return;
-    // }
-    // }
-    // if (steenKomtDezeBeurtVanPlankje(
-    // this.getSets().get(bronSetIndex).getSteen(steenIndex))) {
-    // this.getSets().get(bronSetIndex).verplaatsSteen(
-    // steenIndex,
-    // this.getPlankjeMetBeurt());
-    // }
-    // }
 
     boolean steenKomtDezeBeurtVanPlankje(Steen steen) {
         return this.getPlankjeMetBeurt()
@@ -128,8 +86,11 @@ class Tafel {
     }
 
     boolean setIsNieuwInBeurt(int setIndex) {
-        return this.getSetsBijAanvangBeurt().size() >= setIndex
-                || setIndex < 0;
+        int lengteBestaandeSets = this.getSetsBijAanvangBeurt().size();
+        if (setIndex < 0) {
+            return true;
+        }
+        return setIndex >= lengteBestaandeSets;
     }
 
     boolean alleSetsZijnValide() {
