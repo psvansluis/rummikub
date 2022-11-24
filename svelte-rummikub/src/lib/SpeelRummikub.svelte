@@ -11,7 +11,6 @@
   let bronContainerIndex: number;
   let steenIndex: number;
   let doelContainerIndex: number;
-  let paneelIndex: number;
 
   async function postRequestNaarAPI(bestemming: string, body: any) {
     try {
@@ -41,7 +40,7 @@
     });
   }
 
-  async function paneelActie(ev) {
+  async function paneelActie(ev: { detail: { paneelIndex: number } }) {
     postRequestNaarAPI("rummikub/api/paneel", ev.detail.paneelIndex);
   }
 </script>
