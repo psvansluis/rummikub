@@ -12,6 +12,22 @@
   let steenIndex: number;
   let doelContainerIndex: number;
 
+  function populeerBronIndices(ev) {
+    bronContainerIndex = ev.detail.bronContainerIndex;
+    steenIndex = ev.detail.steenIndex;
+    console.log([bronContainerIndex, steenIndex, doelContainerIndex]);
+  }
+
+  function populeerDoelIndex(ev) {
+    doelContainerIndex = ev.detail.doelContainerIndex;
+    console.log([
+      "populeerDoelIndexOpSpeel",
+      bronContainerIndex,
+      steenIndex,
+      doelContainerIndex,
+    ]);
+  }
+
   async function postRequestNaarAPI(bestemming: string, body: any) {
     try {
       const respons = await fetch(bestemming, {
@@ -37,6 +53,10 @@
       bronContainerIndex: bronContainerIndex,
       steenIndex: steenIndex,
       doelContainerIndex: doelContainerIndex,
+    }).then(() => {
+      bronContainerIndex = null;
+      steenIndex = null;
+      doelContainerIndex = null;
     });
   }
 
@@ -59,21 +79,26 @@
 
 <div>
   <div>
-    <Tafel sets={spelStatus.sets} />
+    <Tafel
+      sets={spelStatus.sets}
+      on:selecteerBron={populeerBronIndices}
+      on:selecteerDoel={populeerDoelIndex}
+    />
   </div>
   <div id="onderste-rij">
     <Plankje
       plankje={spelStatus.plankje}
       eigenaar={spelStatus.spelerMetBeurt}
       uitgekomen={spelStatus.spelerMetBeurtIsUitgekomen}
+      on:selecteerBron={populeerBronIndices}
+      on:selecteerDoel={populeerDoelIndex}
     />
-    <Paneel {spelStatus} on:change={paneelActie} />
+    <Paneel {spelStatus} on:klikpaneel={paneelActie} />
   </div>
 </div>
 
 <style>
   #onderste-rij {
-    width: 90%;
     margin: 5px auto;
     display: flex;
     flex-direction: row;

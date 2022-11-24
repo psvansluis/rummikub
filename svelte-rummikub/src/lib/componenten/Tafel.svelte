@@ -1,15 +1,26 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
   import type { Set } from "../../types/SpelStatus.type";
   import BestaandeSet from "./BestaandeSet.svelte";
   import NieuweSet from "./NieuweSet.svelte";
   export let sets: Set[];
+  const dispatch = createEventDispatcher();
+  function doelSelecteerder(ev) {
+    dispatch("selecteerDoel", {
+      doelContainerIndex: ev.detail.doelContainerIndex,
+    });
+  }
 </script>
 
 <div id="tafel">
   {#if sets.length != 0}
-    {#each sets as set}<BestaandeSet {set} />{/each}
+    {#each sets as set, index (index)}<BestaandeSet
+        {set}
+        {index}
+        on:stuurDoelNaarTafel={doelSelecteerder}
+      />{/each}
   {/if}
-  <NieuweSet />
+  <NieuweSet index={sets.length} on:stuurDoelNaarTafel={doelSelecteerder} />
 </div>
 
 <style>
@@ -26,6 +37,5 @@
     background-image: url("../../assets/classy-fabric.png");
     min-height: 300px;
     min-width: 500px;
-    width: 90%;
   }
 </style>

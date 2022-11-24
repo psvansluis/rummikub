@@ -11,14 +11,14 @@
   <button
     class="actief"
     on:click={() => {
-      dispatch("change", { paneelIndex: 0 });
+      dispatch("klikpaneel", { paneelIndex: 0 });
     }}>Reset</button
   >
   {#if spelStatus.spelerKanBeurtDoorgeven}
     <button
       class="actief"
       on:click={() => {
-        dispatch("change", { paneelIndex: 1 });
+        dispatch("klikpaneel", { paneelIndex: 1 });
       }}>Einde beurt</button
     >
   {:else}
@@ -27,7 +27,7 @@
   <button
     class="actief"
     on:click={() => {
-      dispatch("change", { paneelIndex: 2 });
+      dispatch("klikpaneel", { paneelIndex: 2 });
     }}>Steen uit pot ({spelStatus.stenenInPot})</button
   >
 </div>
@@ -64,9 +64,4 @@
     color: gray;
     background-color: lightgray;
   }
-
-  /* .inactief:hover {
-    background-color: gray;
-    color: lightgray;
-  } */
 </style>

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
   import type { Plankje } from "../../types/SpelStatus.type";
   import Steen from "./Steen.svelte";
   import SteenToevoeger from "./SteenToevoeger.svelte";
@@ -6,6 +7,9 @@
   export let plankje: Plankje;
   export let eigenaar: String;
   export let uitgekomen: boolean;
+  export const index: number = -1;
+
+  const dispatch = createEventDispatcher();
 </script>
 
 <div id="plankjewrapper">
@@ -18,7 +22,11 @@
   <div id="plankje">
     {#each plankje.stenen as steen}
       <Steen {steen} />
-    {/each}<SteenToevoeger />
+    {/each}<SteenToevoeger
+      on:steenToevoegerKlikt={() => {
+        dispatch("selecteerDoel", { doelContainerIndex: index });
+      }}
+    />
   </div>
 </div>
 
