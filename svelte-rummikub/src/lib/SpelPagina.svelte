@@ -5,11 +5,12 @@
   let spelStatus: SpelStatus = undefined;
   function vernieuwSpelStatus(ev) {
     spelStatus = ev.detail.spelStatus;
+    console.log(spelStatus);
   }
 </script>
 
 {#if !spelStatus}
-  <StartRummikub {spelStatus} on:change={vernieuwSpelStatus} />
+  <StartRummikub on:change={vernieuwSpelStatus} />
 {:else}
-  <SpeelRummikub {spelStatus} />
+  <SpeelRummikub {spelStatus} on:change={vernieuwSpelStatus} />
 {/if}

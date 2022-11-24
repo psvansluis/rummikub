@@ -6,17 +6,17 @@
   export let set: Set;
 </script>
 
-<div class="{set.isValide ? 'valide' : 'invalide'} set">
+<div class="set {set.valide ? 'valide' : 'invalide'}">
   {#each set.stenen as steen}
     <Steen {steen} />
-  {/each}<SteenToevoeger />
+  {/each}
+  <SteenToevoeger />
 </div>
 
 <style>
   div {
     padding: 5px;
     border-radius: 5px;
-    background-color: var(--color-two);
   }
 
   .valide {

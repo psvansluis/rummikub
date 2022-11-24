@@ -1,10 +1,13 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
   import type { SpelStatus } from "../types/SpelStatus.type";
   import Plankje from "./componenten/Plankje.svelte";
   import Tafel from "./componenten/Tafel.svelte";
   import Paneel from "./componenten/Paneel.svelte";
 
   export let spelStatus: SpelStatus;
+  const dispatch = createEventDispatcher();
+
   let bronContainerIndex: number;
   let steenIndex: number;
   let doelContainerIndex: number;
@@ -24,7 +27,11 @@
         }),
       });
 
-      console.log(respons);
+      if (respons.ok) {
+        dispatch("change", { spelStatus: await respons.json() });
+      } else {
+        console.error(respons.statusText);
+      }
     } catch (error) {
       console.error(error);
     } finally {
@@ -38,7 +45,12 @@
 <button
   on:click={() =>
     ([bronContainerIndex, steenIndex, doelContainerIndex] = [-1, 0, 0])}
-  >kies steen</button
+  >set 0</button
+>
+<button
+  on:click={() =>
+    ([bronContainerIndex, steenIndex, doelContainerIndex] = [-1, 0, 1])}
+  >set 1</button
 >
 <button on:click={speelSteen}>speel</button>
 

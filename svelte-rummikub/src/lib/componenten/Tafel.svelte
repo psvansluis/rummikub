@@ -6,15 +6,16 @@
 </script>
 
 <div id="tafel">
-  {#each sets as set}
-    <BestaandeSet {set} />
-  {/each}<NieuweSet />
+  {#if sets.length != 0}
+    {#each sets as set}<BestaandeSet {set} />{/each}
+  {/if}
+  <NieuweSet />
 </div>
 
 <style>
   #tafel {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
     border: 2px solid black;

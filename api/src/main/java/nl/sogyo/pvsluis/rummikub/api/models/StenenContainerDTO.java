@@ -17,4 +17,8 @@ public class StenenContainerDTO {
     public SteenDTO[] getStenen() {
         return this.stenen;
     }
+
+    public void setStenen(SteenDTO[] stenen) {
+        this.stenen = stenen;
+    }
 }
