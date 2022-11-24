@@ -8,4 +8,8 @@
     color: black;
     background: var(--kleur-steen-transparant);
   }
+
+  .toevoeger:hover {
+    background: var(--kleur-steen);
+  }
 </style>

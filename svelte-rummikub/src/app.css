@@ -59,9 +59,6 @@ main {
 div.set {
     padding: 5px;
     border-radius: 5px;
-    background-color: var(--color-three);
-    background-image: url("./assets/classy-fabric.png");
-    flex: 0;
     margin: 5px;
 }
 
