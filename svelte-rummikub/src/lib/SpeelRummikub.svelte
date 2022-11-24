@@ -5,10 +5,42 @@
   import Paneel from "./componenten/Paneel.svelte";
 
   export let spelStatus: SpelStatus;
-  let bronSetIndex: number;
+  let bronContainerIndex: number;
   let steenIndex: number;
-  let doelSetIndex: number;
+  let doelContainerIndex: number;
+
+  async function speelSteen() {
+    try {
+      const respons = await fetch("rummikub/api/speel", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          bronContainerIndex: bronContainerIndex,
+          steenIndex: steenIndex,
+          doelContainerIndex: doelContainerIndex,
+        }),
+      });
+
+      console.log(respons);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      bronContainerIndex = null;
+      steenIndex = null;
+      doelContainerIndex = null;
+    }
+  }
 </script>
+
+<button
+  on:click={() =>
+    ([bronContainerIndex, steenIndex, doelContainerIndex] = [-1, 0, 0])}
+  >kies steen</button
+>
+<button on:click={speelSteen}>speel</button>
 
 <div>
   <div>
