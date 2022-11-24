@@ -144,7 +144,7 @@ class Tafel {
         }
         this.getPlankjeMetBeurt().setUitgekomen(true);
         this.getPlankjeMetBeurt().geefBeurtDoor();
-        this.setsBijAanvangBeurt = kopieerSets(sets);
+        this.setsBijAanvangBeurt = kopieerSets(this.sets);
         this.getPlankjeMetBeurt().kopieerStenenNaarStenenBijAanvangBeurt();
     }
 
