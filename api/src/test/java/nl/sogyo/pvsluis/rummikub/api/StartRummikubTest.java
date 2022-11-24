@@ -96,4 +96,12 @@ public class StartRummikubTest {
         assertEquals(0, entiteit.getSets().length);
     }
 
+    @Test
+    public void eenSpelIsNietAfgelopenBijAanvangSpel() {
+        Response respons = startRummikub();
+        RummikubDTO entiteit = (RummikubDTO) respons.getEntity();
+        assertEquals(false, entiteit.getSpelIsAfgelopen());
+
+    }
+
 }
