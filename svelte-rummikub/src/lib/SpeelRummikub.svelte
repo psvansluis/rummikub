@@ -8,14 +8,20 @@
   export let spelStatus: SpelStatus;
   const dispatch = createEventDispatcher();
 
-  let bronContainerIndex: number;
-  let steenIndex: number;
-  let doelContainerIndex: number;
+  let bronContainerIndex: number = null;
+  let steenIndex: number = null;
+  let doelContainerIndex: number = null;
 
   function populeerBronIndices(ev) {
     bronContainerIndex = ev.detail.bronContainerIndex;
     steenIndex = ev.detail.steenIndex;
-    console.log([bronContainerIndex, steenIndex, doelContainerIndex]);
+    console.log([
+      "populeerBronIndexOpSpeel",
+      bronContainerIndex,
+      steenIndex,
+      doelContainerIndex,
+    ]);
+    speelSteen();
   }
 
   function populeerDoelIndex(ev) {
@@ -26,6 +32,7 @@
       steenIndex,
       doelContainerIndex,
     ]);
+    speelSteen();
   }
 
   async function postRequestNaarAPI(bestemming: string, body: any) {
@@ -49,6 +56,9 @@
   }
 
   async function speelSteen() {
+    if ([bronContainerIndex, steenIndex, doelContainerIndex].includes(null)) {
+      return;
+    }
     postRequestNaarAPI("rummikub/api/speel", {
       bronContainerIndex: bronContainerIndex,
       steenIndex: steenIndex,
