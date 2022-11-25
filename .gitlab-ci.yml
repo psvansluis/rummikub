@@ -1,0 +1,13 @@
+image: maven:latest
+
+stages: 
+  - build
+  - deploy
+
+build-job:
+  stage: build
+  script: "mvn verify -B"
+
+deploy-job:
+  stage: deploy
+  script: echo "deploying..."
