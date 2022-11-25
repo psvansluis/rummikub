@@ -5,6 +5,7 @@ export type SpelStatus = {
   stenenInPot: number;
   spelerMetBeurtIsUitgekomen: boolean;
   spelerKanBeurtDoorgeven: boolean;
+  spelIsAfgelopen: boolean;
 };
 
 export type Plankje = {
@@ -13,7 +14,7 @@ export type Plankje = {
 
 export type Set = {
   stenen: Steen[];
-  isValide: boolean;
+  valide: boolean;
 }
 
 export type Steen = {

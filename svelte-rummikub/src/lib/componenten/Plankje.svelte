@@ -2,10 +2,27 @@
   import type { Plankje } from "../../types/SpelStatus.type";
   import Steen from "./Steen.svelte";
   import SteenToevoeger from "./SteenToevoeger.svelte";
+  import {
+    bronContainerIndex,
+    steenIndex,
+    doelContainerIndex,
+  } from "../../stores/speelSteenIndices";
 
   export let plankje: Plankje;
   export let eigenaar: String;
   export let uitgekomen: boolean;
+  const index: number = -1;
+
+  function geefSteenKlikDoor(ev) {
+    console.log("steen geklikt op " + index + ", " + ev.detail.steenIndex);
+    bronContainerIndex.set(index);
+    steenIndex.set(ev.detail.steenIndex);
+  }
+
+  function geefToevoegerKlikDoor() {
+    console.log("toevoeger geklikt op " + index);
+    doelContainerIndex.set(index);
+  }
 </script>
 
 <div id="plankjewrapper">
@@ -16,9 +33,10 @@
     {/if}
   </div>
   <div id="plankje">
-    {#each plankje.stenen as steen}
-      <Steen {steen} />
-    {/each}<SteenToevoeger />
+    {#each plankje.stenen as steen, index (index)}
+      <Steen {steen} {index} on:steenKlikt={geefSteenKlikDoor} />
+    {/each}
+    <SteenToevoeger on:steenToevoegerKlikt={geefToevoegerKlikDoor} />
   </div>
 </div>
 
@@ -49,7 +67,8 @@
 
   #plankje {
     padding: 5px;
-    max-width: 600px;
+    min-width: 218px;
+    max-width: 661px;
     background-color: var(--color-three);
     background-image: url("../../assets/wood-pattern.png");
   }

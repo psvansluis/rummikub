@@ -80,6 +80,9 @@ class Tafel {
     }
 
     boolean steenKomtDezeBeurtVanPlankje(int setIndex, int steenIndex) {
+        if (setIndex < 0) {
+            return true;
+        }
         return this.steenKomtDezeBeurtVanPlankje(
                 this.getSets().get(setIndex).getSteen(steenIndex));
     }
@@ -175,7 +178,9 @@ class Tafel {
     public void eindigBeurtDoorSteenTeNemen() {
         this.resetSpelNaarAanvangBeurt();
         this.getPlankjeMetBeurt().neemSteenUitPot();
-        this.geefBeurtDoor();
+        this.getPlankjeMetBeurt().geefBeurtDoor();
+        this.setsBijAanvangBeurt = kopieerSets(this.sets);
+        this.getPlankjeMetBeurt().kopieerStenenNaarStenenBijAanvangBeurt();
     }
 
 }

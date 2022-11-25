@@ -9,6 +9,7 @@ public class RummikubDTO {
     private int stenenInPot;
     private boolean spelerMetBeurtIsUitgekomen;
     private boolean spelerKanBeurtDoorgeven;
+    private boolean spelIsAfgelopen;
 
     public RummikubDTO(Rummikub spel) {
         this.plankje = new StenenContainerDTO(
@@ -21,6 +22,7 @@ public class RummikubDTO {
         this.stenenInPot = spel.aantalStenenInPot();
         this.spelerMetBeurtIsUitgekomen = spel.spelerMetBeurtIsUitgekomen();
         this.spelerKanBeurtDoorgeven = spel.kanBeurtDoorgeven();
+        this.spelIsAfgelopen = spel.spelIsAfgelopen();
     }
 
     public StenenContainerDTO getPlankje() {
@@ -45,6 +47,10 @@ public class RummikubDTO {
 
     public boolean getSpelerKanBeurtDoorgeven() {
         return this.spelerKanBeurtDoorgeven;
+    }
+
+    public boolean getSpelIsAfgelopen() {
+        return this.spelIsAfgelopen;
     }
 
 }

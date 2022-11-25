@@ -54,4 +54,23 @@ public class FacadeGettersTest {
         Rummikub test = testSpel();
         assertFalse(test.kanBeurtDoorgeven());
     }
+
+    @Test
+    public void getValiditeitSetsIsAanvankelijkLeeg() {
+        Rummikub test = testSpel();
+        assertEquals(0, test.getValiditeitSets().size());
+    }
+
+    @Test
+    public void bijAanvangSpelIsSpelerMetBeurtNietUitgekomen() {
+        Rummikub test = testSpel();
+        assertFalse(test.spelerMetBeurtIsUitgekomen());
+    }
+
+    @Test
+    public void bijAanvangSpelIsSpelNietAfgelopen() {
+        Rummikub test = testSpel();
+        assertFalse(test.spelIsAfgelopen());
+    }
+
 }

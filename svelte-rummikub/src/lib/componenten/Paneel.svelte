@@ -1,21 +1,40 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
   import type { SpelStatus } from "../../types/SpelStatus.type";
+
   export let spelStatus: SpelStatus;
+
+  const dispatch = createEventDispatcher();
 </script>
 
 <div>
-  <button>Reset</button>
+  <button
+    class="actief"
+    on:click={() => {
+      dispatch("klikpaneel", { paneelIndex: 0 });
+    }}>Reset</button
+  >
   {#if spelStatus.spelerKanBeurtDoorgeven}
-    <button>Einde beurt</button>
+    <button
+      class="actief"
+      on:click={() => {
+        dispatch("klikpaneel", { paneelIndex: 1 });
+      }}>Einde beurt</button
+    >
   {:else}
     <button class="inactief">Einde beurt</button>
   {/if}
-  <button>Steen uit pot ({spelStatus.stenenInPot})</button>
+  <button
+    class="actief"
+    on:click={() => {
+      dispatch("klikpaneel", { paneelIndex: 2 });
+    }}>Steen uit pot ({spelStatus.stenenInPot})</button
+  >
 </div>
 
 <style>
   div {
-    margin: 10px;
+    margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -36,7 +55,7 @@
     transition: color 0.5s;
   }
 
-  button:hover {
+  button.actief:hover {
     background-color: var(--color-three);
     color: var(--light-text-color);
   }
@@ -44,10 +63,5 @@
   .inactief {
     color: gray;
     background-color: lightgray;
-  }
-
-  .inactief:hover {
-    background-color: gray;
-    color: lightgray;
   }
 </style>

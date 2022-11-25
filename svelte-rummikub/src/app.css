@@ -59,16 +59,14 @@ main {
 div.set {
     padding: 5px;
     border-radius: 5px;
-    background-color: var(--color-three);
-    background-image: url("./assets/classy-fabric.png");
-    flex: 0;
+    margin: 5px;
 }
 
 button.steen {
   font-size: larger;
   border: 2px solid black;
   border-radius: 10px;
-  margin: 5px;
+  margin: 3px;
   padding: 10px;
   min-width: 45px;
   height: 60px;

@@ -6,15 +6,16 @@
 </script>
 
 <div id="tafel">
-  {#each sets as set}
-    <BestaandeSet {set} />
-  {/each}<NieuweSet />
+  {#if sets.length != 0}
+    {#each sets as set, index (index)}<BestaandeSet {set} {index} />{/each}
+  {/if}
+  <NieuweSet index={sets.length} />
 </div>
 
 <style>
   #tafel {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
     border: 2px solid black;
@@ -25,6 +26,6 @@
     background-image: url("../../assets/classy-fabric.png");
     min-height: 300px;
     min-width: 500px;
-    width: 90%;
+    max-height: 75vh;
   }
 </style>

@@ -23,6 +23,8 @@ class Plankje extends StenenContainer {
         for (int i = 0; i < AANTAL_STENEN_BIJ_BEGIN; i++) {
             this.neemSteenUitPot();
         }
+        this.stenenBijAanvangBeurt = new ArrayList<Steen>();
+        this.kopieerStenenNaarStenenBijAanvangBeurt();
     }
 
     Plankje(int aantalPlankjes) {
