@@ -65,14 +65,14 @@ public class StartRummikubTest {
     public void rummikubStartenGeeftAantalStenenInPot() {
         Response respons = startRummikub();
         RummikubDTO entiteit = (RummikubDTO) respons.getEntity();
-        assertEquals("Henk", entiteit.getSpelerMetBeurt());
+        assertTrue(0 < entiteit.getStenenInPot());
     }
 
     @Test
     public void henkIsBijHetBeginAanDeBeurt() {
         Response respons = startRummikub();
         RummikubDTO entiteit = (RummikubDTO) respons.getEntity();
-        assertTrue(0 < entiteit.getStenenInPot());
+        assertEquals("Henk", entiteit.getSpelerMetBeurt());
     }
 
     @Test

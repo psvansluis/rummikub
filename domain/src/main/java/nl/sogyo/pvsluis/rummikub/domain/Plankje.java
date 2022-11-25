@@ -31,8 +31,7 @@ class Plankje extends StenenContainer {
         this();
         int teMakenPlankjes = aantalPlankjes;
         while (teMakenPlankjes > 1) {
-            this
-                    .getPlankjeZonderVolgendePlankje()
+            this.getPlankjeZonderVolgendePlankje()
                     .setVolgendePlankje(new Plankje(this.pot));
             teMakenPlankjes--;
         }
