@@ -4,36 +4,32 @@
   import Plankje from "./componenten/Plankje.svelte";
   import Tafel from "./componenten/Tafel.svelte";
   import Paneel from "./componenten/Paneel.svelte";
+  import {
+    bronContainerIndex,
+    doelContainerIndex,
+    steenIndex,
+  } from "../stores/speelSteenIndices";
+
+  let bronContainerIndexWaarde: number;
+  let steenIndexWaarde: number;
+  let doelContainerIndexWaarde: number;
+
+  bronContainerIndex.subscribe((w) => {
+    bronContainerIndexWaarde = w;
+    speelSteen();
+  });
+
+  steenIndex.subscribe((w) => {
+    steenIndexWaarde = w;
+  });
+
+  doelContainerIndex.subscribe((w) => {
+    doelContainerIndexWaarde = w;
+    speelSteen();
+  });
 
   export let spelStatus: SpelStatus;
   const dispatch = createEventDispatcher();
-
-  let bronContainerIndex: number = null;
-  let steenIndex: number = null;
-  let doelContainerIndex: number = null;
-
-  function populeerBronIndices(ev) {
-    bronContainerIndex = ev.detail.bronContainerIndex;
-    steenIndex = ev.detail.steenIndex;
-    console.log([
-      "populeerBronIndexOpSpeel",
-      bronContainerIndex,
-      steenIndex,
-      doelContainerIndex,
-    ]);
-    speelSteen();
-  }
-
-  function populeerDoelIndex(ev) {
-    doelContainerIndex = ev.detail.doelContainerIndex;
-    console.log([
-      "populeerDoelIndexOpSpeel",
-      bronContainerIndex,
-      steenIndex,
-      doelContainerIndex,
-    ]);
-    speelSteen();
-  }
 
   async function postRequestNaarAPI(bestemming: string, body: any) {
     try {
@@ -56,17 +52,32 @@
   }
 
   async function speelSteen() {
-    if ([bronContainerIndex, steenIndex, doelContainerIndex].includes(null)) {
+    if (
+      [
+        bronContainerIndexWaarde,
+        steenIndexWaarde,
+        doelContainerIndexWaarde,
+      ].includes(null)
+    ) {
+      console.log("speelSteen() wacht op meer waardes...");
       return;
     }
     postRequestNaarAPI("rummikub/api/speel", {
-      bronContainerIndex: bronContainerIndex,
-      steenIndex: steenIndex,
-      doelContainerIndex: doelContainerIndex,
+      bronContainerIndex: bronContainerIndexWaarde,
+      steenIndex: steenIndexWaarde,
+      doelContainerIndex: doelContainerIndexWaarde,
     }).then(() => {
-      bronContainerIndex = null;
-      steenIndex = null;
-      doelContainerIndex = null;
+      console.log(
+        "speelSteen() met succes gespeeld: (" +
+          bronContainerIndexWaarde +
+          ", " +
+          steenIndexWaarde +
+          ") -> " +
+          doelContainerIndexWaarde
+      );
+      bronContainerIndex.set(null);
+      steenIndex.set(null);
+      doelContainerIndex.set(null);
     });
   }
 
@@ -75,33 +86,15 @@
   }
 </script>
 
-<button
-  on:click={() =>
-    ([bronContainerIndex, steenIndex, doelContainerIndex] = [-1, 0, 0])}
-  >set 0</button
->
-<button
-  on:click={() =>
-    ([bronContainerIndex, steenIndex, doelContainerIndex] = [-1, 0, 1])}
-  >set 1</button
->
-<button on:click={speelSteen}>speel</button>
-
 <div>
   <div>
-    <Tafel
-      sets={spelStatus.sets}
-      on:selecteerBron={populeerBronIndices}
-      on:selecteerDoel={populeerDoelIndex}
-    />
+    <Tafel sets={spelStatus.sets} />
   </div>
   <div id="onderste-rij">
     <Plankje
       plankje={spelStatus.plankje}
       eigenaar={spelStatus.spelerMetBeurt}
       uitgekomen={spelStatus.spelerMetBeurtIsUitgekomen}
-      on:selecteerBron={populeerBronIndices}
-      on:selecteerDoel={populeerDoelIndex}
     />
     <Paneel {spelStatus} on:klikpaneel={paneelActie} />
   </div>

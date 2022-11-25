@@ -3,7 +3,7 @@
   import SpelPagina from "./lib/SpelPagina.svelte";
   import Spelregels from "./lib/Spelregels.svelte";
 
-  export let menu = 1;
+  let menu: number = 1;
 </script>
 
 <header>

@@ -1,17 +1,16 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  import { doelContainerIndex } from "../../stores/speelSteenIndices";
   import SteenToevoeger from "./SteenToevoeger.svelte";
   export let index: number;
 
-  const dispatch = createEventDispatcher();
+  function geefToevoegerKlikDoor() {
+    console.log("toevoeger geklikt op " + index);
+    doelContainerIndex.set(index);
+  }
 </script>
 
 <div class="set">
-  <SteenToevoeger
-    on:steenToevoegerKlikt={() => {
-      dispatch("stuurDoelNaarTafel", { doelContainerIndex: index });
-    }}
-  />
+  <SteenToevoeger on:steenToevoegerKlikt={geefToevoegerKlikDoor} />
 </div>
 
 <style>

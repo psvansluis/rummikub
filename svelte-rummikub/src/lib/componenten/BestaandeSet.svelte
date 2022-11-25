@@ -2,22 +2,31 @@
   import Steen from "./Steen.svelte";
   import SteenToevoeger from "./SteenToevoeger.svelte";
   import type { Set } from "../../types/SpelStatus.type";
-  import { createEventDispatcher } from "svelte";
+  import {
+    bronContainerIndex,
+    steenIndex,
+    doelContainerIndex,
+  } from "../../stores/speelSteenIndices";
 
   export let set: Set;
   export let index: number;
-  const dispatch = createEventDispatcher();
+  function geefSteenKlikDoor(ev) {
+    console.log("steen geklikt op " + index + ", " + ev.detail.steenIndex);
+    bronContainerIndex.set(index);
+    steenIndex.set(ev.detail.steenIndex);
+  }
+
+  function geefToevoegerKlikDoor() {
+    console.log("toevoeger geklikt op " + index);
+    doelContainerIndex.set(index);
+  }
 </script>
 
 <div class="set {set.valide ? 'valide' : 'invalide'}">
-  {#each set.stenen as steen}
-    <Steen {steen} />
+  {#each set.stenen as steen, index (index)}
+    <Steen {steen} {index} on:steenKlikt={geefSteenKlikDoor} />
   {/each}
-  <SteenToevoeger
-    on:steenToevoegerKlikt={() => {
-      dispatch("stuurDoelNaarTafel", { doelContainerIndex: index });
-    }}
-  />
+  <SteenToevoeger on:steenToevoegerKlikt={geefToevoegerKlikDoor} />
 </div>
 
 <style>
