@@ -11,13 +11,23 @@
     return lijst.every((str) => str != null && str.length > 0);
   }
 
+  function heeftDuplicaten(array: string[]): boolean {
+    return new Set(array).size !== array.length;
+  }
+
   async function startSpel() {
     let spelerNamen: string[] = voorbeeldNamen.slice(0, aantalSpelers);
     if (spelerNamen.length === 0) {
       statusBericht = "Geef tenminste één speler op";
       return;
-    } else if (!elkeCelIsGevuld(spelerNamen)) {
+    } else if (
+      !elkeCelIsGevuld(spelerNamen) ||
+      spelerNamen.length < aantalSpelers
+    ) {
       statusBericht = "Iedere speler moet een naam hebben";
+      return;
+    } else if (heeftDuplicaten(spelerNamen)) {
+      statusBericht = "Iedere speler moet een unieke naam hebben";
       return;
     } else {
       statusBericht =
@@ -44,7 +54,7 @@
         console.log(statusBericht);
       } else {
         console.error(respons.statusText);
-        statusBericht = "" + respons.status + respons.statusText;
+        statusBericht = respons.status + ": " + respons.statusText;
       }
     } catch (error) {
       console.error(error);
@@ -70,7 +80,7 @@
     >
   {/each}
   <button on:click={startSpel}>Start spel</button>
-  <p>
+  <p id="errormessage">
     {statusBericht}
   </p>
 </div>
@@ -85,11 +95,17 @@
     padding: 10px;
     border-radius: 10px;
   }
+
   label {
     display: block;
     padding: 5px;
   }
+
   button {
     padding: 5px;
+  }
+
+  #errormessage {
+    color: red;
   }
 </style>
