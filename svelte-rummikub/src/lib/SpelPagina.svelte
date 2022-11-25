@@ -11,6 +11,9 @@
 
 {#if !spelStatus}
   <StartRummikub on:change={vernieuwSpelStatus} />
+{:else if spelStatus.spelIsAfgelopen}
+  <div>Scorepagina</div>
+  <div>Nieuw spel?</div>
 {:else}
   <SpeelRummikub {spelStatus} on:change={vernieuwSpelStatus} />
 {/if}
