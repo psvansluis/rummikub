@@ -1,11 +1,22 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import {
+    bronContainerIndex,
+    doelContainerIndex,
+    steenIndex,
+  } from "../stores/speelSteenIndices";
 
   let aantalSpelers: number = 1;
   let voorbeeldNamen: string[] = ["Henk", "Toos", "Huub", "Truus"];
   let statusBericht: string = "";
 
   const dispatch = createEventDispatcher();
+
+  function leegSpeelIndicesStore() {
+    bronContainerIndex.set(null);
+    steenIndex.set(null);
+    doelContainerIndex.set(null);
+  }
 
   function elkeCelIsGevuld(lijst: string[]): boolean {
     return lijst.every((str) => str != null && str.length > 0);
@@ -51,6 +62,7 @@
 
       if (respons.ok) {
         dispatch("change", { spelStatus: await respons.json() });
+        leegSpeelIndicesStore();
         console.log(statusBericht);
       } else {
         console.error(respons.statusText);

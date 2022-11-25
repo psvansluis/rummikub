@@ -16,11 +16,11 @@
 
   bronContainerIndex.subscribe((w) => {
     bronContainerIndexWaarde = w;
-    speelSteen();
   });
 
   steenIndex.subscribe((w) => {
     steenIndexWaarde = w;
+    speelSteen();
   });
 
   doelContainerIndex.subscribe((w) => {
@@ -75,6 +75,9 @@
           ") -> " +
           doelContainerIndexWaarde
       );
+      bronContainerIndexWaarde = null;
+      steenIndexWaarde = null;
+      doelContainerIndexWaarde = null;
       bronContainerIndex.set(null);
       steenIndex.set(null);
       doelContainerIndex.set(null);
