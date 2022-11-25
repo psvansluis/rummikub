@@ -114,8 +114,8 @@ Zo mogelijk zou ik ook een onaf spel en/of highscores willen opslaan. Ik heb nog
 - ~~Een client kan de API vragen om zijn plankje en de tafel~~
 - ~~Een client kan de verplaatsing van een steen en een verzoek om de beurt af te sluiten doorgeven aan de API~~
 - ~~Het plankje en de tafel zijn gevisualiseerd in een website.~~
-- Een speler kan met point & click stenen verplaatsen
-- Het antwoord op de vraag of de tafel geen niet-valide sets bevat is zichtbaar voor de gebruiker.
+- ~~Een speler kan met point & click stenen verplaatsen~~ 
+- ~~Het antwoord op de vraag of de tafel geen niet-valide sets bevat is zichtbaar voor de gebruiker.~~
 
 ### Week 2
 - ~~Een speler met beurt kan de spelsituatie resetten naar het begin van zijn beurt.~~
