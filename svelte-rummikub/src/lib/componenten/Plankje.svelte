@@ -5,6 +5,7 @@
   import {
     bronContainerIndex,
     steenIndex,
+    doelContainerIndex,
   } from "../../stores/speelSteenIndices";
 
   export let plankje: Plankje;
@@ -16,6 +17,11 @@
     console.log("steen geklikt op " + index + ", " + ev.detail.steenIndex);
     bronContainerIndex.set(index);
     steenIndex.set(ev.detail.steenIndex);
+  }
+
+  function geefToevoegerKlikDoor() {
+    console.log("toevoeger geklikt op " + index);
+    doelContainerIndex.set(index);
   }
 </script>
 
@@ -30,7 +36,7 @@
     {#each plankje.stenen as steen, index (index)}
       <Steen {steen} {index} on:steenKlikt={geefSteenKlikDoor} />
     {/each}
-    <SteenToevoeger />
+    <SteenToevoeger on:steenToevoegerKlikt={geefToevoegerKlikDoor} />
   </div>
 </div>
 
