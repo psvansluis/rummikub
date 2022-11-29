@@ -43,6 +43,12 @@
       });
       if (respons.ok) {
         dispatch("change", { spelStatus: await respons.json() });
+        bronContainerIndexWaarde = null;
+        steenIndexWaarde = null;
+        doelContainerIndexWaarde = null;
+        bronContainerIndex.set(null);
+        steenIndex.set(null);
+        doelContainerIndex.set(null);
       } else {
         console.error(respons.statusText);
       }
@@ -52,36 +58,17 @@
   }
 
   async function speelSteen() {
-    if (
-      [
-        bronContainerIndexWaarde,
-        steenIndexWaarde,
-        doelContainerIndexWaarde,
-      ].includes(null)
-    ) {
-      console.log("speelSteen() wacht op meer waardes...");
-      return;
-    }
-    postRequestNaarAPI("rummikub/api/speel", {
+    let coordinaten = {
       bronContainerIndex: bronContainerIndexWaarde,
       steenIndex: steenIndexWaarde,
       doelContainerIndex: doelContainerIndexWaarde,
-    }).then(() => {
-      console.log(
-        "speelSteen() met succes gespeeld: (" +
-          bronContainerIndexWaarde +
-          ", " +
-          steenIndexWaarde +
-          ") -> " +
-          doelContainerIndexWaarde
-      );
-      bronContainerIndexWaarde = null;
-      steenIndexWaarde = null;
-      doelContainerIndexWaarde = null;
-      bronContainerIndex.set(null);
-      steenIndex.set(null);
-      doelContainerIndex.set(null);
-    });
+    };
+    if (Object.values(coordinaten).includes(null)) {
+      console.log("speelSteen() wacht op meer waardes...");
+      return;
+    }
+    console.log(coordinaten);
+    postRequestNaarAPI("rummikub/api/speel", coordinaten);
   }
 
   async function paneelActie(ev: { detail: { paneelIndex: number } }) {
