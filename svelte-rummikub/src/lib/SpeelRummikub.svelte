@@ -58,35 +58,17 @@
   }
 
   async function speelSteen() {
-    if (
-      [
-        bronContainerIndexWaarde,
-        steenIndexWaarde,
-        doelContainerIndexWaarde,
-      ].includes(null)
-    ) {
-      console.log("speelSteen() wacht op meer waardes...");
-      return;
-    }
-    postRequestNaarAPI("rummikub/api/speel", {
+    let coordinaten = {
       bronContainerIndex: bronContainerIndexWaarde,
       steenIndex: steenIndexWaarde,
       doelContainerIndex: doelContainerIndexWaarde,
-    }).then(
-      () => {
-        console.log(
-          "speelSteen() met succes gespeeld: (" +
-            bronContainerIndexWaarde +
-            ", " +
-            steenIndexWaarde +
-            ") -> " +
-            doelContainerIndexWaarde
-        );
-      },
-      () => {
-        console.log("speelSteen() mislukt.");
-      }
-    );
+    };
+    if (Object.values(coordinaten).includes(null)) {
+      console.log("speelSteen() wacht op meer waardes...");
+      return;
+    }
+    console.log(coordinaten);
+    postRequestNaarAPI("rummikub/api/speel", coordinaten);
   }
 
   async function paneelActie(ev: { detail: { paneelIndex: number } }) {
