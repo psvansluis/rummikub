@@ -8,7 +8,7 @@
   --color-two: hsl(104, 58%, 18%);
   --color-three: hsl(348, 58%, 25%);
   --light-one: hsl(266, 53%, 95%);
-  --light-two:hsl(104, 58%, 95%);
+  --light-two: hsl(104, 58%, 95%);
   --light-three: hsl(348, 58%, 95%);
   --light-text-color: #efe8de;
   --kleur-steen: hsl(36, 40%, 76%);
@@ -57,9 +57,9 @@ main {
 }
 
 div.set {
-    padding: 5px;
-    border-radius: 5px;
-    margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
 }
 
 button.steen {
@@ -75,4 +75,9 @@ button.steen {
   display: inline-block;
   vertical-align: middle;
   box-shadow: 2px 2px 3px black;
+  transition: background-color 0.5s;
+}
+
+button.steen:active {
+  transform: rotate(5deg) translate(2px, -5px);
 }
