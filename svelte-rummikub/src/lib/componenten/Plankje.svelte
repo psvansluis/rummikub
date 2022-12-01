@@ -1,28 +1,11 @@
 <script lang="ts">
   import type { Plankje } from "../../types/SpelStatus.type";
-  import Steen from "./Steen.svelte";
-  import SteenToevoeger from "./SteenToevoeger.svelte";
-  import {
-    bronContainerIndex,
-    steenIndex,
-    doelContainerIndex,
-  } from "../../stores/speelSteenIndices";
+  import SteenContainer from "./SteenContainer.svelte";
 
   export let plankje: Plankje;
   export let eigenaar: String;
   export let uitgekomen: boolean;
   const index: number = -1;
-
-  function geefSteenKlikDoor(ev) {
-    console.log("steen geklikt op " + index + ", " + ev.detail.steenIndex);
-    bronContainerIndex.set(index);
-    steenIndex.set(ev.detail.steenIndex);
-  }
-
-  function geefToevoegerKlikDoor() {
-    console.log("toevoeger geklikt op " + index);
-    doelContainerIndex.set(index);
-  }
 </script>
 
 <div id="plankjewrapper">
@@ -32,12 +15,7 @@
       <div id="uitgekomenbericht">Niet uitgekomen</div>
     {/if}
   </div>
-  <div id="plankje">
-    {#each plankje.stenen as steen, index (index)}
-      <Steen {steen} {index} on:steenKlikt={geefSteenKlikDoor} />
-    {/each}
-    <SteenToevoeger on:steenToevoegerKlikt={geefToevoegerKlikDoor} />
-  </div>
+  <SteenContainer container={plankje} {index} />
 </div>
 
 <style>
@@ -63,13 +41,5 @@
     border: 2px solid black;
     border-radius: 5px;
     margin: 0 auto;
-  }
-
-  #plankje {
-    padding: 5px;
-    min-width: 218px;
-    max-width: 661px;
-    background-color: var(--color-three);
-    background-image: url("../../assets/wood-pattern.png");
   }
 </style>
