@@ -19,22 +19,16 @@
   }
 
   function geefToevoegerKlikDoor() {
-    // console.log("toevoeger geklikt op " + index);
+    console.log("toevoeger geklikt op " + index);
     doelContainerIndex.set(index);
   }
 
   let cssclass: string;
   afterUpdate(() => {
-    cssclass = determineerklasse();
-  });
-
-  function determineerklasse(): string {
     if ("valide" in container) {
-      return container.valide ? "valide set" : "invalide set";
-    } else {
-      return "plankje";
-    }
-  }
+      cssclass = (container.valide ? "" : "in") + "valide set";
+    } else cssclass = "plankje";
+  });
 </script>
 
 <div class={cssclass}>
