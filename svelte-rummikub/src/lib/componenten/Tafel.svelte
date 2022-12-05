@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { Set } from "../../types/SpelStatus.type";
-  import NieuweSet from "./NieuweSet.svelte";
   import SteenContainer from "./SteenContainer.svelte";
   export let sets: Set[];
 </script>
@@ -12,7 +11,7 @@
         {index}
       />{/each}
   {/if}
-  <NieuweSet index={sets.length} />
+  <SteenContainer index={sets.length} />
 </div>
 
 <style>

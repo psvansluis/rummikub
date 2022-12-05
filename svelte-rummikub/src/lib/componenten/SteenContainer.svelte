@@ -9,7 +9,7 @@
     doelContainerIndex,
   } from "../../stores/speelSteenIndices";
 
-  export let container: Plankje | Set;
+  export let container: Plankje | Set = {} as Set;
   export let index: number;
 
   function geefSteenKlikDoor(ev: { detail: { steenIndex: number } }) {
@@ -27,14 +27,20 @@
   afterUpdate(() => {
     if ("valide" in container) {
       cssclass = (container.valide ? "" : "in") + "valide set";
-    } else cssclass = "plankje";
+    } else if ("stenen" in container) {
+      cssclass = "plankje";
+    } else {
+      cssclass = "set";
+    }
   });
 </script>
 
 <div class={cssclass}>
-  {#each container.stenen as steen, index (index)}
-    <Steen {steen} {index} on:steenKlikt={geefSteenKlikDoor} />
-  {/each}<SteenToevoeger on:steenToevoegerKlikt={geefToevoegerKlikDoor} />
+  {#if "stenen" in container}
+    {#each container.stenen as steen, index (index)}
+      <Steen {steen} {index} on:steenKlikt={geefSteenKlikDoor} />
+    {/each}
+  {/if}<SteenToevoeger on:steenToevoegerKlikt={geefToevoegerKlikDoor} />
 </div>
 
 <style>
@@ -57,5 +63,11 @@
     max-width: 661px;
     background-color: var(--color-three);
     background-image: url("../../assets/wood-pattern.png");
+  }
+
+  .set {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
   }
 </style>

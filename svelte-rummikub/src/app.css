@@ -56,12 +56,6 @@ main {
   padding-top: 60px;
 }
 
-div.set {
-  padding: 5px;
-  border-radius: 5px;
-  margin: 5px;
-}
-
 button.steen {
   font-size: larger;
   border: 2px solid black;
