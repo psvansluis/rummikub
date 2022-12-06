@@ -88,11 +88,10 @@ class Tafel {
     }
 
     boolean isNieuweSetInBeurt(int setIndex) {
-        int lengteBestaandeSets = this.getSetsBijAanvangBeurt().size();
         if (setIndex < 0) {
             return true;
         }
-        return setIndex >= lengteBestaandeSets;
+        return setIndex >= this.getSetsBijAanvangBeurt().size();
     }
 
     boolean alleSetsZijnValide() {
@@ -141,10 +140,16 @@ class Tafel {
     }
 
     void geefBeurtDoor() {
-        if (!this.kanBeurtDoorgeven()) {
-            return;
+        this.geefBeurtDoor(true);
+    }
+
+    void geefBeurtDoor(boolean gevalideerd) {
+        if (gevalideerd) {
+            if (!this.kanBeurtDoorgeven()) {
+                return;
+            }
+            this.getPlankjeMetBeurt().setUitgekomen(true);
         }
-        this.getPlankjeMetBeurt().setUitgekomen(true);
         this.getPlankjeMetBeurt().geefBeurtDoor();
         this.setsBijAanvangBeurt = kopieerSets(this.sets);
         this.getPlankjeMetBeurt().kopieerStenenNaarStenenBijAanvangBeurt();
@@ -178,9 +183,7 @@ class Tafel {
     public void eindigBeurtDoorSteenTeNemen() {
         this.resetSpelNaarAanvangBeurt();
         this.getPlankjeMetBeurt().neemSteenUitPot();
-        this.getPlankjeMetBeurt().geefBeurtDoor();
-        this.setsBijAanvangBeurt = kopieerSets(this.sets);
-        this.getPlankjeMetBeurt().kopieerStenenNaarStenenBijAanvangBeurt();
+        this.geefBeurtDoor(false);
     }
 
 }
