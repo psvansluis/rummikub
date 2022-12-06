@@ -75,3 +75,10 @@ button.steen {
 button.steen:active {
   transform: rotate(5deg) translate(0, -2px);
 }
+
+h1,
+h2,
+p {
+  margin: 2vh auto;
+  max-width: 1100px;
+}

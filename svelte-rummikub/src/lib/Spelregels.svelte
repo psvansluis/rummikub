@@ -14,14 +14,14 @@
   keuze van de speler mogen dragen.
 </p>
 <p>
-  Een speler die aan de beurt is mag één van twee dingen doen. Hij pakt een
-  steentje uit de pot, of hij voegt één of meer stenen toe aan de tafel. Als een
-  speler aan het einde van zijn beurt geen stenen op zijn plank heeft, dan heeft
-  hij gewonnen en wordt de score opgemaakt. Heeft hij wel stenen over, dan geeft
-  hij de beurt door aan de volgende speler.
+  Een speler die aan de beurt is mag één van twee dingen doen: een steentje uit
+  de pot pakken, of één of meer stenen aan de tafel toevoegen. Als een speler
+  aan het einde van zijn beurt geen stenen op zijn plank heeft, dan heeft deze
+  gewonnen en wordt de score opgemaakt. Heeft de speler wel stenen over, dan
+  geeft deze de beurt door aan de volgende speler.
 </p>
 <p>
-  Als een speler stenen toevoegt aan de tafel, dan mag hij de stenen op tafel
+  Als een speler stenen toevoegt aan de tafel, dan mag deze de stenen op tafel
   opnieuw arrangeren. Aan het einde van zijn beurt moeten alle stenen zich in
   een valide set bevinden.
 </p>
@@ -36,7 +36,7 @@
 <p>
   Als een speler nog niet eerder stenen heeft toegevoegd aan het bord, dan mag
   deze pas spelen als de som van de cijfers op nieuw toegevoegde stenen minimaal
-  dertig bedraagt. Een speler mag hier ook nog niet reeds interacteren met reeds
+  dertig bedraagt. Een speler mag hier ook nog niet interacteren met reeds
   aangelegde stenen.
 </p>
 <p>
