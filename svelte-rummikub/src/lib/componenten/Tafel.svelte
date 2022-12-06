@@ -5,19 +5,17 @@
 </script>
 
 <div id="tafel">
-  {#if sets.length != 0}
-    {#each sets as set, index (index)}<SteenContainer
-        container={set}
-        {index}
-      />{/each}
-  {/if}
+  {#each sets as set, index (index)}<SteenContainer
+      container={set}
+      {index}
+    />{/each}
   <SteenContainer index={sets.length} />
 </div>
 
 <style>
   #tafel {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
     border: 2px solid black;

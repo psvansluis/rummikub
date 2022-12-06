@@ -9,7 +9,7 @@
     doelContainerIndex,
   } from "../../stores/speelSteenIndices";
 
-  export let container: Plankje | Set = {} as Set;
+  export let container: Plankje | Set = { stenen: [], valide: null } as Set;
   export let index: number;
 
   function geefSteenKlikDoor(ev: { detail: { steenIndex: number } }) {
@@ -26,27 +26,27 @@
   let cssclass: string;
   afterUpdate(() => {
     if ("valide" in container) {
-      cssclass = (container.valide ? "" : "in") + "valide set";
-    } else if ("stenen" in container) {
-      cssclass = "plankje";
-    } else {
-      cssclass = "set";
-    }
+      if (container.stenen.length == 0) {
+        cssclass = "set";
+      } else {
+        cssclass = (container.valide ? "" : "in") + "valide set";
+      }
+    } else cssclass = "plankje";
   });
 </script>
 
 <div class={cssclass}>
-  {#if "stenen" in container}
-    {#each container.stenen as steen, index (index)}
-      <Steen {steen} {index} on:steenKlikt={geefSteenKlikDoor} />
-    {/each}
-  {/if}<SteenToevoeger on:steenToevoegerKlikt={geefToevoegerKlikDoor} />
+  {#each container.stenen as steen, index (index)}
+    <Steen {steen} {index} on:steenKlikt={geefSteenKlikDoor} />
+  {/each}<SteenToevoeger on:steenToevoegerKlikt={geefToevoegerKlikDoor} />
 </div>
 
 <style>
   div {
     border-radius: 5px;
     border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .valide {

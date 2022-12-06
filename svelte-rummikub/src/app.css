@@ -19,10 +19,11 @@ body {
   padding: 0;
   margin: 0;
   background-color: var(--light-one);
+
 }
 
 header {
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0px;
   height: 60px;
@@ -60,7 +61,7 @@ button.steen {
   font-size: larger;
   border: 2px solid black;
   border-radius: 10px;
-  margin: 3px;
+  margin: 2px;
   padding: 10px;
   min-width: 45px;
   height: 60px;
@@ -73,5 +74,5 @@ button.steen {
 }
 
 button.steen:active {
-  transform: rotate(5deg) translate(2px, -5px);
+  transform: rotate(5deg) translate(0, -2px);
 }

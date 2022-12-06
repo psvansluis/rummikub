@@ -36,9 +36,9 @@
   div {
     margin: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: normal;
     width: 140px;
   }
 

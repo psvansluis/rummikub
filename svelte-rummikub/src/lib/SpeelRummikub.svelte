@@ -76,18 +76,14 @@
   }
 </script>
 
-<div>
-  <div>
-    <Tafel sets={spelStatus.sets} />
-  </div>
-  <div id="onderste-rij">
-    <Plankje
-      plankje={spelStatus.plankje}
-      eigenaar={spelStatus.spelerMetBeurt}
-      uitgekomen={spelStatus.spelerMetBeurtIsUitgekomen}
-    />
-    <Paneel {spelStatus} on:klikpaneel={paneelActie} />
-  </div>
+<Tafel sets={spelStatus.sets} />
+<div id="onderste-rij">
+  <Plankje
+    plankje={spelStatus.plankje}
+    eigenaar={spelStatus.spelerMetBeurt}
+    uitgekomen={spelStatus.spelerMetBeurtIsUitgekomen}
+  />
+  <Paneel {spelStatus} on:klikpaneel={paneelActie} />
 </div>
 
 <style>
@@ -95,7 +91,7 @@
     margin: 5px auto;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: top;
     justify-content: center;
   }
 </style>
