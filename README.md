@@ -125,6 +125,7 @@ StenenContainer ..> Steen
 Tafel ..> Set
 Tafel ..> Plankje
 Plankje ..> Pot
+Plankje ..> Plankje
 
 ```
 
