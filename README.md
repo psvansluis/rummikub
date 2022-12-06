@@ -76,6 +76,58 @@ Voor mijn CI/CD pipeline zou ik graag Jenkins willen leren, maar wellicht is het
 
 Zo mogelijk zou ik ook een onaf spel en/of highscores willen opslaan. Ik heb nog geen keuze gemaakt welk type database hiervoor het meest geschikt is, en waar deze dan het beste in de architectuur zou passen.
 
+## Domain classes
+
+```mermaid
+classDiagram
+
+class Steen{
+cijfer
+kleur}
+
+class StenenContainer{
+stenen
+verplaats()
+schud()
+sorteer()
+}
+
+class Pot{
+maakStenen()}
+
+class Plankje{
+pot
+heeftBeurt
+uitgekomen
+volgendePlankje
+backup
+geefBeurtDoor()
+maakBackup()
+reset()
+}
+
+class Set{
+isValide()
+}
+
+
+class Tafel{
+sets
+setsBackup
+eerstePlankje
+speelSteen()
+valideerBeurtDoorgeven()}
+
+StenenContainer <|-- Pot
+StenenContainer <|-- Plankje
+StenenContainer <|-- Set
+StenenContainer ..> Steen
+Tafel ..> Set
+Tafel ..> Plankje
+Plankje ..> Pot
+
+```
+
 ## Leerdoelen
 
 ### Persoonlijke leerdoelen
