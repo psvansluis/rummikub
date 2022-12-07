@@ -7,6 +7,9 @@ import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
 class Set extends StenenContainer {
     private static final int MINIMALE_LENGTE_VALIDE_SET = 3;
 
+    Set() {
+    }
+
     boolean isValide() {
         return this.lengte() >= MINIMALE_LENGTE_VALIDE_SET
                 && (this.isRij() || this.isSerie());

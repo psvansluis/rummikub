@@ -71,7 +71,7 @@ public class BeurtDoorGevenTest {
         beurtDieWelDoorgegevenKanWorden(test);
         test.geefBeurtDoor();
         assertEquals(
-                test.getEerstePlankje().getVolgendePlankje(1),
+                test.getEerstePlankje().getVolgendePlankje(),
                 test.getPlankjeMetBeurt());
     }
 }
