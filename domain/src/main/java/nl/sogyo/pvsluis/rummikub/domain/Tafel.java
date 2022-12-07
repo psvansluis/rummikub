@@ -175,12 +175,12 @@ class Tafel {
         return out;
     }
 
-    public void resetSpelNaarAanvangBeurt() {
+    void resetSpelNaarAanvangBeurt() {
         this.sets = kopieerSets(setsBijAanvangBeurt);
         this.getPlankjeMetBeurt().resetStenenNaarAanvangBeurt();
     }
 
-    public void eindigBeurtDoorSteenTeNemen() {
+    void eindigBeurtDoorSteenTeNemen() {
         this.resetSpelNaarAanvangBeurt();
         this.getPlankjeMetBeurt().neemSteenUitPot();
         this.geefBeurtDoor(false);

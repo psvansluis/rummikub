@@ -50,7 +50,7 @@ class Plankje extends StenenContainer {
         this.uitgekomen = uitgekomen;
     }
 
-    public ArrayList<Steen> getStenenBijAanvangBeurt() {
+    ArrayList<Steen> getStenenBijAanvangBeurt() {
         return stenenBijAanvangBeurt;
     }
 
@@ -62,7 +62,7 @@ class Plankje extends StenenContainer {
         return volgendePlankje;
     }
 
-    Plankje getPlankjeZonderVolgendePlankje() {
+    private Plankje getPlankjeZonderVolgendePlankje() {
         if (this.getVolgendePlankje() == null) {
             return this;
         } else {
@@ -70,7 +70,7 @@ class Plankje extends StenenContainer {
         }
     }
 
-    void setVolgendePlankje(Plankje volgendePlankje) {
+    private void setVolgendePlankje(Plankje volgendePlankje) {
         this.volgendePlankje = volgendePlankje;
     }
 

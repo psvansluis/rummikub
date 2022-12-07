@@ -30,17 +30,6 @@ public class SetManipulatieTest {
     }
 
     @Test
-    public void verwijderSteenVerwijdertSteen() {
-        Steen a = new Steen(1, Kleur.KLEUR1);
-        Steen b = new Steen(5, Kleur.KLEUR2);
-        Set set = new Set();
-        set.voegSteenToe(a);
-        set.voegSteenToe(b);
-        set.verwijderSteen(a);
-        assertEquals(b, set.getSteen(0));
-    }
-
-    @Test
     public void verplaatsSteenMetSteenGeeftSteenInDoelSet() {
         Steen a = new Steen(1, Kleur.KLEUR1);
         Steen b = new Steen(5, Kleur.KLEUR2);

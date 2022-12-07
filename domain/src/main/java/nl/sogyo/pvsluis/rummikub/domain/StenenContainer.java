@@ -33,11 +33,11 @@ abstract class StenenContainer {
         this.verwijderSteen(index);
     }
 
-    void verwijderSteen(Steen teVerwijderenSteen) {
+    private void verwijderSteen(Steen teVerwijderenSteen) {
         this.stenen.remove(teVerwijderenSteen);
     }
 
-    void verwijderSteen(int index) {
+    private void verwijderSteen(int index) {
         this.stenen.remove(index);
     }
 
