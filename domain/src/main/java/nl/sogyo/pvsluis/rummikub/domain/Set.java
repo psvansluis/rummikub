@@ -8,6 +8,7 @@ class Set extends StenenContainer {
     private static final int MINIMALE_LENGTE_VALIDE_SET = 3;
 
     Set() {
+
     }
 
     boolean isValide() {
