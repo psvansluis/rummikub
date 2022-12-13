@@ -1,6 +1,6 @@
 image: maven:latest
 
-stages: 
+stages:
   - build
   - deploy
 
@@ -11,3 +11,11 @@ build-job:
 deploy-job:
   stage: deploy
   script: echo "deploying..."
+
+deploy-client-job:
+  stage: deploy-client
+  rules: -if '$CI_COMMIT_REF_NAME == "main"'
+  script:
+    - (cd ./svelte-rummikub/ ; npm install)
+    - (cd ./svelte-rummikub/ ; npm run build)
+    - (cd ./svelte-rummikub/ ; npm surge dist)
