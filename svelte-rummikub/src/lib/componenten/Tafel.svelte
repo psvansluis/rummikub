@@ -24,8 +24,6 @@
     padding: 5px;
     background-color: var(--color-two);
     background-image: url("../../assets/classy-fabric.png");
-    min-height: 300px;
-    min-width: 500px;
-    max-height: 75vh;
+    min-height: 50vh;
   }
 </style>

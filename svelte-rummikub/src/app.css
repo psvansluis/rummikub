@@ -62,7 +62,7 @@ button.steen {
   border-radius: 10px;
   margin: 2px;
   padding: 10px;
-  min-width: 45px;
+  width: 45px;
   height: 60px;
   background-color: var(--kleur-steen);
   text-align: center;
