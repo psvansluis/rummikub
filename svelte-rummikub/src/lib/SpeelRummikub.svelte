@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, onDestroy } from "svelte";
   import type { SpelStatus } from "../types/SpelStatus.type";
   import Plankje from "./componenten/Plankje.svelte";
   import Tafel from "./componenten/Tafel.svelte";
@@ -10,23 +10,44 @@
     steenIndex,
   } from "../stores/speelSteenIndices";
 
-  let bronContainerIndexWaarde: number;
-  let steenIndexWaarde: number;
-  let doelContainerIndexWaarde: number;
+  $: $bronContainerIndex, speelSteen();
+  $: $doelContainerIndex, speelSteen();
 
-  bronContainerIndex.subscribe((w) => {
-    bronContainerIndexWaarde = w;
-  });
+  // let bronContainerIndexWaarde: number;
+  // let steenIndexWaarde: number;
+  // let doelContainerIndexWaarde: number;
 
-  steenIndex.subscribe((w) => {
-    steenIndexWaarde = w;
-    speelSteen();
-  });
+  // bronContainerIndex.subscribe((w) => {
+  //   bronContainerIndexWaarde = w;
+  // });
 
-  doelContainerIndex.subscribe((w) => {
-    doelContainerIndexWaarde = w;
-    speelSteen();
-  });
+  // steenIndex.subscribe((w) => {
+  //   steenIndexWaarde = w;
+  //   speelSteen();
+  // });
+
+  // doelContainerIndex.subscribe((w) => {
+  //   doelContainerIndexWaarde = w;
+  //   speelSteen();
+  // });
+
+  // function unsubscribe() {
+  //   console.log("unsubscribing at SpeelRummikub");
+  //   bronContainerIndex.subscribe(() => {
+  //     bronContainerIndexWaarde = null;
+  //   });
+  //   steenIndex.subscribe(() => {
+  //     steenIndexWaarde = null;
+  //   });
+  //   doelContainerIndex.subscribe(() => {
+  //     doelContainerIndexWaarde = null;
+  //   });
+  // }
+
+  // onDestroy(() => {
+  //   console.log("destroying SpeelRummikub");
+  //   unsubscribe();
+  // });
 
   export let spelStatus: SpelStatus;
   const dispatch = createEventDispatcher();
@@ -43,9 +64,9 @@
       });
       if (respons.ok) {
         dispatch("change", { spelStatus: await respons.json() });
-        bronContainerIndexWaarde = null;
-        steenIndexWaarde = null;
-        doelContainerIndexWaarde = null;
+        // bronContainerIndexWaarde = null;
+        // steenIndexWaarde = null;
+        // doelContainerIndexWaarde = null;
         bronContainerIndex.set(null);
         steenIndex.set(null);
         doelContainerIndex.set(null);
@@ -59,9 +80,9 @@
 
   async function speelSteen() {
     let coordinaten = {
-      bronContainerIndex: bronContainerIndexWaarde,
-      steenIndex: steenIndexWaarde,
-      doelContainerIndex: doelContainerIndexWaarde,
+      bronContainerIndex: $bronContainerIndex,
+      steenIndex: $steenIndex,
+      doelContainerIndex: $doelContainerIndex,
     };
     if (Object.values(coordinaten).includes(null)) {
       console.log("speelSteen() wacht op meer waardes...");
