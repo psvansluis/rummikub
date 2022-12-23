@@ -34,15 +34,15 @@
   }
 
   async function speelSteen() {
+    if ($bronIndices === null || $doelContainerIndex === null) {
+      console.log("speelSteen() wacht op meer waardes...");
+      return;
+    }
     let coordinaten = {
       bronContainerIndex: $bronIndices.container,
       steenIndex: $bronIndices.steen,
       doelContainerIndex: $doelContainerIndex,
     };
-    if (Object.values(coordinaten).includes(null)) {
-      console.log("speelSteen() wacht op meer waardes...");
-      return;
-    }
     console.log(coordinaten);
     postRequestNaarAPI("rummikub/api/speel", coordinaten);
   }
