@@ -13,42 +13,6 @@
   $: $bronContainerIndex, speelSteen();
   $: $doelContainerIndex, speelSteen();
 
-  // let bronContainerIndexWaarde: number;
-  // let steenIndexWaarde: number;
-  // let doelContainerIndexWaarde: number;
-
-  // bronContainerIndex.subscribe((w) => {
-  //   bronContainerIndexWaarde = w;
-  // });
-
-  // steenIndex.subscribe((w) => {
-  //   steenIndexWaarde = w;
-  //   speelSteen();
-  // });
-
-  // doelContainerIndex.subscribe((w) => {
-  //   doelContainerIndexWaarde = w;
-  //   speelSteen();
-  // });
-
-  // function unsubscribe() {
-  //   console.log("unsubscribing at SpeelRummikub");
-  //   bronContainerIndex.subscribe(() => {
-  //     bronContainerIndexWaarde = null;
-  //   });
-  //   steenIndex.subscribe(() => {
-  //     steenIndexWaarde = null;
-  //   });
-  //   doelContainerIndex.subscribe(() => {
-  //     doelContainerIndexWaarde = null;
-  //   });
-  // }
-
-  // onDestroy(() => {
-  //   console.log("destroying SpeelRummikub");
-  //   unsubscribe();
-  // });
-
   export let spelStatus: SpelStatus;
   const dispatch = createEventDispatcher();
 
@@ -64,9 +28,6 @@
       });
       if (respons.ok) {
         dispatch("change", { spelStatus: await respons.json() });
-        // bronContainerIndexWaarde = null;
-        // steenIndexWaarde = null;
-        // doelContainerIndexWaarde = null;
         bronContainerIndex.set(null);
         steenIndex.set(null);
         doelContainerIndex.set(null);
