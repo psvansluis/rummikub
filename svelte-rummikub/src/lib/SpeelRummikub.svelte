@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher, onDestroy } from "svelte";
+  import { createEventDispatcher } from "svelte";
   import type { SpelStatus } from "../types/SpelStatus.type";
   import Plankje from "./componenten/Plankje.svelte";
   import Tafel from "./componenten/Tafel.svelte";
