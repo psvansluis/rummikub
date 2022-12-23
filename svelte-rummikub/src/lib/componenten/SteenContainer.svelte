@@ -5,7 +5,7 @@
   import type { Plankje, Set } from "../../types/SpelStatus.type";
   import {
     doelContainerIndex,
-    bronIndex,
+    bronIndices,
   } from "../../stores/speelSteenIndices";
 
   export let container: Plankje | Set = { stenen: [], valide: null } as Set;
@@ -15,7 +15,7 @@
 
   function geefSteenKlikDoor(ev: { detail: { steenIndex: number } }) {
     console.log("steen geklikt op " + index + ", " + ev.detail.steenIndex);
-    bronIndex.set({ container: index, steen: ev.detail.steenIndex });
+    bronIndices.set({ container: index, steen: ev.detail.steenIndex });
   }
 
   function geefToevoegerKlikDoor() {
