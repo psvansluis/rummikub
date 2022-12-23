@@ -4,14 +4,9 @@
   import Plankje from "./componenten/Plankje.svelte";
   import Tafel from "./componenten/Tafel.svelte";
   import Paneel from "./componenten/Paneel.svelte";
-  import {
-    bronContainerIndex,
-    doelContainerIndex,
-    steenIndex,
-  } from "../stores/speelSteenIndices";
+  import { bronIndex, doelContainerIndex } from "../stores/speelSteenIndices";
 
-  $: $bronContainerIndex, speelSteen();
-  $: $doelContainerIndex, speelSteen();
+  $: $bronIndex, $doelContainerIndex, speelSteen();
 
   export let spelStatus: SpelStatus;
   const dispatch = createEventDispatcher();
@@ -28,8 +23,7 @@
       });
       if (respons.ok) {
         dispatch("change", { spelStatus: await respons.json() });
-        bronContainerIndex.set(null);
-        steenIndex.set(null);
+        bronIndex.set(null);
         doelContainerIndex.set(null);
       } else {
         console.error(respons.statusText);
@@ -41,8 +35,8 @@
 
   async function speelSteen() {
     let coordinaten = {
-      bronContainerIndex: $bronContainerIndex,
-      steenIndex: $steenIndex,
+      bronContainerIndex: $bronIndex.container,
+      steenIndex: $bronIndex.steen,
       doelContainerIndex: $doelContainerIndex,
     };
     if (Object.values(coordinaten).includes(null)) {

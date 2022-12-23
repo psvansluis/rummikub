@@ -15,7 +15,7 @@ export type Plankje = {
 export type Set = {
   stenen: Steen[];
   valide: boolean;
-}
+};
 
 export type Steen = {
   cijfer: number;

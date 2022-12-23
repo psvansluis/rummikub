@@ -4,18 +4,18 @@
   import SteenToevoeger from "./SteenToevoeger.svelte";
   import type { Plankje, Set } from "../../types/SpelStatus.type";
   import {
-    bronContainerIndex,
-    steenIndex,
     doelContainerIndex,
+    bronIndex,
   } from "../../stores/speelSteenIndices";
 
   export let container: Plankje | Set = { stenen: [], valide: null } as Set;
   export let index: number;
+  let cssclass: string;
+  afterUpdate(() => (cssclass = getCssClassString()));
 
   function geefSteenKlikDoor(ev: { detail: { steenIndex: number } }) {
     console.log("steen geklikt op " + index + ", " + ev.detail.steenIndex);
-    bronContainerIndex.set(index);
-    steenIndex.set(ev.detail.steenIndex);
+    bronIndex.set({ container: index, steen: ev.detail.steenIndex });
   }
 
   function geefToevoegerKlikDoor() {
@@ -23,16 +23,15 @@
     doelContainerIndex.set(index);
   }
 
-  let cssclass: string;
-  afterUpdate(() => {
+  function getCssClassString(): string {
     if ("valide" in container) {
       if (container.stenen.length == 0) {
-        cssclass = "set";
+        return "set";
       } else {
-        cssclass = (container.valide ? "" : "in") + "valide set";
+        return (container.valide ? "" : "in") + "valide set";
       }
-    } else cssclass = "plankje";
-  });
+    } else return "plankje";
+  }
 </script>
 
 <div class={cssclass}>
