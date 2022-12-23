@@ -3,7 +3,7 @@
   import StartRummikub from "./StartRummikub.svelte";
   import type { SpelStatus } from "../types/SpelStatus.type.js";
   let spelStatus: SpelStatus = undefined;
-  function vernieuwSpelStatus(ev) {
+  function vernieuwSpelStatus(ev: { detail: { spelStatus: SpelStatus } }) {
     spelStatus = ev.detail.spelStatus;
     console.log(spelStatus);
   }

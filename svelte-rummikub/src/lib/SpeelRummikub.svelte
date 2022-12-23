@@ -10,23 +10,8 @@
     steenIndex,
   } from "../stores/speelSteenIndices";
 
-  let bronContainerIndexWaarde: number;
-  let steenIndexWaarde: number;
-  let doelContainerIndexWaarde: number;
-
-  bronContainerIndex.subscribe((w) => {
-    bronContainerIndexWaarde = w;
-  });
-
-  steenIndex.subscribe((w) => {
-    steenIndexWaarde = w;
-    speelSteen();
-  });
-
-  doelContainerIndex.subscribe((w) => {
-    doelContainerIndexWaarde = w;
-    speelSteen();
-  });
+  $: $bronContainerIndex, speelSteen();
+  $: $doelContainerIndex, speelSteen();
 
   export let spelStatus: SpelStatus;
   const dispatch = createEventDispatcher();
@@ -43,9 +28,6 @@
       });
       if (respons.ok) {
         dispatch("change", { spelStatus: await respons.json() });
-        bronContainerIndexWaarde = null;
-        steenIndexWaarde = null;
-        doelContainerIndexWaarde = null;
         bronContainerIndex.set(null);
         steenIndex.set(null);
         doelContainerIndex.set(null);
@@ -59,9 +41,9 @@
 
   async function speelSteen() {
     let coordinaten = {
-      bronContainerIndex: bronContainerIndexWaarde,
-      steenIndex: steenIndexWaarde,
-      doelContainerIndex: doelContainerIndexWaarde,
+      bronContainerIndex: $bronContainerIndex,
+      steenIndex: $steenIndex,
+      doelContainerIndex: $doelContainerIndex,
     };
     if (Object.values(coordinaten).includes(null)) {
       console.log("speelSteen() wacht op meer waardes...");
