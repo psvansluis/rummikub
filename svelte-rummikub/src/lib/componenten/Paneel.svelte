@@ -5,20 +5,23 @@
   export let spelStatus: SpelStatus;
 
   const dispatch = createEventDispatcher();
+  function klikPaneel(index: number): void {
+    dispatch("klikpaneel", { paneelIndex: index });
+  }
 </script>
 
 <div>
   <button
     class="actief"
     on:click={() => {
-      dispatch("klikpaneel", { paneelIndex: 0 });
+      klikPaneel(0);
     }}>Reset</button
   >
   {#if spelStatus.spelerKanBeurtDoorgeven}
     <button
       class="actief"
       on:click={() => {
-        dispatch("klikpaneel", { paneelIndex: 1 });
+        klikPaneel(1);
       }}>Einde beurt</button
     >
   {:else}
@@ -27,7 +30,7 @@
   <button
     class="actief"
     on:click={() => {
-      dispatch("klikpaneel", { paneelIndex: 2 });
+      klikPaneel(2);
     }}>Steen uit pot ({spelStatus.stenenInPot})</button
   >
 </div>
