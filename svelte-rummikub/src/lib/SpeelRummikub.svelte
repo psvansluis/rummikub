@@ -4,14 +4,9 @@
   import Plankje from "./componenten/Plankje.svelte";
   import Tafel from "./componenten/Tafel.svelte";
   import Paneel from "./componenten/Paneel.svelte";
-  import {
-    bronContainerIndex,
-    doelContainerIndex,
-    steenIndex,
-  } from "../stores/speelSteenIndices";
+  import { bronIndices, doelContainerIndex } from "../stores/speelSteenIndices";
 
-  $: $bronContainerIndex, speelSteen();
-  $: $doelContainerIndex, speelSteen();
+  $: $bronIndices, $doelContainerIndex, speelSteen();
 
   export let spelStatus: SpelStatus;
   const dispatch = createEventDispatcher();
@@ -28,8 +23,7 @@
       });
       if (respons.ok) {
         dispatch("change", { spelStatus: await respons.json() });
-        bronContainerIndex.set(null);
-        steenIndex.set(null);
+        bronIndices.set(null);
         doelContainerIndex.set(null);
       } else {
         console.error(respons.statusText);
@@ -40,15 +34,15 @@
   }
 
   async function speelSteen() {
-    let coordinaten = {
-      bronContainerIndex: $bronContainerIndex,
-      steenIndex: $steenIndex,
-      doelContainerIndex: $doelContainerIndex,
-    };
-    if (Object.values(coordinaten).includes(null)) {
+    if ($bronIndices === null || $doelContainerIndex === null) {
       console.log("speelSteen() wacht op meer waardes...");
       return;
     }
+    let coordinaten = {
+      bronContainerIndex: $bronIndices.container,
+      steenIndex: $bronIndices.steen,
+      doelContainerIndex: $doelContainerIndex,
+    };
     console.log(coordinaten);
     postRequestNaarAPI("rummikub/api/speel", coordinaten);
   }

@@ -1,10 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import {
-    bronContainerIndex,
-    doelContainerIndex,
-    steenIndex,
-  } from "../stores/speelSteenIndices";
+  import { bronIndices, doelContainerIndex } from "../stores/speelSteenIndices";
 
   let aantalSpelers: number = 1;
   let voorbeeldNamen: string[] = ["Henk", "Toos", "Huub", "Truus"];
@@ -13,8 +9,7 @@
   const dispatch = createEventDispatcher();
 
   function leegSpeelIndicesStore() {
-    bronContainerIndex.set(null);
-    steenIndex.set(null);
+    bronIndices.set(null);
     doelContainerIndex.set(null);
   }
 
