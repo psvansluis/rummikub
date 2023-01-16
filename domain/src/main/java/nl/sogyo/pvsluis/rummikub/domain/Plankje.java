@@ -10,8 +10,8 @@ class Plankje extends StenenContainer {
     private Plankje volgendePlankje;
     private ArrayList<Steen> stenenBijAanvangBeurt;
 
-    private Plankje() {
-        this(new Pot());
+    private Plankje(int seed) {
+        this(new Pot(seed));
         this.heeftBeurt = true;
         this.stenenBijAanvangBeurt = new ArrayList<Steen>();
         this.kopieerStenenNaarStenenBijAanvangBeurt();
@@ -27,8 +27,8 @@ class Plankje extends StenenContainer {
         this.kopieerStenenNaarStenenBijAanvangBeurt();
     }
 
-    Plankje(int aantalPlankjes) {
-        this();
+    Plankje(int aantalPlankjes, int seed) {
+        this(seed);
         int teMakenPlankjes = aantalPlankjes;
         while (teMakenPlankjes > 1) {
             this.getPlankjeZonderVolgendePlankje()

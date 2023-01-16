@@ -10,7 +10,7 @@ import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
 
 public class UitkomenTest {
     private static Tafel testSpel1() {
-        Tafel test = new Tafel(2);
+        Tafel test = new Tafel(2, 1);
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
@@ -21,7 +21,7 @@ public class UitkomenTest {
     }
 
     private static Tafel testSpel2() {
-        Tafel test = new Tafel(2);
+        Tafel test = new Tafel(2, 1);
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(7, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(8, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(9, Kleur.ZWART));

@@ -22,25 +22,25 @@ public class PotTest {
 
     @Test
     public void eenNieuwePotHeeftTweeZwarteVieren() {
-        Pot pot = new Pot();
+        Pot pot = new Pot(1);
         assertEquals(2, nStenenMetWaardeInPot(pot, 4, Kleur.ZWART));
     }
 
     @Test
     public void eenNieuwePotHeeftTweeKleur1Dertienen() {
-        Pot pot = new Pot();
+        Pot pot = new Pot(1);
         assertEquals(2, nStenenMetWaardeInPot(pot, 13, Kleur.KLEUR1));
     }
 
     @Test
     public void eenNieuwePotHeeftTweeKleur2Enen() {
-        Pot pot = new Pot();
+        Pot pot = new Pot(1);
         assertEquals(2, nStenenMetWaardeInPot(pot, 1, Kleur.KLEUR2));
     }
 
     @Test
     public void eenNieuwePotHeeftTweeKleur3Tienen() {
-        Pot pot = new Pot();
+        Pot pot = new Pot(1);
         assertEquals(2, nStenenMetWaardeInPot(pot, 10, Kleur.KLEUR3));
     }
 }

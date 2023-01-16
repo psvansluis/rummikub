@@ -20,13 +20,13 @@ public class TafelPlaatsingTest {
 
     @Test
     public void setsIsLeegBijNieuwSpel() {
-        Tafel tafel = new Tafel(1);
+        Tafel tafel = new Tafel(1, 1);
 
         assertTrue(tafel.getSets().isEmpty());
     }
 
     private static Tafel voorbeeldSpel1() {
-        Tafel tafel = new Tafel(2);
+        Tafel tafel = new Tafel(2, 1);
         tafel.speelSteen(-1, 0, tafel.lengteSets());
         return tafel;
     }
@@ -46,7 +46,7 @@ public class TafelPlaatsingTest {
     }
 
     private static Tafel voorbeeldSpel2() {
-        Tafel tafel = new Tafel(2);
+        Tafel tafel = new Tafel(2, 2);
         tafel.speelSteen(-1, 0, tafel.lengteSets());
         tafel.speelSteen(-1, 0, 0);
         return tafel;
@@ -101,7 +101,7 @@ public class TafelPlaatsingTest {
 
     @Test
     public void getStenenContainerOfMaakAanGeeftPlankjeBijMin1() {
-        Tafel test = new Tafel(3);
+        Tafel test = new Tafel(3, 2);
         assertEquals(test.getPlankjeMetBeurt(),
                 test.getStenenContainerOfMaakAan(-1));
     }

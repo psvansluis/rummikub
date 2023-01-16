@@ -25,9 +25,9 @@ class Pot extends StenenContainer {
         }
     }
 
-    Pot() {
+    Pot(int seed) {
         this.voegAlleStenenToe(AANTAL_DUPLICATE_STENEN);
-        this.schud();
+        this.schud(seed);
     }
 
 }

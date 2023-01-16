@@ -18,7 +18,13 @@ public class FacadeSettersTest {
     };
 
     private static Rummikub testSpel() {
-        Rummikub test = new Rummikub(spelernamen);
+        Rummikub test = new Rummikub(spelernamen, 2);
+        return test;
+
+    }
+
+    private static Rummikub testSpel(int seed) {
+        Rummikub test = new Rummikub(spelernamen, seed);
         return test;
 
     }
@@ -81,6 +87,30 @@ public class FacadeSettersTest {
         test.speelSteen(-1, 0, 0);
         test.neemSteenUitPot();
         assertEquals(0, test.getStenenOpTafel().size());
+    }
+
+    @Test
+    public void sluitBeurtAfKanWel() {
+        Rummikub test = testSpel(1);
+        test.speelSteen(-1, 11, 0);
+        test.speelSteen(-1, 10, 0);
+        test.speelSteen(-1, 8, 0);
+        test.sluitBeurtAf();
+        assertTrue(
+                "Na succesvol doorgeven beurt moet Toos aan de beurt zijn",
+                test.getNaamSpelerMetBeurt().equals("Toos"));
+    }
+
+    @Test
+    public void sluitBeurtAfKanNiet() {
+        Rummikub test = testSpel();
+        test.speelSteen(-1, 11, 0);
+        test.speelSteen(-1, 10, 0);
+        test.speelSteen(-1, 8, 0);
+        test.sluitBeurtAf();
+        assertTrue(
+                "Na onsuccesvol doorgeven beurt moet Henk aan de beurt zijn",
+                test.getNaamSpelerMetBeurt().equals("Henk"));
     }
 
 }

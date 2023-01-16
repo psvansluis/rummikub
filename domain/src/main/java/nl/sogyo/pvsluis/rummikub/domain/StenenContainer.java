@@ -2,6 +2,7 @@ package nl.sogyo.pvsluis.rummikub.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 abstract class StenenContainer {
     private ArrayList<Steen> stenen;
@@ -41,8 +42,9 @@ abstract class StenenContainer {
         this.stenen.remove(index);
     }
 
-    void schud() {
-        Collections.shuffle(this.stenen);
+    void schud(int seed) {
+        Random random = new Random(seed);
+        Collections.shuffle(this.stenen, random);
     }
 
     void sorteer() {
