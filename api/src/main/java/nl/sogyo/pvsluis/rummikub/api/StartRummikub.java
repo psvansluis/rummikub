@@ -2,7 +2,6 @@ package nl.sogyo.pvsluis.rummikub.api;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
 import jakarta.servlet.http.*;
 import jakarta.ws.rs.*;
@@ -25,9 +24,7 @@ public class StartRummikub {
         ArrayList<String> list = new ArrayList<String>(
                 Arrays.asList(spelerNamen.getSpelerNamen()));
 
-        Random seed = new Random();
-
-        Rummikub rummikub = new Rummikub(list, seed.nextInt());
+        Rummikub rummikub = new Rummikub(list, spelerNamen.getSeed());
 
         session.setAttribute("rummikub", rummikub);
 
