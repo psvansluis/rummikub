@@ -23,15 +23,15 @@ public class SorteerPlankjeTest {
     @Test
     public void sorterenOpKleurWerkt() {
         testSpel.sorteerPlankjeOpKleur();
-        assertEquals(1,
-                testSpel.getStenenOpPlankjeMetBeurt().get(0).get(0).intValue());
+        assertEquals(0,
+                testSpel.getStenenOpPlankjeMetBeurt().get(0).get(1).intValue());
     }
 
     @Test
     public void sorterenOpCijferWerkt() {
         testSpel.sorteerPlankjeOpCijfer();
-        assertEquals(0,
-                testSpel.getStenenOpPlankjeMetBeurt().get(0).get(1).intValue());
+        assertEquals(1,
+                testSpel.getStenenOpPlankjeMetBeurt().get(0).get(0).intValue());
 
     }
 }
