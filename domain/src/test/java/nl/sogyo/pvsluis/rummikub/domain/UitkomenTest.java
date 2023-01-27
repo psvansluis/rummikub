@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
+import nl.sogyo.pvsluis.rummikub.domain.AbstractSteen.Kleur;
 
 public class UitkomenTest {
     private static Tafel testSpel1() {

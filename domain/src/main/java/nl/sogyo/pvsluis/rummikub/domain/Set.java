@@ -2,7 +2,7 @@ package nl.sogyo.pvsluis.rummikub.domain;
 
 import java.util.LinkedHashSet;
 
-import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
+import nl.sogyo.pvsluis.rummikub.domain.AbstractSteen.Kleur;
 
 class Set extends StenenContainer {
     private static final int MINIMALE_LENGTE_VALIDE_SET = 3;

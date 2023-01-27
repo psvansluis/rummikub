@@ -13,6 +13,8 @@
   --light-text-color: #efe8de;
   --kleur-steen: hsl(36, 40%, 76%);
   --kleur-steen-transparant: hsla(36, 40%, 76%, 50%);
+  --kleur-joker: hsl(37, 31%, 55%);
+  --kleur-joker-transparant: hsl(37, 31%, 55%, 50%);
 }
 
 body {

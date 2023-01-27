@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import nl.sogyo.pvsluis.rummikub.domain.AbstractSteen.Kleur;
 import nl.sogyo.pvsluis.rummikub.domain.Steen.*;
 
 public class SetValidatieTest {

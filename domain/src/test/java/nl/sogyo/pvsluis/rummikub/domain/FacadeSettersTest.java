@@ -91,10 +91,10 @@ public class FacadeSettersTest {
 
     @Test
     public void sluitBeurtAfKanWel() {
-        Rummikub test = testSpel(1);
+        Rummikub test = testSpel(5);
         test.speelSteen(-1, 11, 0);
-        test.speelSteen(-1, 10, 0);
-        test.speelSteen(-1, 8, 0);
+        test.speelSteen(-1, 6, 0);
+        test.speelSteen(-1, 1, 0);
         test.sluitBeurtAf();
         assertTrue(
                 "Na succesvol doorgeven beurt moet Toos aan de beurt zijn",

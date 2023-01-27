@@ -30,7 +30,7 @@ public class SorteerPlankjeTest {
     @Test
     public void sorterenOpKleurWerkt2() {
         testSpel.sorteerPlankjeOpKleur();
-        assertEquals(3,
+        assertEquals(2,
                 testSpel.getStenenOpPlankjeMetBeurt()
                         .get(13).get(1).intValue());
     }
@@ -45,7 +45,7 @@ public class SorteerPlankjeTest {
     @Test
     public void sorterenOpCijferWerkt2() {
         testSpel.sorteerPlankjeOpCijfer();
-        assertEquals(13,
+        assertEquals(12,
                 testSpel.getStenenOpPlankjeMetBeurt()
                         .get(13).get(0).intValue());
     }

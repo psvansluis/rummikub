@@ -1,27 +1,15 @@
 package nl.sogyo.pvsluis.rummikub.domain;
 
-class Steen {
-    private int cijfer;
-    private Kleur kleur;
-
-    enum Kleur {
-        ZWART,
-        KLEUR1,
-        KLEUR2,
-        KLEUR3;
-    }
+class Steen extends AbstractSteen {
 
     Steen(int cijfer, Kleur kleur) {
-        this.cijfer = cijfer;
-        this.kleur = kleur;
+        super(cijfer, kleur);
     }
 
-    int getCijfer() {
-        return this.cijfer;
+    void setWaarde(int cijfer, Kleur kleur) {
     }
 
-    Kleur getKleur() {
-        return this.kleur;
+    int getWaardeVoorScore() {
+        return this.getCijfer();
     }
-
 }

@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import nl.sogyo.pvsluis.rummikub.domain.AbstractSteen.Kleur;
 import nl.sogyo.pvsluis.rummikub.domain.Steen.*;
 
 public class SetManipulatieTest {

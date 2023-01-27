@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
+import nl.sogyo.pvsluis.rummikub.domain.AbstractSteen.Kleur;
 
 public class PotTest {
 

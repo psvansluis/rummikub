@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
+import nl.sogyo.pvsluis.rummikub.domain.AbstractSteen.Kleur;
 
 public class ResetTest {
     // Test op juiste resultaat bij Plankje én Tafel

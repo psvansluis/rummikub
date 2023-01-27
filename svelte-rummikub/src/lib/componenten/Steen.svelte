@@ -1,21 +1,39 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  import { afterUpdate, createEventDispatcher } from "svelte";
   import type { Steen } from "../../types/SpelStatus.type";
 
   const dispatch = createEventDispatcher();
 
   export let steen: Steen;
   export let index: number;
+  let cssClass: string;
+  afterUpdate(() => (cssClass = classString()));
+
+  function classString(): string {
+    if (steen.joker) {
+      return "steen joker";
+    } else {
+      return "steen kleur" + steen.kleur;
+    }
+  }
 </script>
 
 <button
-  class={"steen kleur" + steen.kleur}
+  class={cssClass}
   on:click={() => {
     dispatch("steenKlikt", { steenIndex: index });
   }}>{steen.cijfer}</button
 >
 
 <style>
+  .joker {
+    background-color: var(--kleur-joker);
+  }
+
+  .joker:hover {
+    background-color: var(--kleur-joker-transparant);
+  }
+
   :hover {
     background-color: var(--kleur-steen-transparant);
   }
