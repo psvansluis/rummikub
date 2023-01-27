@@ -20,6 +20,12 @@
   <button class="actief" on:click={() => klikPaneel(2)}
     >Steen uit pot ({spelStatus.stenenInPot})</button
   >
+  <button class="actief" on:click={() => klikPaneel(3)}>
+    Sorteer op cijfer</button
+  >
+  <button class="actief" on:click={() => klikPaneel(4)}>
+    Sorteer op kleur</button
+  >
 </div>
 
 <style>

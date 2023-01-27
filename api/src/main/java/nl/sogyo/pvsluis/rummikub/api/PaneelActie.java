@@ -29,6 +29,12 @@ public class PaneelActie {
             case 2:
                 rummikub.neemSteenUitPot();
                 break;
+            case 3:
+                rummikub.sorteerPlankjeOpCijfer();
+                break;
+            case 4:
+                rummikub.sorteerPlankjeOpKleur();
+                break;
             default:
                 System.out.println("Paneelactie " + actieIndex
                         + " niet herkend. Wordt genegeerd.");

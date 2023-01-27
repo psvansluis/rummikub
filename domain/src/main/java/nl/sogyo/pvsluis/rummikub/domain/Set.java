@@ -18,7 +18,7 @@ class Set extends StenenContainer {
     @Override
     void voegSteenToe(Steen toeTeVoegenSteen) {
         super.voegSteenToe(toeTeVoegenSteen);
-        this.sorteer();
+        this.sorteerOpCijfer();
     }
 
     private int nUniekeCijfers() {

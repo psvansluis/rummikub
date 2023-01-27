@@ -1,6 +1,6 @@
 package nl.sogyo.pvsluis.rummikub.domain;
 
-class Steen implements Comparable<Steen> {
+class Steen {
     private int cijfer;
     private Kleur kleur;
 
@@ -24,11 +24,4 @@ class Steen implements Comparable<Steen> {
         return this.kleur;
     }
 
-    private int waardeInVolgorde() {
-        return (this.cijfer * Kleur.values().length) + this.kleur.ordinal();
-    }
-
-    public int compareTo(Steen andereSteen) {
-        return this.waardeInVolgorde() - andereSteen.waardeInVolgorde();
-    }
 }
