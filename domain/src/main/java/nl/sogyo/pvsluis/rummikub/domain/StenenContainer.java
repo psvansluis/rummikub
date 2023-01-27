@@ -47,14 +47,16 @@ abstract class StenenContainer {
         Collections.shuffle(this.stenen, random);
     }
 
+    private void sorteer(SteenVergelijker vergelijker) {
+        Collections.sort(this.stenen, vergelijker);
+    }
+
     void sorteerOpCijfer() {
-        Collections.sort(this.stenen, new SteenVergelijkerOpCijfer());
+        this.sorteer(new SteenVergelijkerOpCijfer());
     }
 
     void sorteerOpKleur() {
-        Collections.sort(
-                this.stenen,
-                new SteenVergelijkerOpKleur(this.getHoogsteCijfer()));
+        this.sorteer(new SteenVergelijkerOpKleur(this.getHoogsteCijfer()));
     }
 
     private int getHoogsteCijfer() {
