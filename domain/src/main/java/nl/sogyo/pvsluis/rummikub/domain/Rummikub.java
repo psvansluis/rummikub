@@ -101,6 +101,12 @@ public class Rummikub {
         this.tafel.resetSpelNaarAanvangBeurt();
     }
 
+    public void sorteerPlankjeOpCijfer() {
+    }
+
+    public void sorteerPlankjeOpKleur() {
+    }
+
     // Setters Todo:
     // - Verander waarde Joker
 
