@@ -21,16 +21,32 @@ public class SorteerPlankjeTest {
     }
 
     @Test
-    public void sorterenOpKleurWerkt() {
+    public void sorterenOpKleurWerkt1() {
         testSpel.sorteerPlankjeOpKleur();
         assertEquals(0,
                 testSpel.getStenenOpPlankjeMetBeurt().get(0).get(1).intValue());
     }
 
     @Test
-    public void sorterenOpCijferWerkt() {
+    public void sorterenOpKleurWerkt2() {
+        testSpel.sorteerPlankjeOpKleur();
+        assertEquals(3,
+                testSpel.getStenenOpPlankjeMetBeurt()
+                        .get(13).get(1).intValue());
+    }
+
+    @Test
+    public void sorterenOpCijferWerkt1() {
         testSpel.sorteerPlankjeOpCijfer();
         assertEquals(1,
                 testSpel.getStenenOpPlankjeMetBeurt().get(0).get(0).intValue());
+    }
+
+    @Test
+    public void sorterenOpCijferWerkt2() {
+        testSpel.sorteerPlankjeOpCijfer();
+        assertEquals(13,
+                testSpel.getStenenOpPlankjeMetBeurt()
+                        .get(13).get(0).intValue());
     }
 }
