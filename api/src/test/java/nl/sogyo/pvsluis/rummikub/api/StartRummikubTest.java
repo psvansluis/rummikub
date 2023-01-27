@@ -24,6 +24,7 @@ public class StartRummikubTest {
     private SpelerInputDTO spelerInput() {
         SpelerInputDTO input = new SpelerInputDTO();
         input.setSpelerNamen(beginSpelers());
+        input.setSeed(1);
         return input;
     }
 

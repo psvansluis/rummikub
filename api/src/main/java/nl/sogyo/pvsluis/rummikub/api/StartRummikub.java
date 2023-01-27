@@ -24,7 +24,7 @@ public class StartRummikub {
         ArrayList<String> list = new ArrayList<String>(
                 Arrays.asList(spelerNamen.getSpelerNamen()));
 
-        Rummikub rummikub = new Rummikub(list);
+        Rummikub rummikub = new Rummikub(list, spelerNamen.getSeed());
 
         session.setAttribute("rummikub", rummikub);
 

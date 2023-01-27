@@ -19,7 +19,7 @@ public class FacadeGettersTest {
     };
 
     private static Rummikub testSpel() {
-        Rummikub test = new Rummikub(spelernamen);
+        Rummikub test = new Rummikub(spelernamen, 2);
         return test;
     }
 
@@ -42,7 +42,7 @@ public class FacadeGettersTest {
                 add("Henk");
             }
         };
-        Rummikub henkspel = new Rummikub(henk);
+        Rummikub henkspel = new Rummikub(henk, 2);
         Rummikub henkToosSpel = testSpel();
         assertEquals(
                 henkspel.aantalStenenInPot() - 14,

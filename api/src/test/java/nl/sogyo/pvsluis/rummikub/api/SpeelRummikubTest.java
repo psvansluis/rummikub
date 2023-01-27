@@ -40,7 +40,7 @@ public class SpeelRummikubTest {
             {
                 add("Henk");
             }
-        });
+        }, 2);
         SpeelSteen s = new SpeelSteen();
         Response respons = s.speel(
                 createRequestContext(r),

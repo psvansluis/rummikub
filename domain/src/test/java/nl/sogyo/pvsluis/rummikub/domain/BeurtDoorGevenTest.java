@@ -30,27 +30,27 @@ public class BeurtDoorGevenTest {
 
     @Test
     public void bijEenLegeTafelMagBeurtNietDoorgegevenWorden() {
-        Tafel test = new Tafel(0);
+        Tafel test = new Tafel(0, 2);
         assertFalse(test.kanBeurtDoorgeven());
     }
 
     @Test
     public void bijEenInvalideTafelMagBeurtNietDoorgegevenWorden() {
-        Tafel test = new Tafel(2);
+        Tafel test = new Tafel(2, 2);
         beurtDieNietDoorgegevenKanWorden(test);
         assertFalse(test.kanBeurtDoorgeven());
     }
 
     @Test
     public void bijEenValideTafelMagBeurtWelDoorgegevenWorden() {
-        Tafel test = new Tafel(2);
+        Tafel test = new Tafel(2, 2);
         beurtDieWelDoorgegevenKanWorden(test);
         assertTrue(test.kanBeurtDoorgeven());
     }
 
     @Test
     public void ookTweedeSpelerMagBijInvalideTafelBeurtNietDoorgeven() {
-        Tafel test = new Tafel(2);
+        Tafel test = new Tafel(2, 2);
         beurtDieWelDoorgegevenKanWorden(test);
         test.geefBeurtDoor();
         beurtDieNietDoorgegevenKanWorden(test);
@@ -59,7 +59,7 @@ public class BeurtDoorGevenTest {
 
     @Test
     public void beurtDoorgevenDoetNietsAlsDatNietKan() {
-        Tafel test = new Tafel(2);
+        Tafel test = new Tafel(2, 2);
         beurtDieNietDoorgegevenKanWorden(test);
         test.geefBeurtDoor();
         assertEquals(test.getEerstePlankje(), test.getPlankjeMetBeurt());
@@ -67,7 +67,7 @@ public class BeurtDoorGevenTest {
 
     @Test
     public void beurtDoorgevenGeeftBeurtDoor() {
-        Tafel test = new Tafel(2);
+        Tafel test = new Tafel(2, 2);
         beurtDieWelDoorgegevenKanWorden(test);
         test.geefBeurtDoor();
         assertEquals(

@@ -5,6 +5,7 @@
   let aantalSpelers: number = 1;
   let voorbeeldNamen: string[] = ["Henk", "Toos", "Huub", "Truus"];
   let statusBericht: string = "";
+  let seed: number = Math.floor(Math.random() * 65000);
 
   const dispatch = createEventDispatcher();
 
@@ -52,7 +53,7 @@
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ spelerNamen: spelerNamen }),
+        body: JSON.stringify({ spelerNamen: spelerNamen, seed: seed }),
       });
 
       if (respons.ok) {
@@ -86,6 +87,7 @@
       /></label
     >
   {/each}
+  <label>Seed: <input type="number" bind:value={seed} min="1" /></label>
   <button on:click={startSpel}>Start spel</button>
   <p id="errormessage">
     {statusBericht}

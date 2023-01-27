@@ -8,10 +8,10 @@ class Tafel {
     private ArrayList<Set> setsBijAanvangBeurt;
     private Plankje eerstePlankje;
 
-    Tafel(int aantalPlankjes) {
+    Tafel(int aantalPlankjes, int seed) {
         sets = new ArrayList<Set>();
         setsBijAanvangBeurt = new ArrayList<Set>();
-        eerstePlankje = new Plankje(aantalPlankjes);
+        eerstePlankje = new Plankje(aantalPlankjes, seed);
     }
 
     Plankje getEerstePlankje() {

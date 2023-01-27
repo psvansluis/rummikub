@@ -2,6 +2,7 @@ package nl.sogyo.pvsluis.rummikub.domain;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
@@ -11,10 +12,15 @@ public class ResetTest {
     // In de volgende situaties:
     // Nadat nog niet eerder is gereset
     // Nadat al wel eerder is gereset binnen de beurt
+    private Tafel test;
+
+    @Before
+    public void bouwTafel() {
+        test = new Tafel(2, 2);
+    }
 
     @Test
     public void tafelIsLeegAlsEersteSpelerReset() {
-        Tafel test = new Tafel(2);
         test.speelSteen(-1, 0, 0);
         test.speelSteen(-1, 0, 0);
         test.speelSteen(-1, 0, 0);
@@ -24,7 +30,6 @@ public class ResetTest {
 
     @Test
     public void plankjeHeeft14StenenAlsEersteSpelerReset() {
-        Tafel test = new Tafel(2);
         test.speelSteen(-1, 0, 0);
         test.speelSteen(-1, 0, 0);
         test.speelSteen(-1, 0, 0);
@@ -34,7 +39,6 @@ public class ResetTest {
 
     @Test
     public void tafelIsNietLeegAlsTweedeSpelerReset() {
-        Tafel test = new Tafel(2);
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
@@ -51,7 +55,6 @@ public class ResetTest {
 
     @Test
     public void plankjeHeeft14StenenAlsTweedeSpelerReset() {
-        Tafel test = new Tafel(2);
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
@@ -68,7 +71,6 @@ public class ResetTest {
 
     @Test
     public void tweeKeerResettenTest() {
-        Tafel test = new Tafel(2);
         test.speelSteen(-1, 0, 0);
         test.speelSteen(-1, 0, 0);
         test.speelSteen(-1, 0, 0);
@@ -83,7 +85,6 @@ public class ResetTest {
     // Test terugzetten van Steen op Plankje
     @Test
     public void eenSteenUitSetMagTerugNaarPlankjeBinnenBeurt() {
-        Tafel test = new Tafel(2);
         test.speelSteen(-1, 0, 0);
         test.speelSteen(0, 0, -1);
         assertEquals(14, test.getPlankjeMetBeurt().lengte());
@@ -91,7 +92,6 @@ public class ResetTest {
 
     @Test
     public void eenSteenUitSetMagNietTerugNaarPlankjeBuitenBeurt() {
-        Tafel test = new Tafel(2);
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
@@ -105,7 +105,6 @@ public class ResetTest {
 
     @Test
     public void eenEigenSteenUitSetMagOokNietTerugNaarPlankjeBuitenBeurt() {
-        Tafel test = new Tafel(2);
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
         test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));

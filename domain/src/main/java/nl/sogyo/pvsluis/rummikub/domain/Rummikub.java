@@ -6,9 +6,9 @@ public class Rummikub {
     private Tafel tafel;
     private ArrayList<String> spelerNamen;
 
-    public Rummikub(ArrayList<String> spelerNamen) {
+    public Rummikub(ArrayList<String> spelerNamen, int seed) {
         this.spelerNamen = spelerNamen;
-        this.tafel = new Tafel(spelerNamen.size());
+        this.tafel = new Tafel(spelerNamen.size(), seed);
     }
 
     public String getNaamSpelerMetBeurt() {
