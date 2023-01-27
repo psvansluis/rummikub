@@ -60,13 +60,10 @@ abstract class StenenContainer {
     }
 
     private int getHoogsteCijfer() {
-        int max = 0;
-        for (Steen steen : this.stenen) {
-            if (steen.getCijfer() > max) {
-                max = steen.getCijfer();
-            }
-        }
-        return max;
+        return Collections.max(
+                this.stenen,
+                new SteenVergelijkerOpCijfer())
+                .getCijfer();
     }
 
     @SuppressWarnings("unchecked")
