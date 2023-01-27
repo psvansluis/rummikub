@@ -32,6 +32,5 @@ public class SorteerPlankjeTest {
         testSpel.sorteerPlankjeOpCijfer();
         assertEquals(1,
                 testSpel.getStenenOpPlankjeMetBeurt().get(0).get(0).intValue());
-
     }
 }
