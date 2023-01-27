@@ -2,6 +2,7 @@ package nl.sogyo.pvsluis.rummikub.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 
 abstract class StenenContainer {
@@ -47,23 +48,14 @@ abstract class StenenContainer {
         Collections.shuffle(this.stenen, random);
     }
 
-    private void sorteer(SteenVergelijker vergelijker) {
-        Collections.sort(this.stenen, vergelijker);
-    }
-
     void sorteerOpCijfer() {
-        this.sorteer(new SteenVergelijkerOpCijfer());
+        this.stenen.sort(Comparator.comparing(Steen::getCijfer)
+                .thenComparing(Steen::getKleur));
     }
 
     void sorteerOpKleur() {
-        this.sorteer(new SteenVergelijkerOpKleur(this.getHoogsteCijfer()));
-    }
-
-    private int getHoogsteCijfer() {
-        return Collections.max(
-                this.stenen,
-                new SteenVergelijkerOpCijfer())
-                .getCijfer();
+        this.stenen.sort(Comparator.comparing(Steen::getKleur)
+                .thenComparing(Steen::getCijfer));
     }
 
     @SuppressWarnings("unchecked")
