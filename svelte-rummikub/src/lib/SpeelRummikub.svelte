@@ -66,7 +66,9 @@
 
 <Tafel sets={spelStatus.sets} />
 <div id="onderste-rij">
-  <JokerSetter on:klikJoker={setJoker} />
+  {#if $bronIndices != null}
+    <JokerSetter on:klikJoker={setJoker} />
+  {/if}
   <Plankje
     plankje={spelStatus.plankje}
     eigenaar={spelStatus.spelerMetBeurt}
