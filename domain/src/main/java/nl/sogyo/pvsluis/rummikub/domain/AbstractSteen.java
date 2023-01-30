@@ -31,4 +31,7 @@ abstract class AbstractSteen {
 
     abstract int getWaardeVoorScore();
 
+    boolean isJoker() {
+        return this instanceof Joker;
+    }
 }

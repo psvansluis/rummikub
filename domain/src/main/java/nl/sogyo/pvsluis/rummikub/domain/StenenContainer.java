@@ -49,13 +49,17 @@ abstract class StenenContainer {
     }
 
     void sorteerOpCijfer() {
-        this.stenen.sort(Comparator.comparing(Steen::getCijfer)
-                .thenComparing(Steen::getKleur));
+        this.stenen.sort(Comparator
+                .comparing(Steen::getCijfer)
+                .thenComparing(Steen::getKleur)
+                .thenComparing(Steen::isJoker));
     }
 
     void sorteerOpKleur() {
-        this.stenen.sort(Comparator.comparing(Steen::getKleur)
-                .thenComparing(Steen::getCijfer));
+        this.stenen.sort(Comparator
+                .comparing(Steen::getKleur)
+                .thenComparing(Steen::getCijfer)
+                .thenComparing(Steen::isJoker));
     }
 
     @SuppressWarnings("unchecked")
