@@ -1,7 +1,6 @@
 package nl.sogyo.pvsluis.rummikub.domain;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -35,7 +34,7 @@ public class JokerTest {
         testSpel.setJokerWaarde(-1, 0, 5, 1);
         int deCijferWaarde = testSpel.getStenenOpPlankjeMetBeurt()
                 .get(0).get(0);
-        assertEquals("Bij een joker moet aanpassen wel effect hebben",
+        assertEquals("Een gewone steen moet niet aanpasbaar zijn",
                 13, deCijferWaarde);
     }
 }
