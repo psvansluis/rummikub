@@ -7,7 +7,10 @@
   let invoerKleur: number = 0;
 
   function setJoker(): void {
-    dispatch("setJoker", { cijfer: invoerCijfer, kleur: invoerKleur });
+    console.log(
+      `setJoker aangeroepen met cijfer ${invoerCijfer} en kleur ${invoerKleur}`
+    );
+    dispatch("klikJoker", { cijfer: invoerCijfer, kleur: invoerKleur });
   }
 </script>
 
