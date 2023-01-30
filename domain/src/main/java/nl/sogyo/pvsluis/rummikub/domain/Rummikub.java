@@ -25,10 +25,10 @@ public class Rummikub {
     }
 
     private static ArrayList<Integer> steenNaarArrayList(Steen steen) {
-        // Todo na implementeren Joker: add 0 bij gewone steen, 1 bij Joker.
         ArrayList<Integer> out = new ArrayList<Integer>();
         out.add(steen.getCijfer());
         out.add(steen.getKleur().ordinal());
+        out.add(steen.isJoker() ? 1 : 0);
         return out;
     }
 

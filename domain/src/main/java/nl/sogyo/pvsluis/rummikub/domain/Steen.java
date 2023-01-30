@@ -24,4 +24,11 @@ class Steen {
         return this.kleur;
     }
 
+    boolean isJoker() {
+        return this instanceof Joker;
+    }
+
+    int getWaardeVoorScore() {
+        return this.cijfer;
+    }
 }
