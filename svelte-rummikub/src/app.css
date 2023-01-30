@@ -11,8 +11,10 @@
   --light-two: hsl(104, 58%, 95%);
   --light-three: hsl(348, 58%, 95%);
   --light-text-color: #efe8de;
-  --kleur-steen: hsl(36, 40%, 76%);
-  --kleur-steen-transparant: hsla(36, 40%, 76%, 50%);
+  --kleur-steen: hsl(36, 40%, 75%);
+  --kleur-steen-transparant: hsla(36, 40%, 75%, 50%);
+  --kleur-joker: hsl(36, 80%, 60%);
+  --kleur-joker-transparant: hsla(36, 80%, 60%, 50%);
 }
 
 body {
