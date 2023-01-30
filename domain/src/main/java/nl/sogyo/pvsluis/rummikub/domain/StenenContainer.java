@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
+import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
+
 abstract class StenenContainer {
     private ArrayList<Steen> stenen;
 
@@ -73,6 +75,14 @@ abstract class StenenContainer {
 
     Steen getSteen(int index) {
         return this.getStenen().get(index);
+    }
+
+    void setJokerWaarde(int index, int cijfer, Kleur kleur) {
+        if (!this.getSteen(index).isJoker()) {
+            return;
+        }
+        Joker joker = (Joker) this.getSteen(index);
+        joker.setWaarde(cijfer, kleur);
     }
 
     int lengte() {

@@ -6,7 +6,7 @@ class Joker extends Steen {
 
     Joker() {
         super(1, Kleur.ZWART);
-        this.steen = this;
+        this.steen = new Steen(1, Kleur.ZWART);
     }
 
     void setWaarde(int cijfer, Kleur kleur) {

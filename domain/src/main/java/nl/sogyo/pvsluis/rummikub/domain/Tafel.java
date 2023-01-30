@@ -2,6 +2,8 @@ package nl.sogyo.pvsluis.rummikub.domain;
 
 import java.util.ArrayList;
 
+import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
+
 class Tafel {
     private static final int MINIMALE_CIJFERSOM_VOOR_UITKOMEN = 30;
     private ArrayList<Set> sets;
@@ -51,6 +53,12 @@ class Tafel {
             return true;
         }
         return this.isNieuweSetInBeurt(setIndex);
+    }
+
+    void setJokerWaarde(
+            int containerIndex, int steenIndex, int cijfer, Kleur kleur) {
+        this.getStenenContainerOfMaakAan(containerIndex)
+                .setJokerWaarde(steenIndex, cijfer, kleur);
     }
 
     void speelSteen(
