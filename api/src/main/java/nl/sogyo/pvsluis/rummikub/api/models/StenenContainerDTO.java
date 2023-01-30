@@ -10,7 +10,8 @@ public class StenenContainerDTO {
         for (int i = 0; i < stenen.length; i++) {
             stenen[i] = new SteenDTO(
                     container.get(i).get(0),
-                    container.get(i).get(1));
+                    container.get(i).get(1),
+                    container.get(i).get(2));
         }
     }
 
