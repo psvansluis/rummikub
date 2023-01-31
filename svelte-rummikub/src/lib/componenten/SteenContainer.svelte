@@ -1,6 +1,7 @@
 <script lang="ts">
   import { afterUpdate } from "svelte";
   import Steen from "./Steen.svelte";
+  import type { Steen as SteenT } from "../../types/SpelStatus.type";
   import SteenToevoeger from "./SteenToevoeger.svelte";
   import type { Plankje, Set } from "../../types/SpelStatus.type";
   import {
@@ -13,9 +14,15 @@
   let cssclass: string;
   afterUpdate(() => (cssclass = getCssClassString()));
 
-  function geefSteenKlikDoor(ev: { detail: { steenIndex: number } }) {
+  function geefSteenKlikDoor(ev: {
+    detail: { steenIndex: number; steenObject: SteenT };
+  }) {
     console.log("steen geklikt op " + index + ", " + ev.detail.steenIndex);
-    bronIndices.set({ container: index, steen: ev.detail.steenIndex });
+    bronIndices.set({
+      container: index,
+      steen: ev.detail.steenIndex,
+      steenObject: ev.detail.steenObject,
+    });
   }
 
   function geefToevoegerKlikDoor() {
