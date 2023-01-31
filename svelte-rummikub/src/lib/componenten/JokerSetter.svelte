@@ -3,6 +3,7 @@
   import type { Steen } from "../../types/SpelStatus.type";
 
   const AANTAL_KLEUREN: number = 4;
+  const HOOGSTE_CIJFER_STEEN: number = 13;
 
   const dispatch = createEventDispatcher();
   export let geklikteSteen: Steen;
@@ -18,6 +19,7 @@
 </script>
 
 <div id="jokersetter">
+  <div id="jokerheader">Joker</div>
   <label
     ><input
       id="cijferslider"
@@ -25,13 +27,13 @@
       class="slider"
       bind:value={invoerCijfer}
       min="1"
-      max="13"
+      max={HOOGSTE_CIJFER_STEEN}
     />
   </label>
   <div id="kleurbuttons">
     {#each Array(AANTAL_KLEUREN) as _, kleurIndex}
       <label
-        ><div class="kleur{kleurIndex} kleurbutton steen">{invoerCijfer}</div>
+        ><div class="kleur{kleurIndex} kleurbutton">{invoerCijfer}</div>
         <input
           type="radio"
           name="kleur"
@@ -45,6 +47,10 @@
 </div>
 
 <style>
+  #jokerheader {
+    font-size: large;
+  }
+
   #cijferslider {
     max-width: 100px;
   }
@@ -52,18 +58,18 @@
   #jokersetter {
     padding: 5px;
     margin: 5px;
-    display: flow-root;
+    display: flex;
     flex-direction: column;
+    justify-content: normal;
     border: 2px solid black;
     border-radius: 5px;
-    max-width: 200px;
+    max-width: 150px;
     align-items: center;
   }
 
   label {
     display: flex;
     flex-direction: row;
-    align-self: center;
     padding: 5px;
     margin: 5px;
   }
@@ -90,15 +96,21 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .kleurbutton {
     padding: 2px;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     vertical-align: middle;
     border: 2px solid black;
     border-radius: 5px;
     min-width: 20px;
     background-color: var(--kleur-joker);
+    transition: background-color 0.5s;
+  }
+  .kleurbutton:hover {
+    background-color: var(--kleur-joker-transparant);
   }
 </style>
