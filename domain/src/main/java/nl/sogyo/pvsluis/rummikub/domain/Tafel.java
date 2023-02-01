@@ -57,6 +57,9 @@ class Tafel {
 
     void setJokerWaarde(
             int containerIndex, int steenIndex, int cijfer, Kleur kleur) {
+        if (!this.setMagBewerktWorden(containerIndex)) {
+            return;
+        }
         this.getStenenContainerOfMaakAan(containerIndex)
                 .setJokerWaarde(steenIndex, cijfer, kleur);
     }

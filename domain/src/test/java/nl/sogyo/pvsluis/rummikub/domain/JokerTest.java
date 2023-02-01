@@ -50,4 +50,20 @@ public class JokerTest {
         assertEquals(11,
                 (int) testSpel.getStenenOpTafel().get(0).get(1).get(0));
     }
+
+    @Test
+    public void jokerAanpassenKanNietInSetDieNietBewerktMagWorden() {
+        testSpel.setJokerWaarde(-1, 10, 11, 1);
+        testSpel.speelSteen(-1, 10, 0);
+        testSpel.speelSteen(-1, 5, 0);
+        testSpel.speelSteen(-1, 2, 0);
+        testSpel.sluitBeurtAf(); // Nu is Toos aan de beurt
+        testSpel.setJokerWaarde(0, 1, 4, 1);
+
+        assertEquals("Een niet uitgekomen speler hoort geen jokers"
+                + " aan te mogen passen in een bestaande Set", 11,
+                (int) testSpel.getStenenOpTafel().get(0).get(1).get(0));
+        assertTrue("De eerste set moet valide zijn",
+                testSpel.getValiditeitSets().get(0));
+    }
 }
