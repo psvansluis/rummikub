@@ -9,7 +9,8 @@
 </script>
 
 <button
-  class={"steen kleur" + steen.kleur + (steen.isJoker ? " joker" : "")}
+  class={"steen kleur" + steen.kleur}
+  class:joker={steen.isJoker}
   on:click={() => {
     dispatch("steenKlikt", { steenIndex: index, steenObject: steen });
   }}>{steen.cijfer}</button

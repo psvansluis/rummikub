@@ -43,7 +43,7 @@
       >
     {/each}
   </div>
-  <button on:click={setJoker}>Pas aan</button>
+  <button on:click={setJoker} class="paneel-knop actief">Pas aan</button>
 </div>
 
 <style>
@@ -53,6 +53,10 @@
 
   #cijferslider {
     max-width: 100px;
+  }
+
+  #cijferslider::-webkit-slider-thumb {
+    background: var(--color-one);
   }
 
   #jokersetter {
@@ -65,6 +69,7 @@
     border-radius: 5px;
     max-width: 150px;
     align-items: center;
+    background-color: var(--light-three);
   }
 
   label {
@@ -72,24 +77,6 @@
     flex-direction: row;
     padding: 5px;
     margin: 5px;
-  }
-
-  button {
-    padding: 5px;
-    margin: 5px;
-    min-width: 125px;
-    min-height: 50px;
-    border: solid black 2px;
-    border-radius: 10px;
-    background-color: var(--light-three);
-    color: var(--color-three);
-    transition: background-color 0.5s;
-    transition: color 0.5s;
-  }
-
-  button:hover {
-    background-color: var(--color-three);
-    color: var(--light-text-color);
   }
 
   #kleurbuttons {
@@ -110,6 +97,7 @@
     background-color: var(--kleur-joker);
     transition: background-color 0.5s;
   }
+
   .kleurbutton:hover {
     background-color: var(--kleur-joker-transparant);
   }

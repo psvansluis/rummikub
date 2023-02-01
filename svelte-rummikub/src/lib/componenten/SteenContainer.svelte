@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { afterUpdate } from "svelte";
   import Steen from "./Steen.svelte";
   import type { Steen as SteenT } from "../../types/SpelStatus.type";
   import SteenToevoeger from "./SteenToevoeger.svelte";
@@ -11,8 +10,6 @@
 
   export let container: Plankje | Set = { stenen: [], valide: null } as Set;
   export let index: number;
-  let cssclass: string;
-  afterUpdate(() => (cssclass = getCssClassString()));
 
   function geefSteenKlikDoor(ev: {
     detail: { steenIndex: number; steenObject: SteenT };
@@ -29,20 +26,15 @@
     console.log("toevoeger geklikt op " + index);
     doelContainerIndex.set(index);
   }
-
-  function getCssClassString(): string {
-    if ("valide" in container) {
-      if (container.stenen.length == 0) {
-        return "set";
-      } else {
-        return (container.valide ? "" : "in") + "valide set";
-      }
-    } else return "plankje";
-  }
 </script>
 
-<div class={cssclass}>
-  {#each container.stenen as steen, index (index)}
+<div
+  class:set={"valide" in container}
+  class:valide={"valide" in container && container.valide}
+  class:invalide={"valide" in container && container.valide === false}
+  class:plankje={!("valide" in container)}
+>
+  {#each container.stenen as steen, index}
     <Steen {steen} {index} on:steenKlikt={geefSteenKlikDoor} />
   {/each}<SteenToevoeger on:steenToevoegerKlikt={geefToevoegerKlikDoor} />
 </div>
