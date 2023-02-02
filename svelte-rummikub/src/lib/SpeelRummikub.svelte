@@ -5,6 +5,7 @@
   import Tafel from "./componenten/Tafel.svelte";
   import Paneel from "./componenten/Paneel.svelte";
   import { bronIndices, doelContainerIndex } from "../stores/speelSteenIndices";
+  import JokerSetter from "./componenten/JokerSetter.svelte";
 
   $: $bronIndices, $doelContainerIndex, speelSteen();
 
@@ -50,10 +51,27 @@
   async function paneelActie(ev: { detail: { paneelIndex: number } }) {
     postRequestNaarAPI("rummikub/api/paneel", ev.detail.paneelIndex);
   }
+
+  async function setJoker(ev: { detail: { cijfer: number; kleur: number } }) {
+    let jokerWaardes = {
+      containerIndex: $bronIndices.container,
+      steenIndex: $bronIndices.steen,
+      cijfer: ev.detail.cijfer,
+      kleur: ev.detail.kleur,
+    };
+    console.log(jokerWaardes);
+    postRequestNaarAPI("rummikub/api/joker", jokerWaardes);
+  }
 </script>
 
 <Tafel sets={spelStatus.sets} />
 <div id="onderste-rij">
+  {#if $bronIndices != null && $bronIndices.steenObject.isJoker}
+    <JokerSetter
+      geklikteSteen={$bronIndices.steenObject}
+      on:klikJoker={setJoker}
+    />
+  {/if}
   <Plankje
     plankje={spelStatus.plankje}
     eigenaar={spelStatus.spelerMetBeurt}

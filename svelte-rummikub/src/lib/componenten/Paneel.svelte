@@ -11,19 +11,23 @@
 </script>
 
 <div>
-  <button class="actief" on:click={() => klikPaneel(0)}>Reset</button>
+  <button class="actief paneel-knop" on:click={() => klikPaneel(0)}
+    >Reset</button
+  >
   {#if spelStatus.spelerKanBeurtDoorgeven}
-    <button class="actief" on:click={() => klikPaneel(1)}>Einde beurt</button>
+    <button class="actief paneel-knop" on:click={() => klikPaneel(1)}
+      >Einde beurt</button
+    >
   {:else}
-    <button class="inactief">Einde beurt</button>
+    <button class="inactief paneel-knop">Einde beurt</button>
   {/if}
-  <button class="actief" on:click={() => klikPaneel(2)}
+  <button class="actief paneel-knop" on:click={() => klikPaneel(2)}
     >Steen uit pot ({spelStatus.stenenInPot})</button
   >
-  <button class="actief" on:click={() => klikPaneel(3)}>
+  <button class="actief paneel-knop" on:click={() => klikPaneel(3)}>
     Sorteer op cijfer</button
   >
-  <button class="actief" on:click={() => klikPaneel(4)}>
+  <button class="actief paneel-knop" on:click={() => klikPaneel(4)}>
     Sorteer op kleur</button
   >
 </div>
@@ -38,25 +42,7 @@
     width: 140px;
   }
 
-  button {
-    padding: 5px;
-    margin: 5px;
-    min-width: 125px;
-    min-height: 50px;
-    border: solid black 2px;
-    border-radius: 10px;
-    background-color: var(--light-three);
-    color: var(--color-three);
-    transition: background-color 0.5s;
-    transition: color 0.5s;
-  }
-
-  button.actief:hover {
-    background-color: var(--color-three);
-    color: var(--light-text-color);
-  }
-
-  .inactief {
+  button.inactief {
     color: gray;
     background-color: lightgray;
   }

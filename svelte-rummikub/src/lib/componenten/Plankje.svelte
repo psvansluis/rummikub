@@ -37,6 +37,10 @@
     font-size: small;
   }
 
+  #plankjewrapper {
+    margin-top: 5px;
+  }
+
   #plankjewrapper > * {
     border: 2px solid black;
     border-radius: 5px;

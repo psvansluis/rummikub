@@ -11,8 +11,10 @@
   --light-two: hsl(104, 58%, 95%);
   --light-three: hsl(348, 58%, 95%);
   --light-text-color: #efe8de;
-  --kleur-steen: hsl(36, 40%, 76%);
-  --kleur-steen-transparant: hsla(36, 40%, 76%, 50%);
+  --kleur-steen: hsl(36, 40%, 75%);
+  --kleur-steen-transparant: hsla(36, 40%, 75%, 50%);
+  --kleur-joker: hsl(36, 80%, 60%);
+  --kleur-joker-transparant: hsla(36, 80%, 60%, 50%);
 }
 
 body {
@@ -81,4 +83,54 @@ h2,
 p {
   margin: 2vh auto;
   max-width: 1100px;
+}
+
+.kleur0 {
+  color: black;
+}
+
+.kleur0:hover {
+  background-image: linear-gradient(30deg, black 5%, rgba(0, 0, 0, 0) 15%);
+}
+
+.kleur1 {
+  color: red;
+}
+
+.kleur1:hover {
+  background-image: linear-gradient(150deg, red 5%, rgba(0, 0, 0, 0) 15%);
+}
+
+.kleur2 {
+  color: green;
+}
+
+.kleur2:hover {
+  background-image: linear-gradient(210deg, green 5%, rgba(0, 0, 0, 0) 15%);
+}
+
+.kleur3 {
+  color: blue;
+}
+
+.kleur3:hover {
+  background-image: linear-gradient(330deg, blue 5%, rgba(0, 0, 0, 0) 15%);
+}
+
+button.paneel-knop {
+  padding: 5px;
+  margin: 5px;
+  min-width: 125px;
+  min-height: 50px;
+  border: solid black 2px;
+  border-radius: 10px;
+  background-color: var(--light-three);
+  color: var(--color-three);
+  transition: background-color 0.5s;
+  transition: color 0.5s;
+}
+
+button.actief:hover {
+  background-color: var(--color-three);
+  color: var(--light-text-color);
 }

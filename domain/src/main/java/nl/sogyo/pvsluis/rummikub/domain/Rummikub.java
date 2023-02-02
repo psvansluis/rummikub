@@ -2,6 +2,8 @@ package nl.sogyo.pvsluis.rummikub.domain;
 
 import java.util.ArrayList;
 
+import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
+
 public class Rummikub {
     private Tafel tafel;
     private ArrayList<String> spelerNamen;
@@ -25,10 +27,10 @@ public class Rummikub {
     }
 
     private static ArrayList<Integer> steenNaarArrayList(Steen steen) {
-        // Todo na implementeren Joker: add 0 bij gewone steen, 1 bij Joker.
         ArrayList<Integer> out = new ArrayList<Integer>();
         out.add(steen.getCijfer());
         out.add(steen.getKleur().ordinal());
+        out.add(steen.isJoker() ? 1 : 0);
         return out;
     }
 
@@ -109,6 +111,14 @@ public class Rummikub {
         this.tafel.getPlankjeMetBeurt().sorteerOpKleur();
     }
 
+    public void setJokerWaarde(
+            int containerIndex, int steenIndex, int cijfer, int kleur) {
+        this.tafel.setJokerWaarde(
+                containerIndex,
+                steenIndex,
+                cijfer,
+                Kleur.values()[kleur]);
+    }
     // Setters Todo:
     // - Verander waarde Joker
 

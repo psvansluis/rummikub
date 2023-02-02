@@ -20,4 +20,5 @@ export type Set = {
 export type Steen = {
   cijfer: number;
   kleur: number;
+  isJoker: boolean;
 };
