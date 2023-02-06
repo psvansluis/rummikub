@@ -13,8 +13,8 @@ public class FacadeGettersTest {
 
     private static ArrayList<String> spelernamen = new ArrayList<String>() {
         {
-            add("Henk");
-            add("Toos");
+            this.add("Henk");
+            this.add("Toos");
         }
     };
 
@@ -39,7 +39,7 @@ public class FacadeGettersTest {
     public void potHeeft14MinderStenenBijEenSpelerMeerBijAanvangSpel() {
         ArrayList<String> henk = new ArrayList<String>() {
             {
-                add("Henk");
+                this.add("Henk");
             }
         };
         Rummikub henkspel = new Rummikub(henk, 2);

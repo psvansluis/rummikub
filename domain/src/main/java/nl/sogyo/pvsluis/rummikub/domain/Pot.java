@@ -21,7 +21,7 @@ class Pot extends StenenContainer {
 
     private void voegAlleStenenToe(int aantalKeren) {
         for (int i = 0; i < aantalKeren; i++) {
-            voegAlleStenenToe();
+            this.voegAlleStenenToe();
         }
     }
 

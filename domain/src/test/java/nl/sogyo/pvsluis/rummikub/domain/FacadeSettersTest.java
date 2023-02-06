@@ -12,8 +12,8 @@ public class FacadeSettersTest {
 
     private static ArrayList<String> spelernamen = new ArrayList<String>() {
         {
-            add("Henk");
-            add("Toos");
+            this.add("Henk");
+            this.add("Toos");
         }
     };
 

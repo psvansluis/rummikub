@@ -16,111 +16,111 @@ public class ResetTest {
 
     @Before
     public void bouwTafel() {
-        test = new Tafel(2, 2);
+        this.test = new Tafel(2, 2);
     }
 
     @Test
     public void tafelIsLeegAlsEersteSpelerReset() {
-        test.speelSteen(-1, 0, 0);
-        test.speelSteen(-1, 0, 0);
-        test.speelSteen(-1, 0, 0);
-        test.resetSpelNaarAanvangBeurt();
-        assertEquals(0, test.lengteSets());
+        this.test.speelSteen(-1, 0, 0);
+        this.test.speelSteen(-1, 0, 0);
+        this.test.speelSteen(-1, 0, 0);
+        this.test.resetSpelNaarAanvangBeurt();
+        assertEquals(0, this.test.lengteSets());
     }
 
     @Test
     public void plankjeHeeft14StenenAlsEersteSpelerReset() {
-        test.speelSteen(-1, 0, 0);
-        test.speelSteen(-1, 0, 0);
-        test.speelSteen(-1, 0, 0);
-        test.resetSpelNaarAanvangBeurt();
-        assertEquals(14, test.getPlankjeMetBeurt().lengte());
+        this.test.speelSteen(-1, 0, 0);
+        this.test.speelSteen(-1, 0, 0);
+        this.test.speelSteen(-1, 0, 0);
+        this.test.resetSpelNaarAanvangBeurt();
+        assertEquals(14, this.test.getPlankjeMetBeurt().lengte());
     }
 
     @Test
     public void tafelIsNietLeegAlsTweedeSpelerReset() {
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteen(-1, 14, 0);
-        test.speelSteen(-1, 14, 0);
-        test.speelSteen(-1, 14, 0);
-        test.geefBeurtDoor();
-        test.speelSteen(-1, 0, 1);
-        test.speelSteen(-1, 0, 1);
-        test.speelSteen(-1, 0, 1);
-        test.resetSpelNaarAanvangBeurt();
-        assertEquals(1, test.lengteSets());
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
+        this.test.speelSteen(-1, 14, 0);
+        this.test.speelSteen(-1, 14, 0);
+        this.test.speelSteen(-1, 14, 0);
+        this.test.geefBeurtDoor();
+        this.test.speelSteen(-1, 0, 1);
+        this.test.speelSteen(-1, 0, 1);
+        this.test.speelSteen(-1, 0, 1);
+        this.test.resetSpelNaarAanvangBeurt();
+        assertEquals(1, this.test.lengteSets());
     }
 
     @Test
     public void plankjeHeeft14StenenAlsTweedeSpelerReset() {
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteen(-1, 14, 0);
-        test.speelSteen(-1, 14, 0);
-        test.speelSteen(-1, 14, 0);
-        test.geefBeurtDoor();
-        test.speelSteen(-1, 0, 1);
-        test.speelSteen(-1, 0, 1);
-        test.speelSteen(-1, 0, 1);
-        test.resetSpelNaarAanvangBeurt();
-        assertEquals(14, test.getPlankjeMetBeurt().lengte());
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
+        this.test.speelSteen(-1, 14, 0);
+        this.test.speelSteen(-1, 14, 0);
+        this.test.speelSteen(-1, 14, 0);
+        this.test.geefBeurtDoor();
+        this.test.speelSteen(-1, 0, 1);
+        this.test.speelSteen(-1, 0, 1);
+        this.test.speelSteen(-1, 0, 1);
+        this.test.resetSpelNaarAanvangBeurt();
+        assertEquals(14, this.test.getPlankjeMetBeurt().lengte());
     }
 
     @Test
     public void tweeKeerResettenTest() {
-        test.speelSteen(-1, 0, 0);
-        test.speelSteen(-1, 0, 0);
-        test.speelSteen(-1, 0, 0);
-        test.resetSpelNaarAanvangBeurt();
-        test.speelSteen(-1, 4, 0);
-        test.speelSteen(-1, 1, 1);
-        test.speelSteen(-1, 8, 1);
-        test.resetSpelNaarAanvangBeurt();
-        assertEquals(0, test.lengteSets());
+        this.test.speelSteen(-1, 0, 0);
+        this.test.speelSteen(-1, 0, 0);
+        this.test.speelSteen(-1, 0, 0);
+        this.test.resetSpelNaarAanvangBeurt();
+        this.test.speelSteen(-1, 4, 0);
+        this.test.speelSteen(-1, 1, 1);
+        this.test.speelSteen(-1, 8, 1);
+        this.test.resetSpelNaarAanvangBeurt();
+        assertEquals(0, this.test.lengteSets());
     }
 
     // Test terugzetten van Steen op Plankje
     @Test
     public void eenSteenUitSetMagTerugNaarPlankjeBinnenBeurt() {
-        test.speelSteen(-1, 0, 0);
-        test.speelSteen(0, 0, -1);
-        assertEquals(14, test.getPlankjeMetBeurt().lengte());
+        this.test.speelSteen(-1, 0, 0);
+        this.test.speelSteen(0, 0, -1);
+        assertEquals(14, this.test.getPlankjeMetBeurt().lengte());
     }
 
     @Test
     public void eenSteenUitSetMagNietTerugNaarPlankjeBuitenBeurt() {
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteen(-1, 14, 0);
-        test.speelSteen(-1, 14, 0);
-        test.speelSteen(-1, 14, 0);
-        test.geefBeurtDoor();
-        test.speelSteen(0, 0, -1);
-        assertEquals(14, test.getPlankjeMetBeurt().lengte());
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
+        this.test.speelSteen(-1, 14, 0);
+        this.test.speelSteen(-1, 14, 0);
+        this.test.speelSteen(-1, 14, 0);
+        this.test.geefBeurtDoor();
+        this.test.speelSteen(0, 0, -1);
+        assertEquals(14, this.test.getPlankjeMetBeurt().lengte());
     }
 
     @Test
     public void eenEigenSteenUitSetMagOokNietTerugNaarPlankjeBuitenBeurt() {
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteen(-1, 14, 0);
-        test.speelSteen(-1, 14, 0);
-        test.speelSteen(-1, 14, 0);
-        test.geefBeurtDoor();
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
-        test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
-        test.speelSteen(-1, 14, 1);
-        test.speelSteen(-1, 14, 1);
-        test.speelSteen(-1, 14, 1);
-        test.geefBeurtDoor();
-        test.speelSteen(0, 0, -1);
-        assertEquals(14, test.getPlankjeMetBeurt().lengte());
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
+        this.test.speelSteen(-1, 14, 0);
+        this.test.speelSteen(-1, 14, 0);
+        this.test.speelSteen(-1, 14, 0);
+        this.test.geefBeurtDoor();
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(10, Kleur.ZWART));
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(11, Kleur.ZWART));
+        this.test.getPlankjeMetBeurt().voegSteenToe(new Steen(12, Kleur.ZWART));
+        this.test.speelSteen(-1, 14, 1);
+        this.test.speelSteen(-1, 14, 1);
+        this.test.speelSteen(-1, 14, 1);
+        this.test.geefBeurtDoor();
+        this.test.speelSteen(0, 0, -1);
+        assertEquals(14, this.test.getPlankjeMetBeurt().lengte());
     }
 
 }

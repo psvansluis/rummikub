@@ -51,15 +51,15 @@ class Plankje extends StenenContainer {
     }
 
     public ArrayList<Steen> getStenenBijAanvangBeurt() {
-        return stenenBijAanvangBeurt;
+        return this.stenenBijAanvangBeurt;
     }
 
     Pot getPot() {
-        return pot;
+        return this.pot;
     }
 
     Plankje getVolgendePlankje() {
-        return volgendePlankje;
+        return this.volgendePlankje;
     }
 
     Plankje getPlankjeZonderVolgendePlankje() {

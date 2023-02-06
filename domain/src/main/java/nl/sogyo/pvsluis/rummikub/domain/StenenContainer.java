@@ -8,14 +8,10 @@ import java.util.Random;
 import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
 
 abstract class StenenContainer {
-    private ArrayList<Steen> stenen;
+    private ArrayList<Steen> stenen = new ArrayList<Steen>();
 
     ArrayList<Steen> getStenen() {
         return this.stenen;
-    }
-
-    StenenContainer() {
-        this.setStenen(new ArrayList<Steen>());
     }
 
     void setStenen(ArrayList<Steen> stenen) {

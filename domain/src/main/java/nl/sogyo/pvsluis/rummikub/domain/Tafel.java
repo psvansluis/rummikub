@@ -11,13 +11,13 @@ class Tafel {
     private Plankje eerstePlankje;
 
     Tafel(int aantalPlankjes, int seed) {
-        sets = new ArrayList<Set>();
-        setsBijAanvangBeurt = new ArrayList<Set>();
-        eerstePlankje = new Plankje(aantalPlankjes, seed);
+        this.sets = new ArrayList<Set>();
+        this.setsBijAanvangBeurt = new ArrayList<Set>();
+        this.eerstePlankje = new Plankje(aantalPlankjes, seed);
     }
 
     Plankje getEerstePlankje() {
-        return eerstePlankje;
+        return this.eerstePlankje;
     }
 
     Plankje getPlankjeMetBeurt() {
@@ -25,7 +25,7 @@ class Tafel {
     }
 
     ArrayList<Set> getSets() {
-        return sets;
+        return this.sets;
     }
 
     int lengteSets() {
@@ -33,7 +33,7 @@ class Tafel {
     }
 
     ArrayList<Set> getSetsBijAanvangBeurt() {
-        return setsBijAanvangBeurt;
+        return this.setsBijAanvangBeurt;
     }
 
     private Set getSetOfMaakSetAan(int setIndex) {
@@ -187,7 +187,7 @@ class Tafel {
     }
 
     public void resetSpelNaarAanvangBeurt() {
-        this.sets = kopieerSets(setsBijAanvangBeurt);
+        this.sets = kopieerSets(this.setsBijAanvangBeurt);
         this.getPlankjeMetBeurt().resetStenenNaarAanvangBeurt();
     }
 

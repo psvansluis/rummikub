@@ -42,7 +42,7 @@ class Set extends StenenContainer {
 
     private boolean isRij() {
         return this.nUniekeCijfers() == 1
-                && nUniekeKleuren() == this.lengte();
+                && this.nUniekeKleuren() == this.lengte();
     }
 
     private boolean isSerie() {
