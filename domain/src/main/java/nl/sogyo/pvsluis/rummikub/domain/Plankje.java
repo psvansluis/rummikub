@@ -4,42 +4,42 @@ import java.util.ArrayList;
 
 class Plankje extends StenenContainer {
     private static final int AANTAL_STENEN_BIJ_BEGIN = 14;
-    private Pot pot;
     private boolean heeftBeurt;
     private boolean uitgekomen;
     private Plankje volgendePlankje;
     private ArrayList<Steen> stenenBijAanvangBeurt;
 
-    private Plankje(int seed) {
-        this(new Pot(seed));
-        this.heeftBeurt = true;
-        this.stenenBijAanvangBeurt = new ArrayList<Steen>();
-        this.kopieerStenenNaarStenenBijAanvangBeurt();
-    }
-
     private Plankje(Pot pot) {
-        this.heeftBeurt = false;
-        this.pot = pot;
         for (int i = 0; i < AANTAL_STENEN_BIJ_BEGIN; i++) {
-            this.neemSteenUitPot();
+            this.neemSteenUitPot(pot);
         }
         this.stenenBijAanvangBeurt = new ArrayList<Steen>();
         this.kopieerStenenNaarStenenBijAanvangBeurt();
     }
 
-    Plankje(int aantalPlankjes, int seed) {
-        this(seed);
-        int teMakenPlankjes = aantalPlankjes;
-        while (teMakenPlankjes > 1) {
-            this.getPlankjeZonderVolgendePlankje()
-                    .setVolgendePlankje(new Plankje(this.pot));
-            teMakenPlankjes--;
+    private Plankje(int aantalPlankjes, Pot pot, Plankje eerstePlankje) {
+        this(pot);
+        this.heeftBeurt = false;
+        if (aantalPlankjes > 1) {
+            this.setVolgendePlankje(
+                    new Plankje(aantalPlankjes - 1, pot, eerstePlankje));
+        } else {
+            this.setVolgendePlankje(eerstePlankje);
         }
-        this.getPlankjeZonderVolgendePlankje().setVolgendePlankje(this);
     }
 
-    void neemSteenUitPot() {
-        this.getPot().verplaatsSteen(0, this);
+    Plankje(int aantalPlankjes, Pot pot) {
+        this(pot);
+        this.heeftBeurt = true;
+        if (aantalPlankjes > 1) {
+            this.setVolgendePlankje(new Plankje(aantalPlankjes - 1, pot, this));
+        } else {
+            this.setVolgendePlankje(this);
+        }
+    }
+
+    void neemSteenUitPot(Pot pot) {
+        pot.verplaatsSteen(0, this);
     }
 
     boolean isUitgekomen() {
@@ -52,10 +52,6 @@ class Plankje extends StenenContainer {
 
     public ArrayList<Steen> getStenenBijAanvangBeurt() {
         return this.stenenBijAanvangBeurt;
-    }
-
-    Pot getPot() {
-        return this.pot;
     }
 
     Plankje getVolgendePlankje() {

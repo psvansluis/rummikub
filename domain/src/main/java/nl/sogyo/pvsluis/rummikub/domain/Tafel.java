@@ -10,10 +10,10 @@ class Tafel {
     private ArrayList<Set> setsBijAanvangBeurt;
     private Plankje eerstePlankje;
 
-    Tafel(int aantalPlankjes, int seed) {
+    Tafel(int aantalPlankjes, Pot pot) {
         this.sets = new ArrayList<Set>();
         this.setsBijAanvangBeurt = new ArrayList<Set>();
-        this.eerstePlankje = new Plankje(aantalPlankjes, seed);
+        this.eerstePlankje = new Plankje(aantalPlankjes, pot);
     }
 
     Plankje getEerstePlankje() {
@@ -191,9 +191,9 @@ class Tafel {
         this.getPlankjeMetBeurt().resetStenenNaarAanvangBeurt();
     }
 
-    public void eindigBeurtDoorSteenTeNemen() {
+    public void eindigBeurtDoorSteenTeNemen(Pot pot) {
         this.resetSpelNaarAanvangBeurt();
-        this.getPlankjeMetBeurt().neemSteenUitPot();
+        this.getPlankjeMetBeurt().neemSteenUitPot(pot);
         this.geefBeurtDoor(false);
     }
 

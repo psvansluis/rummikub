@@ -6,11 +6,13 @@ import nl.sogyo.pvsluis.rummikub.domain.Steen.Kleur;
 
 public class Rummikub {
     private Tafel tafel;
+    private Pot pot;
     private ArrayList<String> spelerNamen;
 
     public Rummikub(ArrayList<String> spelerNamen, int seed) {
         this.spelerNamen = spelerNamen;
-        this.tafel = new Tafel(spelerNamen.size(), seed);
+        this.pot = new Pot(seed);
+        this.tafel = new Tafel(spelerNamen.size(), this.pot);
     }
 
     public String getNaamSpelerMetBeurt() {
@@ -48,7 +50,7 @@ public class Rummikub {
     }
 
     public int aantalStenenInPot() {
-        return this.tafel.getEerstePlankje().getPot().lengte();
+        return this.pot.lengte();
     }
 
     public boolean kanBeurtDoorgeven() {
@@ -96,7 +98,7 @@ public class Rummikub {
     }
 
     public void neemSteenUitPot() {
-        this.tafel.eindigBeurtDoorSteenTeNemen();
+        this.tafel.eindigBeurtDoorSteenTeNemen(this.pot);
     }
 
     public void resetSpelNaarAanvangBeurt() {

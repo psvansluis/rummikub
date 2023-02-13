@@ -16,7 +16,8 @@ public class ResetTest {
 
     @Before
     public void bouwTafel() {
-        this.test = new Tafel(2, 2);
+        Pot pot = new Pot(2);
+        this.test = new Tafel(2, pot);
     }
 
     @Test
