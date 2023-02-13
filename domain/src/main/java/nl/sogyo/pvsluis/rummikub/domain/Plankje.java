@@ -21,10 +21,10 @@ class Plankje extends StenenContainer {
         this(pot);
         this.heeftBeurt = false;
         if (aantalPlankjes > 1) {
-            this.setVolgendePlankje(
-                    new Plankje(aantalPlankjes - 1, pot, eerstePlankje));
+            this.volgendePlankje = new Plankje(
+                    aantalPlankjes - 1, pot, eerstePlankje);
         } else {
-            this.setVolgendePlankje(eerstePlankje);
+            this.volgendePlankje = eerstePlankje;
         }
     }
 
@@ -32,9 +32,9 @@ class Plankje extends StenenContainer {
         this(pot);
         this.heeftBeurt = true;
         if (aantalPlankjes > 1) {
-            this.setVolgendePlankje(new Plankje(aantalPlankjes - 1, pot, this));
+            this.volgendePlankje = new Plankje(aantalPlankjes - 1, pot, this);
         } else {
-            this.setVolgendePlankje(this);
+            this.volgendePlankje = this;
         }
     }
 
@@ -50,24 +50,12 @@ class Plankje extends StenenContainer {
         this.uitgekomen = uitgekomen;
     }
 
-    public ArrayList<Steen> getStenenBijAanvangBeurt() {
+    ArrayList<Steen> getStenenBijAanvangBeurt() {
         return this.stenenBijAanvangBeurt;
     }
 
     Plankje getVolgendePlankje() {
         return this.volgendePlankje;
-    }
-
-    Plankje getPlankjeZonderVolgendePlankje() {
-        if (this.getVolgendePlankje() == null) {
-            return this;
-        } else {
-            return this.getVolgendePlankje().getPlankjeZonderVolgendePlankje();
-        }
-    }
-
-    void setVolgendePlankje(Plankje volgendePlankje) {
-        this.volgendePlankje = volgendePlankje;
     }
 
     Plankje getVolgendePlankje(int afstand) {
